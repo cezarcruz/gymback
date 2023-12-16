@@ -24,7 +24,7 @@ public class TestGymbackApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.from(GymbackApplication::main).with(TestGymbackApplication.class).run(args);
+		SpringApplication.from(GymBackApplication::main).with(TestGymbackApplication.class).run(args);
 	}
 
 }

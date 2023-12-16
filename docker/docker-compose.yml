@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+
+  mysql:
+    image: mysql:8.0.31
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gym
+    volumes:
+      - mysql_volume:/var/lib/mysql
+    ports:
+      - '3306:3306'
+
+  zipkin:
+    image: 'openzipkin/zipkin:latest'
+    ports:
+      - '9411:9411'
+
+volumes:
+  mysql_volume:
+  mongo_volume:
