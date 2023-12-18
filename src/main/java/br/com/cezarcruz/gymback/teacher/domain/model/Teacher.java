@@ -10,11 +10,12 @@ public record Teacher(
     public TeacherEntity toEntity() {
         final var teacherEntity = new TeacherEntity();
         teacherEntity.setName(name);
+        teacherEntity.setId(id);
         return teacherEntity;
     }
 
-    public static Teacher fromEntity(final TeacherEntity entit) {
-        return new Teacher(entit.getId(), entit.getName());
+    public static Teacher fromEntity(final TeacherEntity entity) {
+        return new Teacher(entity.getId(), entity.getName());
     }
 
 }
