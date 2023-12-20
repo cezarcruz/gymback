@@ -25,7 +25,7 @@ public class RestExceptionHandler {
         log.error("invalid request received");
 
         return fieldErrors.stream()
-                .map(fieldError -> new ErrorMessageResponse(fieldError.getField(), fieldError.getDefaultMessage()))
+                .map(ErrorMessageResponse::factory)
                 .collect(Collectors.toList());
 
     }
