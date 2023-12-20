@@ -30,7 +30,6 @@ public class TeacherController {
     private final CreateTeacherUseCase createTeacherUseCase;
     private final GetTeacherUseCase getTeacherUseCase;
     private final UpdateTeacherUseCase updateTeacherUseCase;
-
     private final DeleteTeacherUseCase deleteTeacherUseCase;
 
     public TeacherController(final CreateTeacherUseCase createTeacherUseCase,
