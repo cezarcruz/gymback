@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.gateway.out.mysql.entity;
+package br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

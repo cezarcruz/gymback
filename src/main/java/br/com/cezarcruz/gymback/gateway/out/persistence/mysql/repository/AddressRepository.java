@@ -1,6 +1,6 @@
-package br.com.cezarcruz.gymback.gateway.out.mysql;
+package br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository;
 
-import br.com.cezarcruz.gymback.gateway.out.mysql.entity.AddressEntity;
+import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.AddressEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

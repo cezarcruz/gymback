@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.usecase.modality;
 
-import br.com.cezarcruz.gymback.gateway.out.mysql.ModalityRepository;
+import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ModalityRepository;
 import org.springframework.stereotype.Component;
 
 @Component

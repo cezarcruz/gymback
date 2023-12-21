@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.domain;
 
-import br.com.cezarcruz.gymback.gateway.out.mysql.entity.TeacherEntity;
+import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.TeacherEntity;
 
 public record Teacher(
         Long id,

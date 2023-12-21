@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.domain;
 
-import br.com.cezarcruz.gymback.gateway.out.mysql.entity.ModalityEntity;
+import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.ModalityEntity;
 
 public record Modality(
         Long id,

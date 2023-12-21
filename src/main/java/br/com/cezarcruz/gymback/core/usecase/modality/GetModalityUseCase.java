@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.modality;
 
 import br.com.cezarcruz.gymback.core.domain.Modality;
-import br.com.cezarcruz.gymback.gateway.out.mysql.ModalityRepository;
+import br.com.cezarcruz.gymback.gateway.out.persistence.GetModalityGateway;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Stream;
@@ -9,16 +9,14 @@ import java.util.stream.Stream;
 @Component
 public class GetModalityUseCase {
 
-    private final ModalityRepository modalityRepository;
+    private final GetModalityGateway getModalityGateway;
 
-    public GetModalityUseCase(final ModalityRepository modalityRepository) {
-        this.modalityRepository = modalityRepository;
+    public GetModalityUseCase(final GetModalityGateway getModalityGateway) {
+        this.getModalityGateway = getModalityGateway;
     }
 
     public Stream<Modality> getAll() {
-        return modalityRepository.findAll()
-                .stream()
-                .map(Modality::fromEntity);
+        return getModalityGateway.getAll();
     }
 
 }

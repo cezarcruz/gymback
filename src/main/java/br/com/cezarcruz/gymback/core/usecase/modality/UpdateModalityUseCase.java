@@ -1,22 +1,20 @@
 package br.com.cezarcruz.gymback.core.usecase.modality;
 
 import br.com.cezarcruz.gymback.core.domain.Modality;
-import br.com.cezarcruz.gymback.gateway.out.mysql.ModalityRepository;
+import br.com.cezarcruz.gymback.gateway.out.persistence.UpdateModalityGateway;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UpdateModalityUseCase {
 
-  private final ModalityRepository modalityRepository;
+  private final UpdateModalityGateway updateModalityGateway;
 
-  public UpdateModalityUseCase(final ModalityRepository modalityRepository) {
-    this.modalityRepository = modalityRepository;
+  public UpdateModalityUseCase(final UpdateModalityGateway updateModalityGateway) {
+    this.updateModalityGateway = updateModalityGateway;
   }
 
   public Modality update(final Modality modality) {
-    final var entity = modality.toEntity();
-    final var saved = modalityRepository.save(entity);
-    return Modality.fromEntity(saved);
+    return updateModalityGateway.update(modality);
   }
 
 }

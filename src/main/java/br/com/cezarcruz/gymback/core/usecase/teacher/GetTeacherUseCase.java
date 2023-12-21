@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.teacher;
 
 import br.com.cezarcruz.gymback.core.domain.Teacher;
-import br.com.cezarcruz.gymback.gateway.out.mysql.TeacherRepository;
+import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.TeacherRepository;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
