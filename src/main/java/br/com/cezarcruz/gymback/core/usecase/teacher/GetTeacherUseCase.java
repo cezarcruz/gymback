@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.teacher;
 
 import br.com.cezarcruz.gymback.core.domain.Teacher;
-import br.com.cezarcruz.gymback.gateway.out.teacher.GetTeacherGateway;
+import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

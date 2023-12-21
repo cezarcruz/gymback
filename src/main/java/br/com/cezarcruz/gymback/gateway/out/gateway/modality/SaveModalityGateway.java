@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.gateway.out.modality;
+package br.com.cezarcruz.gymback.gateway.out.gateway.modality;
 
 import br.com.cezarcruz.gymback.core.domain.Modality;
 

@@ -1,9 +1,9 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gymback.core.domain.Modality;
-import br.com.cezarcruz.gymback.gateway.out.modality.DeleteModalityGateway;
-import br.com.cezarcruz.gymback.gateway.out.modality.GetModalityGateway;
-import br.com.cezarcruz.gymback.gateway.out.modality.SaveModalityGateway;
+import br.com.cezarcruz.gymback.gateway.out.gateway.modality.DeleteModalityGateway;
+import br.com.cezarcruz.gymback.gateway.out.gateway.modality.GetModalityGateway;
+import br.com.cezarcruz.gymback.gateway.out.gateway.modality.SaveModalityGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ModalityRepository;
 import java.util.stream.Stream;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.modality;
 
 import br.com.cezarcruz.gymback.core.domain.Modality;
-import br.com.cezarcruz.gymback.gateway.out.modality.SaveModalityGateway;
+import br.com.cezarcruz.gymback.gateway.out.gateway.modality.SaveModalityGateway;
 import org.springframework.stereotype.Component;
 
 @Component

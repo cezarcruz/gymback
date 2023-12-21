@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.usecase.teacher;
 
-import br.com.cezarcruz.gymback.gateway.out.teacher.DeleteTeacherGateway;
+import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.DeleteTeacherGateway;
 import org.springframework.stereotype.Component;
 
 @Component
