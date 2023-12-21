@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StudentMysqlGateway implements SaveStudentGateway, GetStudentGateway {
+class StudentMysqlGateway implements SaveStudentGateway, GetStudentGateway {
 
   private final StudentRepository studentRepository;
 

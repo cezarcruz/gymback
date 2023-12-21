@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ModalityMysqlGateway implements SaveModalityGateway, GetModalityGateway,
+class ModalityMysqlGateway implements SaveModalityGateway, GetModalityGateway,
     DeleteModalityGateway {
 
   private final ModalityRepository modalityRepository;

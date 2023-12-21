@@ -15,19 +15,19 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class RestExceptionHandler {
 
-    private final static Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
+  private final static Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
 
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public List<ErrorMessageResponse> handle(final MethodArgumentNotValidException exception) {
-        final var fieldErrors = exception.getBindingResult().getFieldErrors();
+  @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+  @ExceptionHandler(MethodArgumentNotValidException.class)
+  public List<ErrorMessageResponse> handle(final MethodArgumentNotValidException exception) {
+    final var fieldErrors = exception.getBindingResult().getFieldErrors();
 
-        log.error("invalid request received");
+    log.error("invalid request received");
 
-        return fieldErrors.stream()
-                .map(ErrorMessageResponse::factory)
-                .collect(Collectors.toList());
+    return fieldErrors.stream()
+        .map(ErrorMessageResponse::factory)
+        .collect(Collectors.toList());
 
-    }
+  }
 
 }

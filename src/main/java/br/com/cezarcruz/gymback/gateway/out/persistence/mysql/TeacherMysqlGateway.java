@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
+class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
     GetTeacherGateway {
 
   private final TeacherRepository teacherRepository;

@@ -6,7 +6,7 @@ import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.Address
 import org.springframework.stereotype.Component;
 
 @Component
-public class AddressMysqlGateway implements SaveAddressGateway {
+class AddressMysqlGateway implements SaveAddressGateway {
 
   private final AddressRepository addressRepository;
 
