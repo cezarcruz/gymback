@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.stream.Stream;
 
 @Component
-public class GetModalityUseCaseImpl implements GetModalityUseCase {
+class GetModalityUseCaseImpl implements GetModalityUseCase {
 
     private final ModalityRepository modalityRepository;
 

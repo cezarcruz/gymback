@@ -6,7 +6,7 @@ import br.com.cezarcruz.gymback.modality.infra.repository.ModalityRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreateModalityUseCaseImpl implements CreateModalityUseCase {
+class CreateModalityUseCaseImpl implements CreateModalityUseCase {
 
     private final ModalityRepository createModalityRepository;
 

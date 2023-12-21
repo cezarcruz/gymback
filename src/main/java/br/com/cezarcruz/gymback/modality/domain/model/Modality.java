@@ -12,7 +12,8 @@ public record Modality(
 
     public ModalityEntity toEntity() {
         final var modalityEntity = new ModalityEntity();
-        modalityEntity.setName(name);
+        modalityEntity.setName(name());
+        modalityEntity.setId(id());
         return modalityEntity;
     }
 }
