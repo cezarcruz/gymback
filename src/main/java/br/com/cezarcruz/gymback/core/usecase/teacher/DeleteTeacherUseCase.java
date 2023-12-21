@@ -1,18 +1,18 @@
 package br.com.cezarcruz.gymback.core.usecase.teacher;
 
-import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.TeacherRepository;
+import br.com.cezarcruz.gymback.gateway.out.teacher.DeleteTeacherGateway;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DeleteTeacherUseCase {
 
-    private final TeacherRepository teacherRepository;
+    private final DeleteTeacherGateway teacherGateway;
 
-    public DeleteTeacherUseCase(final TeacherRepository teacherRepository) {
-        this.teacherRepository = teacherRepository;
+    public DeleteTeacherUseCase(final DeleteTeacherGateway teacherGateway) {
+        this.teacherGateway = teacherGateway;
     }
 
     public void deleteBy(final Long id) {
-        teacherRepository.deleteById(id);
+        teacherGateway.deleteTeacher(id);
     }
 }

@@ -1,19 +1,19 @@
 package br.com.cezarcruz.gymback.core.usecase.modality;
 
-import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ModalityRepository;
+import br.com.cezarcruz.gymback.gateway.out.modality.DeleteModalityGateway;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DeleteModalityUseCase {
 
-    private final ModalityRepository modalityRepository;
+    private final DeleteModalityGateway deleteModalityGateway;
 
-    public DeleteModalityUseCase(final ModalityRepository modalityRepository) {
-        this.modalityRepository = modalityRepository;
+    public DeleteModalityUseCase(final DeleteModalityGateway deleteModalityGateway) {
+        this.deleteModalityGateway = deleteModalityGateway;
     }
 
     public void deleteBy(final Long id) {
-        modalityRepository.deleteById(id);
+        deleteModalityGateway.deleteById(id);
     }
 
 }

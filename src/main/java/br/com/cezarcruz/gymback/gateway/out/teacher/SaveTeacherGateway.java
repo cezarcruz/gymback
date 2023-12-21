@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.gateway.out.persistence;
+package br.com.cezarcruz.gymback.gateway.out.teacher;
 
 import br.com.cezarcruz.gymback.core.domain.Teacher;
 

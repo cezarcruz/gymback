@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.teacher;
 
 import br.com.cezarcruz.gymback.core.domain.Teacher;
-import br.com.cezarcruz.gymback.gateway.out.persistence.SaveTeacherGateway;
+import br.com.cezarcruz.gymback.gateway.out.teacher.SaveTeacherGateway;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.teacher;
 
 import br.com.cezarcruz.gymback.core.domain.Teacher;
-import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.TeacherRepository;
+import br.com.cezarcruz.gymback.gateway.out.teacher.GetTeacherGateway;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,19 +12,15 @@ public class GetTeacherUseCase {
 
     private static final Logger log = LoggerFactory.getLogger(GetTeacherUseCase.class);
 
-    private final TeacherRepository teacherRepository;
+    private final GetTeacherGateway getTeacherGateway;
 
-    public GetTeacherUseCase(final TeacherRepository teacherRepository) {
-        this.teacherRepository = teacherRepository;
+    public GetTeacherUseCase(final GetTeacherGateway getTeacherGateway) {
+        this.getTeacherGateway = getTeacherGateway;
     }
 
     public Stream<Teacher> getAll() {
-
         log.info("listing all teachers");
-
-        return teacherRepository.findAll()
-                .stream()
-                .map(Teacher::fromEntity);
+        return getTeacherGateway.getAll();
     }
 
 }
