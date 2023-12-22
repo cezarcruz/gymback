@@ -27,6 +27,7 @@ public class StudentEntity {
   private Long id;
   private String name;
   private Integer age;
+  private String email;
 
   @OneToOne
   @JoinColumn(name = "address_id")

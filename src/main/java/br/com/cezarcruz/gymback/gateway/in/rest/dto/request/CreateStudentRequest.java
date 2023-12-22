@@ -1,18 +1,16 @@
 package br.com.cezarcruz.gymback.gateway.in.rest.dto.request;
 
-import br.com.cezarcruz.gymback.core.domain.Student;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 
-public record CreateStudentRequest (
+public record CreateStudentRequest(
 
     @NotNull String name,
     @NotNull Integer age,
+    @Email String email,
     @Valid @NotNull CreateAddressRequest address
 
 ) {
 
-  public Student toStudent() {
-    return new Student(null, name(), age(), address.toAddress());
-  }
 }
