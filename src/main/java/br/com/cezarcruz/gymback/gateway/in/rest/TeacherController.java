@@ -7,6 +7,7 @@ import br.com.cezarcruz.gymback.core.usecase.teacher.UpdateTeacherUseCase;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateTeacherRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.UpdateTeacherRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.TeacherResponse;
+import br.com.cezarcruz.gymback.gateway.in.rest.mapper.TeacherMapper;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,14 +33,15 @@ public class TeacherController {
     private final GetTeacherUseCase getTeacherUseCase;
     private final UpdateTeacherUseCase updateTeacherUseCase;
     private final DeleteTeacherUseCase deleteTeacherUseCase;
+    private final TeacherMapper teacherMapper;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public TeacherResponse create(@Valid @RequestBody final CreateTeacherRequest createTeacherRequest) {
 
-        final var teacher = createTeacherRequest.toTeacher();
+        final var teacher = teacherMapper.from(createTeacherRequest);
         final var createdTeacher = createTeacherUseCase.create(teacher);
-        return TeacherResponse.from(createdTeacher);
+        return teacherMapper.from(createdTeacher);
 
     }
 
@@ -47,7 +49,7 @@ public class TeacherController {
     @ResponseStatus(HttpStatus.OK)
     public List<TeacherResponse> getAll() {
         return getTeacherUseCase.getAll()
-                .map(TeacherResponse::from)
+                .map(teacherMapper::from)
                 .collect(Collectors.toList());
     }
 
@@ -55,9 +57,9 @@ public class TeacherController {
     @ResponseStatus(HttpStatus.OK)
     public TeacherResponse update(@Valid @RequestBody final UpdateTeacherRequest updateTeacherRequest,
                                   @PathVariable("id") final Long id) {
-        final var teacher = updateTeacherRequest.toTeacher(id);
+        final var teacher = teacherMapper.toTeacher(id, updateTeacherRequest);
         final var updatedTeacher = updateTeacherUseCase.update(teacher);
-        return TeacherResponse.from(updatedTeacher);
+        return teacherMapper.from(updatedTeacher);
     }
 
     @DeleteMapping("/{id}")
