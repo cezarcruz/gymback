@@ -1,7 +1,9 @@
 package br.com.cezarcruz.gymback.core.domain;
 
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.AddressEntity;
+import lombok.Builder;
 
+@Builder
 public record Address (
     Long id,
     String zipCode,

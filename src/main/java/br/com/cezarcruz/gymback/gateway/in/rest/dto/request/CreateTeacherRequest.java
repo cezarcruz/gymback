@@ -10,7 +10,9 @@ public record CreateTeacherRequest(
 ) {
 
     public Teacher toTeacher() {
-        return new Teacher(null, name);
+      return Teacher.builder()
+          .name(name())
+          .build();
     }
 
 }

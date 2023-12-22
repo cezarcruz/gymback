@@ -6,17 +6,15 @@ import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.SaveTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.TeacherRepository;
 import java.util.stream.Stream;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
     GetTeacherGateway {
 
   private final TeacherRepository teacherRepository;
-
-  public TeacherMysqlGateway(final TeacherRepository teacherRepository) {
-    this.teacherRepository = teacherRepository;
-  }
 
   @Override
   public Teacher save(Teacher teacher) {

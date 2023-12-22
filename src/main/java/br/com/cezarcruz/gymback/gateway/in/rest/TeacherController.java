@@ -10,6 +10,7 @@ import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.TeacherResponse;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/teachers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TeacherController {
 
@@ -30,16 +32,6 @@ public class TeacherController {
     private final GetTeacherUseCase getTeacherUseCase;
     private final UpdateTeacherUseCase updateTeacherUseCase;
     private final DeleteTeacherUseCase deleteTeacherUseCase;
-
-    public TeacherController(final CreateTeacherUseCase createTeacherUseCase,
-                             final GetTeacherUseCase getTeacherUseCase,
-                             final UpdateTeacherUseCase updateTeacherUseCase,
-                             final DeleteTeacherUseCase deleteTeacherUseCase) {
-        this.createTeacherUseCase = createTeacherUseCase;
-        this.getTeacherUseCase = getTeacherUseCase;
-        this.updateTeacherUseCase = updateTeacherUseCase;
-        this.deleteTeacherUseCase = deleteTeacherUseCase;
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

@@ -10,6 +10,7 @@ import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.ModalityResponse;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/modalities", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ModalityController {
 
@@ -30,16 +32,6 @@ public class ModalityController {
   private final GetModalityUseCase getModalityUseCase;
   private final DeleteModalityUseCase deleteModalityUseCase;
   private final UpdateModalityUseCase updateModalityUseCase;
-
-  public ModalityController(final CreateModalityUseCase createModalityUseCase,
-      final GetModalityUseCase getModalityUseCase,
-      final DeleteModalityUseCase deleteModalityUseCase,
-      final UpdateModalityUseCase updateModalityUseCase) {
-    this.createModalityUseCase = createModalityUseCase;
-    this.getModalityUseCase = getModalityUseCase;
-    this.deleteModalityUseCase = deleteModalityUseCase;
-    this.updateModalityUseCase = updateModalityUseCase;
-  }
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)

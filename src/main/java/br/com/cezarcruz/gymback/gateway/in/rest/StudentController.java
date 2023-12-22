@@ -7,6 +7,7 @@ import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.StudentResponse;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,17 +18,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/students", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StudentController {
 
   private final CreateStudentUseCase createStudentUseCase;
   private final GetStudentUseCase getStudentUseCase;
-
-  public StudentController(final CreateStudentUseCase createStudentUseCase,
-      final GetStudentUseCase getStudentUseCase) {
-    this.createStudentUseCase = createStudentUseCase;
-    this.getStudentUseCase = getStudentUseCase;
-  }
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
