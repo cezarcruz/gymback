@@ -7,6 +7,7 @@ import br.com.cezarcruz.gymback.core.usecase.modality.UpdateModalityUseCase;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateModalityRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.UpdateModalityRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.ModalityResponse;
+import br.com.cezarcruz.gymback.gateway.in.rest.mapper.ModalityMapper;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,21 +33,22 @@ public class ModalityController {
   private final GetModalityUseCase getModalityUseCase;
   private final DeleteModalityUseCase deleteModalityUseCase;
   private final UpdateModalityUseCase updateModalityUseCase;
+  private final ModalityMapper modalityMapper;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public ModalityResponse create(
       @Valid @RequestBody final CreateModalityRequest createModalityRequest) {
-    final var modality = createModalityRequest.toModality();
+    final var modality = modalityMapper.toModality(createModalityRequest);
     final var createdModality = createModalityUseCase.create(modality);
-    return ModalityResponse.from(createdModality);
+    return modalityMapper.from(createdModality);
   }
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
   public List<ModalityResponse> listAll() {
     return getModalityUseCase.getAll()
-        .map(ModalityResponse::from)
+        .map(modalityMapper::from)
         .collect(Collectors.toList());
   }
 
@@ -54,9 +56,9 @@ public class ModalityController {
   @ResponseStatus(HttpStatus.OK)
   public ModalityResponse update(@Valid @RequestBody final UpdateModalityRequest updateModalityRequest,
       @PathVariable("id") final Long id) {
-    final var modality = updateModalityRequest.toModality(id);
+    final var modality = modalityMapper.toModality(id, updateModalityRequest);
     final var updatedModality = updateModalityUseCase.update(modality);
-    return ModalityResponse.from(updatedModality);
+    return modalityMapper.from(updatedModality);
   }
 
   @DeleteMapping("/{id}")

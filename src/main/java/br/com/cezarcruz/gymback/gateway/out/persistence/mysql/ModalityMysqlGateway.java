@@ -4,6 +4,7 @@ import br.com.cezarcruz.gymback.core.domain.Modality;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.DeleteModalityGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.GetModalityGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.SaveModalityGateway;
+import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.ModalityPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ModalityRepository;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
@@ -15,19 +16,20 @@ class ModalityMysqlGateway implements SaveModalityGateway, GetModalityGateway,
     DeleteModalityGateway {
 
   private final ModalityRepository modalityRepository;
+  private final ModalityPersistenceMapper modalityPersistenceMapper;
 
   @Override
   public Modality save(Modality modality) {
-    final var entity = modality.toEntity();
+    final var entity = modalityPersistenceMapper.from(modality);
     final var saved = modalityRepository.save(entity);
-    return Modality.fromEntity(saved);
+    return modalityPersistenceMapper.from(saved);
   }
 
   @Override
   public Stream<Modality> getAll() {
     return modalityRepository.findAll()
         .stream()
-        .map(Modality::fromEntity);
+        .map(modalityPersistenceMapper::from);
   }
 
   @Override

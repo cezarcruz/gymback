@@ -19,4 +19,5 @@ public record Modality(
     modalityEntity.setId(id());
     return modalityEntity;
   }
+
 }

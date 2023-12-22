@@ -4,6 +4,7 @@ import br.com.cezarcruz.gymback.core.usecase.student.CreateStudentUseCase;
 import br.com.cezarcruz.gymback.core.usecase.student.GetStudentUseCase;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateStudentRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.StudentResponse;
+import br.com.cezarcruz.gymback.gateway.in.rest.mapper.StudentMapper;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,14 +25,15 @@ public class StudentController {
 
   private final CreateStudentUseCase createStudentUseCase;
   private final GetStudentUseCase getStudentUseCase;
+  private final StudentMapper studentMapper;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public StudentResponse create(@Valid @RequestBody CreateStudentRequest createStudentRequest) {
 
-    final var modality = createStudentRequest.toStudent();
+    final var modality = studentMapper.toStudent(createStudentRequest);
     final var createdModality = createStudentUseCase.create(modality);
-    return StudentResponse.from(createdModality);
+    return studentMapper.from(createdModality);
 
   }
 
@@ -39,7 +41,7 @@ public class StudentController {
   @ResponseStatus(HttpStatus.OK)
   public List<StudentResponse> findAll() {
     return getStudentUseCase.findAll()
-        .map(StudentResponse::from)
+        .map(studentMapper::from)
         .collect(Collectors.toList());
   }
 
