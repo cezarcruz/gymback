@@ -56,7 +56,7 @@ public class TeacherController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public TeacherResponse update(@Valid @RequestBody final UpdateTeacherRequest updateTeacherRequest,
-                                  @PathVariable("id") final Long id) {
+                                  @PathVariable("id") final String id) {
         final var teacher = teacherMapper.toTeacher(id, updateTeacherRequest);
         final var updatedTeacher = updateTeacherUseCase.update(teacher);
         return teacherMapper.from(updatedTeacher);
@@ -64,7 +64,7 @@ public class TeacherController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") final Long id) {
+    public void delete(@PathVariable("id") final String id) {
         deleteTeacherUseCase.deleteBy(id);
     }
 

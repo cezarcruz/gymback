@@ -4,8 +4,8 @@ import lombok.Builder;
 
 @Builder
 public record Address(
-    Long id,
-    String zipCode,
+    String id,
+    String zipcode,
     String street,
     String neighborhood,
     String addressNumber

@@ -5,7 +5,7 @@ import lombok.With;
 
 @Builder
 public record Student(
-    Long id,
+    String id,
     String name,
     Integer age,
 

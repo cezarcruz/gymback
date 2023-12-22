@@ -2,9 +2,9 @@ package br.com.cezarcruz.gymback.core.domain;
 
 import lombok.Builder;
 
-@Builder
+@Builder(toBuilder = true)
 public record Teacher(
-    Long id,
+    String id,
     String name
 ) {
 

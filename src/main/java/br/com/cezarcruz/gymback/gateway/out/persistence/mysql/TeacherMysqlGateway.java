@@ -6,6 +6,7 @@ import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.SaveTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.TeacherPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.TeacherRepository;
+import java.util.Optional;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -19,14 +20,14 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   private final TeacherPersistenceMapper teacherPersistenceMapper;
 
   @Override
-  public Teacher save(Teacher teacher) {
+  public Teacher save(final Teacher teacher) {
     final var entity = teacherPersistenceMapper.from(teacher);
     final var saved = teacherRepository.save(entity);
     return teacherPersistenceMapper.from(saved);
   }
 
   @Override
-  public void deleteTeacher(Long id) {
+  public void deleteTeacher(final String id) {
     teacherRepository.deleteById(id);
   }
 
@@ -34,6 +35,12 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   public Stream<Teacher> getAll() {
     return teacherRepository.findAll()
         .stream()
+        .map(teacherPersistenceMapper::from);
+  }
+
+  @Override
+  public Optional<Teacher> findById(final String id) {
+    return teacherRepository.findById(id)
         .map(teacherPersistenceMapper::from);
   }
 }

@@ -15,5 +15,5 @@ import org.mapstruct.ReportingPolicy;
 public interface TeacherMapper {
   Teacher from(final CreateTeacherRequest createTeacherRequest);
   TeacherResponse from(final Teacher createdTeacher);
-  Teacher toTeacher(final Long id, final UpdateTeacherRequest updateTeacherRequest);
+  Teacher toTeacher(final String  id, final UpdateTeacherRequest updateTeacherRequest);
 }

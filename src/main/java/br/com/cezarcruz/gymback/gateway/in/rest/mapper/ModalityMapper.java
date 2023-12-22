@@ -18,5 +18,5 @@ public interface ModalityMapper {
 
   ModalityResponse from(final Modality createdModality);
 
-  Modality toModality(final Long id, final UpdateModalityRequest updateModalityRequest);
+  Modality toModality(final String id, final UpdateModalityRequest updateModalityRequest);
 }

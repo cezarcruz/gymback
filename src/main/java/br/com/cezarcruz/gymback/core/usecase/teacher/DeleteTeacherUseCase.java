@@ -10,7 +10,7 @@ public class DeleteTeacherUseCase {
 
     private final DeleteTeacherGateway teacherGateway;
 
-    public void deleteBy(final Long id) {
+    public void deleteBy(final String id) {
         teacherGateway.deleteTeacher(id);
     }
 }

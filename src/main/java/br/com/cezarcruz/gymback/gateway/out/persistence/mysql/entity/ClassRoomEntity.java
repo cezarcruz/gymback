@@ -1,8 +1,11 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,24 +15,27 @@ import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "address")
+@Table(name = "class_room")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AddressEntity extends CommonFields {
+public class ClassRoomEntity extends CommonFields {
 
   @Id
   @UuidGenerator(style = UuidGenerator.Style.TIME)
   @Column(name = "id", columnDefinition = "VARCHAR(36)", updatable = false, unique = true, nullable = false)
   private String id;
-  private String zipcode;
-  private String street;
-  private String neighborhood;
-  private String addressNumber;
+
+  private String name;
+
+  @OneToOne
+  @JoinColumn(name = "modality_id")
+  private ModalityEntity modality;
+
+  @OneToOne
+  @JoinColumn(name = "teacher_id")
+  private TeacherEntity teacher;
 
 }
-
-
-

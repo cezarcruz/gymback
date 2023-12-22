@@ -1,6 +1,8 @@
 package br.com.cezarcruz.gymback.core.usecase.teacher;
 
 import br.com.cezarcruz.gymback.core.domain.Teacher;
+import br.com.cezarcruz.gymback.core.exceptions.TeacherNotFountException;
+import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.SaveTeacherGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -10,9 +12,17 @@ import org.springframework.stereotype.Component;
 public class UpdateTeacherUseCase {
 
     private final SaveTeacherGateway saveTeacherGateway;
+    private final GetTeacherGateway getTeacherGateway;
 
     public Teacher update(final Teacher teacher) {
-        return saveTeacherGateway.save(teacher);
+
+        return getTeacherGateway
+            .findById(teacher.id())
+            .map(t -> t.toBuilder()
+                .name(teacher.name())
+                .build())
+            .map(saveTeacherGateway::save)
+            .orElseThrow(TeacherNotFountException::new);
     }
 
 }

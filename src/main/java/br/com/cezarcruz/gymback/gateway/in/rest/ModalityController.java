@@ -55,7 +55,7 @@ public class ModalityController {
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
   public ModalityResponse update(@Valid @RequestBody final UpdateModalityRequest updateModalityRequest,
-      @PathVariable("id") final Long id) {
+      @PathVariable("id") final String id) {
     final var modality = modalityMapper.toModality(id, updateModalityRequest);
     final var updatedModality = updateModalityUseCase.update(modality);
     return modalityMapper.from(updatedModality);
@@ -63,7 +63,7 @@ public class ModalityController {
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void delete(@PathVariable("id") final Long id) {
+  public void delete(@PathVariable("id") final String id) {
     deleteModalityUseCase.deleteBy(id);
   }
 

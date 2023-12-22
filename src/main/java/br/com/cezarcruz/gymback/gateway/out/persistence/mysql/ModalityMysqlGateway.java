@@ -33,7 +33,7 @@ class ModalityMysqlGateway implements SaveModalityGateway, GetModalityGateway,
   }
 
   @Override
-  public void deleteById(Long id) {
+  public void deleteById(final String id) {
     modalityRepository.deleteById(id);
   }
 }
