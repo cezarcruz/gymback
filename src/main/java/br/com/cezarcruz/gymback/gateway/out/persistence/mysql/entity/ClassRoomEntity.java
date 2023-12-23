@@ -5,7 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -31,11 +31,11 @@ public class ClassRoomEntity extends CommonFields {
 
   private String name;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "modality_id")
   private ModalityEntity modality;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "teacher_id")
   private TeacherEntity teacher;
 
