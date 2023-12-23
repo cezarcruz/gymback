@@ -2,13 +2,13 @@ package br.com.cezarcruz.gymback.core.usecase.teacher;
 
 import br.com.cezarcruz.gymback.core.domain.Teacher;
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
+import jakarta.inject.Named;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
+@Named
 @RequiredArgsConstructor
 public class GetTeacherUseCase {
 

@@ -2,10 +2,10 @@ package br.com.cezarcruz.gymback.core.usecase.modality;
 
 import br.com.cezarcruz.gymback.core.domain.Modality;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.SaveModalityGateway;
+import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
+@Named
 @RequiredArgsConstructor
 public class CreateModalityUseCase {
 

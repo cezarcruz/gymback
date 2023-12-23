@@ -5,11 +5,11 @@ import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateTeacherRequest
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.UpdateTeacherRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.TeacherResponse;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingConstants.ComponentModel;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(
-    componentModel = MappingConstants.ComponentModel.SPRING,
+    componentModel = ComponentModel.JAKARTA,
     unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
 public interface TeacherMapper {

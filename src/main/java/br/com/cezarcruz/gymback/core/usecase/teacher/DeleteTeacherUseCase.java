@@ -1,10 +1,10 @@
 package br.com.cezarcruz.gymback.core.usecase.teacher;
 
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.DeleteTeacherGateway;
+import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
+@Named
 @RequiredArgsConstructor
 public class DeleteTeacherUseCase {
 

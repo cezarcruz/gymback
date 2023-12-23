@@ -4,10 +4,10 @@ import br.com.cezarcruz.gymback.core.domain.Teacher;
 import br.com.cezarcruz.gymback.core.exceptions.TeacherNotFountException;
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.SaveTeacherGateway;
+import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
+@Named
 @RequiredArgsConstructor
 public class UpdateTeacherUseCase {
 

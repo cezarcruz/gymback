@@ -4,11 +4,11 @@ import br.com.cezarcruz.gymback.core.domain.Student;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateStudentRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.StudentResponse;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingConstants.ComponentModel;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(
-    componentModel = MappingConstants.ComponentModel.SPRING,
+    componentModel = ComponentModel.JAKARTA,
     unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
 public interface StudentMapper {

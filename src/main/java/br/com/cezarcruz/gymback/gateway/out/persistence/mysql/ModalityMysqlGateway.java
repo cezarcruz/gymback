@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-class ModalityMysqlGateway implements SaveModalityGateway, GetModalityGateway,
-    DeleteModalityGateway {
+class ModalityMysqlGateway implements
+    SaveModalityGateway, GetModalityGateway, DeleteModalityGateway {
 
   private final ModalityRepository modalityRepository;
   private final ModalityPersistenceMapper modalityPersistenceMapper;

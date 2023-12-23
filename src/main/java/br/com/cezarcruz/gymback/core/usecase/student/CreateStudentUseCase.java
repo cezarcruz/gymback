@@ -3,11 +3,11 @@ package br.com.cezarcruz.gymback.core.usecase.student;
 import br.com.cezarcruz.gymback.core.domain.Student;
 import br.com.cezarcruz.gymback.gateway.out.gateway.student.SaveAddressGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.student.SaveStudentGateway;
+import jakarta.inject.Named;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
+@Named
 @RequiredArgsConstructor
 public class CreateStudentUseCase {
 
