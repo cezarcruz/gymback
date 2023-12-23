@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,5 +38,8 @@ public class ClassRoomEntity extends CommonFields {
   @OneToOne
   @JoinColumn(name = "teacher_id")
   private TeacherEntity teacher;
+
+  @Column(name = "week_days") //todo change to a relationship
+  private List<String> weekDays;
 
 }

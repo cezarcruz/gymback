@@ -6,6 +6,7 @@ import br.com.cezarcruz.gymback.gateway.out.gateway.modality.GetModalityGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.SaveModalityGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.ModalityPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ModalityRepository;
+import java.util.Optional;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -35,5 +36,11 @@ class ModalityMysqlGateway implements
   @Override
   public void deleteById(final String id) {
     modalityRepository.deleteById(id);
+  }
+
+  @Override
+  public Optional<Modality> findById(String id) {
+    return modalityRepository.findById(id)
+        .map(modalityPersistenceMapper::from);
   }
 }
