@@ -41,8 +41,6 @@ public class ClassRoomEntity extends CommonFields {
   @JoinColumn(name = "teacher_id")
   private TeacherEntity teacher;
 
-//  @Column(name = "week_days") //todo change to a relationship
-//  private List<String> weekDays;
   @ManyToMany
   @JoinTable(
       name = "class_room_week_days",

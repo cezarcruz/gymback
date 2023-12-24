@@ -5,7 +5,9 @@ public record AddressResponse(
     String zipCode,
     String street,
     String neighborhood,
-    String addressNumber
+    String addressNumber,
+    String state,
+    String city
 
 ) {
 

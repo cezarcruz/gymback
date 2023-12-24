@@ -15,5 +15,5 @@ public interface StudentMapper {
 
   Student toStudent(final CreateStudentRequest createStudentRequest);
 
-  StudentResponse from(final Student createdModality);
+  StudentResponse from(final Student student);
 }
