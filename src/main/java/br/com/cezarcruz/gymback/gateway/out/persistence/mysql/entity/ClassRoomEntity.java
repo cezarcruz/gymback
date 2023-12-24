@@ -5,6 +5,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.List;
@@ -39,7 +41,14 @@ public class ClassRoomEntity extends CommonFields {
   @JoinColumn(name = "teacher_id")
   private TeacherEntity teacher;
 
-  @Column(name = "week_days") //todo change to a relationship
-  private List<String> weekDays;
+//  @Column(name = "week_days") //todo change to a relationship
+//  private List<String> weekDays;
+  @ManyToMany
+  @JoinTable(
+      name = "class_room_week_days",
+      joinColumns = @JoinColumn(name = "class_room_id"),
+      inverseJoinColumns = @JoinColumn(name = "week_days_name")
+  )
+  private List<WeekDayEntity> weekDays;
 
 }
