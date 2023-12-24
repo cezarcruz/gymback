@@ -2,7 +2,7 @@ package br.com.cezarcruz.gymback.gateway.in.rest.dto.response;
 
 public record AddressResponse(
     String id,
-    String zipCode,
+    String zipcode,
     String street,
     String neighborhood,
     String addressNumber,
