@@ -32,7 +32,6 @@ public class StudentEntity extends CommonFields {
   private String id;
   private String name;
   private String document;
-  private Integer age;
 
   @Column(name = "birth_date")
   private LocalDate birthDate;
