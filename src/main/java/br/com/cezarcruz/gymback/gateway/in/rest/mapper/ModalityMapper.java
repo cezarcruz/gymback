@@ -6,11 +6,9 @@ import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.UpdateModalityReques
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.ModalityResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
-import org.mapstruct.ReportingPolicy;
 
 @Mapper(
-    componentModel = ComponentModel.JAKARTA,
-    unmappedTargetPolicy = ReportingPolicy.IGNORE
+    componentModel = ComponentModel.JAKARTA
 )
 public interface ModalityMapper {
 

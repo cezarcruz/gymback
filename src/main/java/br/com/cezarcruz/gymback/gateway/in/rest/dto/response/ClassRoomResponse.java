@@ -7,7 +7,7 @@ public record ClassRoomResponse(
     TeacherResponse teacher,
     ModalityResponse modality,
 
-    List<String> weekDays
+    List<ScheduleResponse> schedule
 ) {
 
 }

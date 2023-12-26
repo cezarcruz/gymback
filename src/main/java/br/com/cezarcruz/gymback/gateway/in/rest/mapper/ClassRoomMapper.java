@@ -6,12 +6,14 @@ import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.ClassRoomResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants.ComponentModel;
-import org.mapstruct.ReportingPolicy;
 
 @Mapper(
     componentModel = ComponentModel.JAKARTA,
-    unmappedTargetPolicy = ReportingPolicy.IGNORE,
-    uses = {ModalityMapper.class, TeacherMapper.class}
+    uses = {
+        ModalityMapper.class,
+        TeacherMapper.class,
+        ScheduleMapper.class
+    }
 )
 public interface ClassRoomMapper {
 

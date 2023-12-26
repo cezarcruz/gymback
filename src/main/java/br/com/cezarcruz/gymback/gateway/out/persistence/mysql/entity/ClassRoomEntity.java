@@ -43,10 +43,10 @@ public class ClassRoomEntity extends CommonFields {
 
   @ManyToMany
   @JoinTable(
-      name = "class_room_week_days",
+      name = "class_room_schedule",
       joinColumns = @JoinColumn(name = "class_room_id"),
-      inverseJoinColumns = @JoinColumn(name = "week_days_name")
+      inverseJoinColumns = @JoinColumn(name = "schedule_id")
   )
-  private List<WeekDayEntity> weekDays;
+  private List<ScheduleEntity> schedule;
 
 }

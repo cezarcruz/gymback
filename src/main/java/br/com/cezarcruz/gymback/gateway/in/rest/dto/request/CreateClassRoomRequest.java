@@ -14,7 +14,7 @@ public record CreateClassRoomRequest (
     String modality,
 
     @NotEmpty
-    List<String> weekDays
+    List<CreateScheduleRequest> schedule
 ) {
 
 }

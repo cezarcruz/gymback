@@ -5,9 +5,8 @@ import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.ContactEnti
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
-import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = ComponentModel.JAKARTA, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = ComponentModel.JAKARTA)
 public interface ContactPersistenceMapper {
   List<Contact> fromEntity(final List<ContactEntity> contactEntities);
   List<ContactEntity> fromDomain(final List<Contact> contacts);

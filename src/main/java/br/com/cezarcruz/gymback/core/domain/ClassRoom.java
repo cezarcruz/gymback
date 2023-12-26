@@ -9,7 +9,8 @@ public record ClassRoom (
     Modality modality,
     @With
     Teacher teacher,
-    List<String> weekDays
+    @With
+    List<Schedule> schedule
 ) {
 
 }
