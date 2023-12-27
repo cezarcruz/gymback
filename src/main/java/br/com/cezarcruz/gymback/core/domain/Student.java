@@ -10,10 +10,9 @@ public record Student(
     String id,
     String name,
     LocalDate birthDate,
-
+    String document,
     @With
     List<Contact> contacts,
-
     @With
     Address address
 ) {

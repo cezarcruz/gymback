@@ -9,8 +9,8 @@ import java.util.List;
 public record CreateStudentRequest(
 
     @NotNull String name,
-
     @NotNull LocalDate birthDate,
+    String document,
     @Valid @NotNull CreateAddressRequest address,
 
     @Valid @NotEmpty List<CreateContactRequest> contacts

@@ -10,5 +10,7 @@ import org.mapstruct.MappingConstants.ComponentModel;
 public interface ContactPersistenceMapper {
   List<Contact> fromEntity(final List<ContactEntity> contactEntities);
   List<ContactEntity> fromDomain(final List<Contact> contacts);
+  Contact fromEntity(final ContactEntity contactEntities);
+  ContactEntity fromDomain(final Contact contacts);
 
 }

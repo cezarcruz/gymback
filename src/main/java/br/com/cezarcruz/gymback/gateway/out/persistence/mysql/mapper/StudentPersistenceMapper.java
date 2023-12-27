@@ -5,7 +5,10 @@ import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.StudentEnti
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
 
-@Mapper(componentModel = ComponentModel.JAKARTA)
+@Mapper(
+    componentModel = ComponentModel.JAKARTA,
+    uses = { ContactPersistenceMapper.class }
+)
 public interface StudentPersistenceMapper {
   StudentEntity from(final Student student);
   Student from(final StudentEntity studentEntity);
