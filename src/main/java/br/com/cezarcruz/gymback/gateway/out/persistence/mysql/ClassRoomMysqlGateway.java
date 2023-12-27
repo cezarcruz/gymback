@@ -25,7 +25,7 @@ public class ClassRoomMysqlGateway implements SaveClassRoomGateway, GetClassRoom
 
   @Override
   public Stream<ClassRoom> findAll() {
-    return classRoomRepository.findAll()
+    return classRoomRepository.findAllWithJoin()
         .stream()
         .map(classRoomPersistenceMapper::from);
   }

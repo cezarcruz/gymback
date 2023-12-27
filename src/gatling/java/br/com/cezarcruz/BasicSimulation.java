@@ -25,6 +25,7 @@ public class BasicSimulation extends Simulation {
                   StringBody("""
                       {
                           "name": "alberto roberto",
+                          "birthDate": "2000-01-01",
                           "contacts": [
                             {
                               "type": "PHONE",

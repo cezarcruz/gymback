@@ -33,7 +33,7 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
 
   @Override
   public Stream<Teacher> getAll() {
-    return teacherRepository.findAll()
+    return teacherRepository.findAllWithPerformance()
         .stream()
         .map(teacherPersistenceMapper::from);
   }
