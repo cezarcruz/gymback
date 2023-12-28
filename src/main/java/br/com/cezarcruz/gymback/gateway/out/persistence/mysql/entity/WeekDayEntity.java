@@ -17,6 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class WeekDayEntity {
 
+  //TODO change this to another thing
   @Id
   private String name;
   private String label;
