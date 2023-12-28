@@ -3,6 +3,8 @@ package br.com.cezarcruz.gymback.gateway.in.rest.dto.request;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import java.math.BigDecimal;
 import java.util.List;
 
 public record CreateClassRoomRequest (
@@ -13,6 +15,10 @@ public record CreateClassRoomRequest (
 
     @NotNull
     String modality,
+
+    @NotNull
+    @Positive
+    BigDecimal value,
 
     @Valid
     @NotEmpty

@@ -1,5 +1,6 @@
 package br.com.cezarcruz.gymback.core.domain;
 
+import java.math.BigDecimal;
 import java.util.List;
 import lombok.With;
 
@@ -12,7 +13,9 @@ public record ClassRoom (
     @With
     Teacher teacher,
     @With
-    List<Schedule> schedule
+    List<Schedule> schedule,
+
+    BigDecimal value
 ) {
 
 }

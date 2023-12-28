@@ -9,6 +9,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.math.BigDecimal;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,6 +41,8 @@ public class ClassRoomEntity extends CommonFields {
   @ManyToOne
   @JoinColumn(name = "teacher_id")
   private TeacherEntity teacher;
+
+  private BigDecimal value;
 
   @ManyToMany
   @JoinTable(

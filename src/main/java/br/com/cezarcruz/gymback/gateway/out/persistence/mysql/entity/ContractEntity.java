@@ -11,7 +11,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.time.Month;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,16 +29,24 @@ public class ContractEntity extends CommonFields {
   @Column(name = "id", columnDefinition = "VARCHAR(36)", updatable = false, unique = true, nullable = false)
   private String id;
 
-  @Column(name = "start_date")
-  private LocalDate startDate;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "start_month")
+  private Month startMonth;
 
-  @Column(name = "end_date")
-  private LocalDate endDate;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "end_month")
+  private Month endMonth;
+
+  @Column(name = "start_year")
+  private Integer startYear;
+
+  @Column(name = "end_year")
+  private Integer endYear;
 
   @Column(name = "due_day", length = 2)
-  private String dueDay;
+  private Integer dueDay;
 
-  private Integer discount;
+  private BigDecimal discount;
 
   @Column(name = "contract_type")
   @Enumerated(EnumType.STRING)
