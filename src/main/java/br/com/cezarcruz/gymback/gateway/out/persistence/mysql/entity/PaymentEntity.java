@@ -1,5 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity;
 
+import br.com.cezarcruz.gymback.core.enums.PaymentStatus;
 import br.com.cezarcruz.gymback.core.enums.PaymentType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,5 +33,9 @@ public class PaymentEntity extends CommonFields {
   @Column(name = "payment_type")
   @Enumerated(EnumType.STRING)
   private PaymentType paymentType;
+
+  @Column(name = "payment_status")
+  @Enumerated(EnumType.STRING)
+  private PaymentStatus paymentStatus;
 
 }
