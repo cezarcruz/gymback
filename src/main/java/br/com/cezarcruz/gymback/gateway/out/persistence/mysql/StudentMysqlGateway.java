@@ -5,6 +5,7 @@ import br.com.cezarcruz.gymback.gateway.out.gateway.student.GetStudentGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.student.SaveStudentGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.StudentPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.StudentRepository;
+import java.util.Optional;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,13 @@ class StudentMysqlGateway implements SaveStudentGateway, GetStudentGateway {
   public Stream<Student> findAll() {
     return studentRepository.findAll()
         .stream()
+        .map(studentPersistenceMapper::from);
+  }
+
+  @Override
+  public Optional<Student> findById(final String id) {
+    return studentRepository
+        .findById(id)
         .map(studentPersistenceMapper::from);
   }
 }

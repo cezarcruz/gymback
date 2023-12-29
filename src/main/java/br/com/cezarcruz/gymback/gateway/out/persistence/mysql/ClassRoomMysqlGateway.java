@@ -6,6 +6,7 @@ import br.com.cezarcruz.gymback.gateway.out.gateway.classroom.SaveClassRoomGatew
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.ClassRoomPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ClassRoomRepository;
 import jakarta.inject.Named;
+import java.util.Optional;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 
@@ -27,6 +28,12 @@ public class ClassRoomMysqlGateway implements SaveClassRoomGateway, GetClassRoom
   public Stream<ClassRoom> findAll() {
     return classRoomRepository.findAllWithJoin()
         .stream()
+        .map(classRoomPersistenceMapper::from);
+  }
+
+  @Override
+  public Optional<ClassRoom> findById(String id) {
+    return classRoomRepository.findById(id)
         .map(classRoomPersistenceMapper::from);
   }
 }

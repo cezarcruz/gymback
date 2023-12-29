@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.Month;
@@ -56,17 +57,17 @@ public class ContractEntity extends CommonFields {
   @Enumerated(EnumType.STRING)
   private ContractStatus contractStatus;
 
-  @ManyToMany
-  @JoinTable(
-      name = "contract_student",
-      joinColumns = @JoinColumn(name = "contract_id"),
-      inverseJoinColumns = @JoinColumn(name = "student_id")
-  )
-  private List<StudentEntity> students;
+  @ManyToOne
+  @JoinColumn(name = "student_id")
+  private StudentEntity student;
+
+  @ManyToOne
+  @JoinColumn(name = "class_room_id")
+  private ClassRoomEntity classRoom;
 
   @ManyToMany
   @JoinTable(
-      name = "payment_student",
+      name = "contract_payment",
       joinColumns = @JoinColumn(name = "contract_id"),
       inverseJoinColumns = @JoinColumn(name = "payment_id")
   )

@@ -19,9 +19,6 @@ public interface ClassRoomMapper {
 
   @Mapping(target = "teacher.id", source = "teacher")
   @Mapping(target = "modality.id", source = "modality")
-  @Mapping(target = "withModality", ignore = true)
-  @Mapping(target = "withTeacher", ignore = true)
-  @Mapping(target = "withSchedule", ignore = true)
   @Mapping(target = "id", ignore = true)
   ClassRoom from(final CreateClassRoomRequest createClassRoomRequest);
   ClassRoomResponse from(final ClassRoom classRoom);

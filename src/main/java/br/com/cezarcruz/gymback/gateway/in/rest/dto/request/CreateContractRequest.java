@@ -6,11 +6,12 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Month;
-import java.util.List;
 
 public record CreateContractRequest(
     @NotNull
-    List<String> students,
+    String student,
+    @NotNull
+    String classRoom,
     BigDecimal discount,
     @NotNull
     @Max(31)
