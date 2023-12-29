@@ -3,7 +3,9 @@ package br.com.cezarcruz.gymback.core.domain;
 import br.com.cezarcruz.gymback.core.enums.ContractStatus;
 import br.com.cezarcruz.gymback.core.enums.ContractType;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.Month;
+import java.time.Period;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +38,20 @@ public final class Contract {
   }
 
   public int contractMonths() {
-    return 12;
+
+    var startDate = getStartDate();
+    var endDate = getEndDate();
+
+    var interVal = Period.between(startDate, endDate);
+    return interVal.getMonths() + 1 + (interVal.getYears() * 12);
+
+  }
+
+  public LocalDate getEndDate() {
+    return LocalDate.of(endYear, endMonth, dueDay);
+  }
+
+  public LocalDate getStartDate() {
+    return LocalDate.of(startYear, startMonth, dueDay);
   }
 }

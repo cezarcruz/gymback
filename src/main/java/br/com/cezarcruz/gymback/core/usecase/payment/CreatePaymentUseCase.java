@@ -2,6 +2,7 @@ package br.com.cezarcruz.gymback.core.usecase.payment;
 
 import br.com.cezarcruz.gymback.core.domain.Contract;
 import br.com.cezarcruz.gymback.core.domain.Payment;
+import br.com.cezarcruz.gymback.core.enums.PaymentStatus;
 import br.com.cezarcruz.gymback.core.enums.PaymentType;
 import br.com.cezarcruz.gymback.gateway.out.gateway.payment.SavePaymentGateway;
 import java.time.LocalDate;
@@ -22,12 +23,11 @@ public class CreatePaymentUseCase {
     var contractMonths = contract.contractMonths();
 
     final List<Payment> payments = new ArrayList<>();
-    LocalDate today = LocalDate.now();
+    LocalDate nextPayment = contract.getStartDate();
 
     for (int i = 0; i < contractMonths; i++) {
-      var nextPayment = today.plusMonths(1);
-      payments.add(new Payment(null, contract.getClassRoom().value(), nextPayment, PaymentType.IN));
-      today = nextPayment;
+      payments.add(new Payment(null, contract.getClassRoom().value(), nextPayment, PaymentType.IN, PaymentStatus.PENDING));
+      nextPayment = nextPayment.plusMonths(1);
     }
 
     return payments
