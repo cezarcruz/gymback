@@ -1,15 +1,15 @@
 package br.com.cezarcruz.gymback;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-@SpringBootTest
+@Testcontainers
 class GymBackApplicationTests {
 
 	@Container
-	private static final MySQLContainer<?> MY_SQL_CONTAINER = new MySQLContainer<>("mysql:latest");
+	private static final MySQLContainer<?> MY_SQL_CONTAINER = new MySQLContainer<>("mysql:8.0.31");
 
 	@Test
 	void contextLoads() {
