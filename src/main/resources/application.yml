@@ -1,4 +1,9 @@
 spring:
+  application:
+    name: gym-back
+  threads:
+    virtual:
+      enabled: true
   jpa:
     hibernate:
       ddl-auto: update
@@ -7,7 +12,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
   datasource:
-    url: jdbc:mysql://localhost:3306/gym
+    url: jdbc:mysql://localhost:3306/gym?queryInterceptors=brave.mysql8.TracingQueryInterceptor
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+management:
+  tracing:
+    sampling:
+      probability: 0.1
