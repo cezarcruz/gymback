@@ -8,7 +8,6 @@ import br.com.cezarcruz.gymback.gateway.out.gateway.payment.SavePaymentGateway;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -30,10 +29,7 @@ public class CreatePaymentUseCase {
       nextPayment = nextPayment.plusMonths(1);
     }
 
-    return payments
-        .stream()
-        .map(savePaymentGateway::save)
-        .collect(Collectors.toList());
+    return savePaymentGateway.saveAll(payments);
 
   }
 
