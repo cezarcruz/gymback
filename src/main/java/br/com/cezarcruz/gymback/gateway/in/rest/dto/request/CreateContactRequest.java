@@ -1,15 +1,14 @@
 package br.com.cezarcruz.gymback.gateway.in.rest.dto.request;
 
-import br.com.cezarcruz.gymback.core.enums.ContactType;
 import jakarta.validation.constraints.NotNull;
 
 public record CreateContactRequest(
 
     @NotNull
-    ContactType type,
+    String email,
 
     @NotNull
-    String value
+    String phone
 ) {
 
 }

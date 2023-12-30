@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.List;
 
 public record CreateStudentRequest(
 
@@ -13,7 +12,7 @@ public record CreateStudentRequest(
     String document,
     @Valid @NotNull CreateAddressRequest address,
 
-    @Valid @NotEmpty List<CreateContactRequest> contacts
+    @Valid @NotEmpty CreateContactRequest contact
 
 ) {
 

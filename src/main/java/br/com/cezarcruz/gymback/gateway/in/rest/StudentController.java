@@ -29,7 +29,7 @@ public class StudentController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public StudentResponse create(@Valid @RequestBody CreateStudentRequest createStudentRequest) {
+  public StudentResponse create(@Valid @RequestBody final CreateStudentRequest createStudentRequest) {
 
     final var modality = studentMapper.toStudent(createStudentRequest);
     final var createdModality = createStudentUseCase.create(modality);
