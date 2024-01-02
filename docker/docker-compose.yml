@@ -20,6 +20,7 @@ services:
   prometheus:
     image: prom/prometheus:v2.44.0
     container_name: prometheus
+    network_mode: host
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
@@ -33,6 +34,7 @@ services:
     ports:
       - "3000:3000"
     restart: unless-stopped
+    network_mode: host
     volumes:
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
 

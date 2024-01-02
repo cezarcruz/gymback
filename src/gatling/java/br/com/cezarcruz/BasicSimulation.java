@@ -26,16 +26,10 @@ public class BasicSimulation extends Simulation {
                       {
                           "name": "alberto roberto",
                           "birthDate": "2000-01-01",
-                          "contacts": [
-                            {
-                              "type": "PHONE",
-                              "value": "88888888989"
-                            },
-                            {
-                              "type": "EMAIL",
-                              "value": "email@email.com"
-                            }
-                          ]
+                          "contact": {
+                            "email": "email@test.com",
+                            "phone": "2999999999"
+                          }
                         }
                                         """)).asJson()
               .header("content-type", "application/json")
@@ -47,7 +41,7 @@ public class BasicSimulation extends Simulation {
         createTeacher.injectOpen(
             constantUsersPerSec(2).during(10),
             constantUsersPerSec(5).during(15).randomized(),
-            rampUsersPerSec(6).to(300).during(3 * 60)
+            rampUsersPerSec(12).to(600).during(3 * 60)
         )
     ).protocols(httpProtocol);
   }
