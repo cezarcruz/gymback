@@ -1,17 +1,20 @@
 package br.com.cezarcruz.gymback.gateway.in.rest;
 
+import br.com.cezarcruz.gymback.core.domain.PageDomain;
+import br.com.cezarcruz.gymback.core.domain.Teacher;
 import br.com.cezarcruz.gymback.core.usecase.teacher.CreateTeacherUseCase;
 import br.com.cezarcruz.gymback.core.usecase.teacher.DeleteTeacherUseCase;
 import br.com.cezarcruz.gymback.core.usecase.teacher.GetTeacherUseCase;
 import br.com.cezarcruz.gymback.core.usecase.teacher.UpdateTeacherUseCase;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateTeacherRequest;
+import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.GetPagingRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.UpdateTeacherRequest;
+import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.PageResponse;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.TeacherResponse;
 import br.com.cezarcruz.gymback.gateway.in.rest.mapper.TeacherMapper;
 import jakarta.validation.Valid;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,18 +42,19 @@ public class TeacherController {
     @ResponseStatus(HttpStatus.CREATED)
     public TeacherResponse create(@Valid @RequestBody final CreateTeacherRequest createTeacherRequest) {
 
-        final var teacher = teacherMapper.from(createTeacherRequest);
+        final var teacher = teacherMapper.fromRequest(createTeacherRequest);
         final var createdTeacher = createTeacherUseCase.create(teacher);
-        return teacherMapper.from(createdTeacher);
+        return teacherMapper.fromDomain(createdTeacher);
 
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<TeacherResponse> getAll() {
-        return getTeacherUseCase.getAll()
-                .map(teacherMapper::from)
-                .collect(Collectors.toList());
+    public PageResponse<TeacherResponse> getAll(@ParameterObject final GetPagingRequest paging) {
+        var page = new PageDomain<Teacher>(paging.page(), paging.size());
+
+        final var pagedTeachers = getTeacherUseCase.getAll(page);
+        return teacherMapper.fromPageDomain(pagedTeachers);
     }
 
     @PutMapping("/{id}")
@@ -59,7 +63,7 @@ public class TeacherController {
                                   @PathVariable("id") final String id) {
         final var teacher = teacherMapper.toTeacher(id, updateTeacherRequest);
         final var updatedTeacher = updateTeacherUseCase.update(teacher);
-        return teacherMapper.from(updatedTeacher);
+        return teacherMapper.fromDomain(updatedTeacher);
     }
 
     @DeleteMapping("/{id}")

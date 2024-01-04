@@ -1,5 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
+import br.com.cezarcruz.gymback.core.domain.PageDomain;
 import br.com.cezarcruz.gymback.core.domain.Teacher;
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.DeleteTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
@@ -7,8 +8,8 @@ import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.SaveTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.TeacherPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.TeacherRepository;
 import java.util.Optional;
-import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -32,10 +33,22 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   }
 
   @Override
-  public Stream<Teacher> getAll() {
-    return teacherRepository.findAllWithPerformance()
+  public PageDomain<Teacher> getAll(final PageDomain<Teacher> page) {
+
+    var pageRequest = PageRequest.of(page.getPage(), page.getSize());
+
+    final var pagedTeachers = teacherRepository.findAllWithPerformance(pageRequest);
+
+    var values = pagedTeachers
         .stream()
-        .map(teacherPersistenceMapper::from);
+        .map(teacherPersistenceMapper::from)
+        .toList();
+
+    return page.toBuilder()
+        .elements(values)
+        .totalElements(pagedTeachers.getTotalElements())
+        .totalPages(pagedTeachers.getTotalPages())
+        .build();
   }
 
   @Override

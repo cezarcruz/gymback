@@ -1,11 +1,11 @@
 package br.com.cezarcruz.gymback.gateway.out.gateway.teacher;
 
+import br.com.cezarcruz.gymback.core.domain.PageDomain;
 import br.com.cezarcruz.gymback.core.domain.Teacher;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public interface GetTeacherGateway {
-  Stream<Teacher> getAll();
+  PageDomain<Teacher> getAll(PageDomain<Teacher> page);
 
   Optional<Teacher> findById(final String id);
 }

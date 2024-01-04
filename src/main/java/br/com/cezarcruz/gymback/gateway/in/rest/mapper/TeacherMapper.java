@@ -1,11 +1,13 @@
 package br.com.cezarcruz.gymback.gateway.in.rest.mapper;
 
 import br.com.cezarcruz.gymback.core.domain.Contact;
+import br.com.cezarcruz.gymback.core.domain.PageDomain;
 import br.com.cezarcruz.gymback.core.domain.Teacher;
 import br.com.cezarcruz.gymback.core.enums.ContactType;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateContactRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateTeacherRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.UpdateTeacherRequest;
+import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.PageResponse;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.TeacherResponse;
 import java.util.List;
 import org.mapstruct.Mapper;
@@ -21,8 +23,11 @@ public interface TeacherMapper {
 
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "contacts", source = "contact", qualifiedByName = "fromContactRequest")
-  Teacher from(final CreateTeacherRequest createTeacherRequest);
-  TeacherResponse from(final Teacher createdTeacher);
+  Teacher fromRequest(final CreateTeacherRequest createTeacherRequest);
+  TeacherResponse fromDomain(final Teacher createdTeacher);
+
+  PageResponse<TeacherResponse> fromPageDomain(final PageDomain<Teacher> teacher);
+
   Teacher toTeacher(final String  id, final UpdateTeacherRequest updateTeacherRequest);
 
   @Named("fromContactRequest")
