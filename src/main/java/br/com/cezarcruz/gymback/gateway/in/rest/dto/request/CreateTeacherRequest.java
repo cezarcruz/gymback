@@ -7,7 +7,6 @@ public record CreateTeacherRequest(
     @NotNull
     String name,
     LocalDate birthDate,
-
     CreateContactRequest contact
 ) {
 

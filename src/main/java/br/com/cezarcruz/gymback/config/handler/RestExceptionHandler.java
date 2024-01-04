@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.config.handler.validation;
+package br.com.cezarcruz.gymback.config.handler;
 
 import br.com.cezarcruz.gymback.config.handler.validation.dto.ErrorMessageResponse;
 import org.slf4j.Logger;

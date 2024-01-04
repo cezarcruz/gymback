@@ -42,8 +42,8 @@ public final class Contract {
     var startDate = getStartDate();
     var endDate = getEndDate();
 
-    var interVal = Period.between(startDate, endDate);
-    return interVal.getMonths() + 1 + (interVal.getYears() * 12);
+    var interval = Period.between(startDate, endDate);
+    return interval.getMonths() + 1 + (interval.getYears() * 12);
 
   }
 
