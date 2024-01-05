@@ -18,7 +18,9 @@ jar {
 }
 
 java {
-    sourceCompatibility = '21'
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
 
 configurations {
