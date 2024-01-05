@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.usecase.modality;
 
-import br.com.cezarcruz.gymback.core.domain.Modality;
+import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.GetModalityGateway;
 import jakarta.inject.Named;
 import java.util.stream.Stream;
@@ -12,7 +12,7 @@ public class GetModalityUseCase {
 
     private final GetModalityGateway getModalityGateway;
 
-    public Stream<Modality> getAll() {
+    public Stream<ModalityDomain> getAll() {
         return getModalityGateway.getAll();
     }
 

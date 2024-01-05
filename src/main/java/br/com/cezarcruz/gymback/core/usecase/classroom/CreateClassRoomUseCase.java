@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.usecase.classroom;
 
-import br.com.cezarcruz.gymback.core.domain.ClassRoom;
+import br.com.cezarcruz.gymback.core.domain.ClassRoomDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.classroom.SaveClassRoomGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.GetModalityGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.schedule.SaveScheduleGateway;
@@ -17,7 +17,7 @@ public class CreateClassRoomUseCase {
   private final GetModalityGateway getModalityGateway;
   private final SaveScheduleGateway saveScheduleGateway;
 
-  public ClassRoom create(final ClassRoom classRoom) {
+  public ClassRoomDomain create(final ClassRoomDomain classRoom) {
 
     var classRoomWithTeacher = getTeacherGateway.findById(classRoom.teacher().id())
         .map(classRoom::withTeacher)

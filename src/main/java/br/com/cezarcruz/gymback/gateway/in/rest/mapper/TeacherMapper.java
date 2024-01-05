@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.in.rest.mapper;
 
-import br.com.cezarcruz.gymback.core.domain.Contact;
+import br.com.cezarcruz.gymback.core.domain.ContactDomain;
 import br.com.cezarcruz.gymback.core.domain.PageDomain;
 import br.com.cezarcruz.gymback.core.domain.Teacher;
 import br.com.cezarcruz.gymback.core.enums.ContactType;
@@ -31,9 +31,9 @@ public interface TeacherMapper {
   Teacher toTeacher(final String  id, final UpdateTeacherRequest updateTeacherRequest);
 
   @Named("fromContactRequest")
-  default List<Contact> fromContactRequest(final CreateContactRequest source) {
-    var email = new Contact(null, ContactType.EMAIL, source.email());
-    var phone = new Contact(null, ContactType.PHONE, source.phone());
+  default List<ContactDomain> fromContactRequest(final CreateContactRequest source) {
+    var email = new ContactDomain(null, ContactType.EMAIL, source.email());
+    var phone = new ContactDomain(null, ContactType.PHONE, source.phone());
 
     return List.of(email, phone);
   }

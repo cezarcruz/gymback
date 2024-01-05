@@ -5,7 +5,7 @@ import br.com.cezarcruz.gymback.core.enums.PaymentType;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public record Payment(
+public record PaymentDomain(
     String id,
     BigDecimal value,
     LocalDate paymentDay,

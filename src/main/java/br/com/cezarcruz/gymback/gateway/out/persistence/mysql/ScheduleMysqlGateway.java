@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
-import br.com.cezarcruz.gymback.core.domain.Schedule;
+import br.com.cezarcruz.gymback.core.domain.ScheduleDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.schedule.SaveScheduleGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.SchedulePersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ScheduleRepository;
@@ -17,7 +17,7 @@ public class ScheduleMysqlGateway implements SaveScheduleGateway {
   private final SchedulePersistenceMapper schedulePersistenceMapper;
 
   @Override
-  public Schedule save(final Schedule schedule) {
+  public ScheduleDomain save(final ScheduleDomain schedule) {
 
     final var entity = schedulePersistenceMapper.toEntity(schedule);
     final var saved = scheduleRepository.save(entity);
@@ -25,7 +25,7 @@ public class ScheduleMysqlGateway implements SaveScheduleGateway {
   }
 
   @Override
-  public List<Schedule> save(List<Schedule> schedule) {
+  public List<ScheduleDomain> save(List<ScheduleDomain> schedule) {
     //todo use saveAll ;)
     return schedule.stream()
         .map(this::save)

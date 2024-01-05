@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.payment;
 
-import br.com.cezarcruz.gymback.core.domain.Contract;
-import br.com.cezarcruz.gymback.core.domain.Payment;
+import br.com.cezarcruz.gymback.core.domain.ContractDomain;
+import br.com.cezarcruz.gymback.core.domain.PaymentDomain;
 import br.com.cezarcruz.gymback.core.enums.PaymentStatus;
 import br.com.cezarcruz.gymback.core.enums.PaymentType;
 import br.com.cezarcruz.gymback.gateway.out.gateway.payment.SavePaymentGateway;
@@ -17,15 +17,15 @@ public class CreatePaymentUseCase {
 
   private final SavePaymentGateway savePaymentGateway;
 
-  public List<Payment> create(final Contract contract) {
+  public List<PaymentDomain> create(final ContractDomain contract) {
 
     var contractMonths = contract.contractMonths();
 
-    final List<Payment> payments = new ArrayList<>();
+    final List<PaymentDomain> payments = new ArrayList<>();
     LocalDate nextPayment = contract.getStartDate();
 
     for (int i = 0; i < contractMonths; i++) {
-      payments.add(new Payment(null, contract.getClassRoom().value(), nextPayment, PaymentType.IN, PaymentStatus.PENDING));
+      payments.add(new PaymentDomain(null, contract.getClassRoom().value(), nextPayment, PaymentType.IN, PaymentStatus.PENDING));
       nextPayment = nextPayment.plusMonths(1);
     }
 

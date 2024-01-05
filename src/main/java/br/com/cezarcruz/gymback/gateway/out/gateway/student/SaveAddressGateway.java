@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.gateway.out.gateway.student;
 
-import br.com.cezarcruz.gymback.core.domain.Address;
+import br.com.cezarcruz.gymback.core.domain.AddressDomain;
 
 public interface SaveAddressGateway {
-  Address save(final Address address);
+  AddressDomain save(final AddressDomain address);
 }

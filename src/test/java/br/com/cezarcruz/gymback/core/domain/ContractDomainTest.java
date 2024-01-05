@@ -7,7 +7,7 @@ import br.com.cezarcruz.gymback.fixtures.ContractFixtures;
 import java.time.Month;
 import org.junit.jupiter.api.Test;
 
-class ContractTest {
+class ContractDomainTest {
 
   @Test
   void shouldTestMonthIntervalSameYear() {

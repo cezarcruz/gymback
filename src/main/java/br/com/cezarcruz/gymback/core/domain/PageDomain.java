@@ -11,9 +11,9 @@ import lombok.Getter;
 public class PageDomain<T> {
   private int page;
   private int size;
-  private List<T> elements;
   private long totalElements;
   private int totalPages;
+  private List<T> elements;
 
   public PageDomain(int page, int size) {
     this.page = page;

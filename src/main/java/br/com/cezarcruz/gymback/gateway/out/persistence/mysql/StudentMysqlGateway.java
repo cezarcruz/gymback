@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
-import br.com.cezarcruz.gymback.core.domain.Student;
+import br.com.cezarcruz.gymback.core.domain.StudentDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.student.GetStudentGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.student.SaveStudentGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.StudentPersistenceMapper;
@@ -18,7 +18,7 @@ class StudentMysqlGateway implements SaveStudentGateway, GetStudentGateway {
   private final StudentPersistenceMapper studentPersistenceMapper;
 
   @Override
-  public Student save(final Student student) {
+  public StudentDomain save(final StudentDomain student) {
 
     final var entity = studentPersistenceMapper.from(student);
     final var saved = studentRepository.save(entity);
@@ -27,14 +27,14 @@ class StudentMysqlGateway implements SaveStudentGateway, GetStudentGateway {
   }
 
   @Override
-  public Stream<Student> findAll() {
+  public Stream<StudentDomain> findAll() {
     return studentRepository.findAll()
         .stream()
         .map(studentPersistenceMapper::from);
   }
 
   @Override
-  public Optional<Student> findById(final String id) {
+  public Optional<StudentDomain> findById(final String id) {
     return studentRepository
         .findById(id)
         .map(studentPersistenceMapper::from);

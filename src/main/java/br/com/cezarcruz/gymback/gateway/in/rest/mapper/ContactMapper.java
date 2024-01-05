@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.in.rest.mapper;
 
-import br.com.cezarcruz.gymback.core.domain.Contact;
+import br.com.cezarcruz.gymback.core.domain.ContactDomain;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateContactRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.UpdateContactRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.ContactResponse;
@@ -14,11 +14,11 @@ import org.mapstruct.MappingConstants.ComponentModel;
 public interface ContactMapper {
 
   @Mapping(target = "id", ignore = true)
-  Contact from(final CreateContactRequest source);
+  ContactDomain from(final CreateContactRequest source);
 
-  ContactResponse from(final Contact source);
+  ContactResponse from(final ContactDomain source);
 
   @Mapping(target = "id", ignore = true)
-  Contact from(final UpdateContactRequest source);
+  ContactDomain from(final UpdateContactRequest source);
 
 }

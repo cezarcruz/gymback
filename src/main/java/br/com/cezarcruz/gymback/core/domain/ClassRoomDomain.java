@@ -1,20 +1,23 @@
 package br.com.cezarcruz.gymback.core.domain;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 import java.util.List;
 import lombok.Builder;
 import lombok.With;
 
 @Builder
-public record Student(
+public record ClassRoomDomain(
+
     String id,
     String name,
-    LocalDate birthDate,
-    String document,
     @With
-    List<Contact> contacts,
+    ModalityDomain modality,
     @With
-    Address address
+    Teacher teacher,
+    @With
+    List<ScheduleDomain> schedule,
+
+    BigDecimal value
 ) {
 
 }

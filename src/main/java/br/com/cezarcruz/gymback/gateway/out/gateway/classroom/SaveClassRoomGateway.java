@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.gateway.out.gateway.classroom;
 
-import br.com.cezarcruz.gymback.core.domain.ClassRoom;
+import br.com.cezarcruz.gymback.core.domain.ClassRoomDomain;
 
 public interface SaveClassRoomGateway {
-  ClassRoom save(final ClassRoom classRoom);
+  ClassRoomDomain save(final ClassRoomDomain classRoom);
 }

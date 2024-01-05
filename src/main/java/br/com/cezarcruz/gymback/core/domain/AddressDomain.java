@@ -3,7 +3,7 @@ package br.com.cezarcruz.gymback.core.domain;
 import lombok.Builder;
 
 @Builder
-public record Address(
+public record AddressDomain(
     String id,
     String zipcode,
     String street,

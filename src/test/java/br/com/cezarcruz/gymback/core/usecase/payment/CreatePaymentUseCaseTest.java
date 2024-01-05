@@ -29,7 +29,7 @@ class CreatePaymentUseCaseTest {
   @Test
   void shouldCreatePayment() {
 
-    when(savePaymentGateway.save(any()))
+    when(savePaymentGateway.saveAll(any()))
         .thenAnswer(a -> a.getArgument(0));
 
     var contract = ContractFixtures.withOneYearInterval();
@@ -44,7 +44,7 @@ class CreatePaymentUseCaseTest {
       assertEquals(PaymentStatus.PENDING, payment.paymentStatus());
     });
 
-    verify(savePaymentGateway, times(12)).save(any());
+    verify(savePaymentGateway, times(1)).saveAll(any());
 
   }
 

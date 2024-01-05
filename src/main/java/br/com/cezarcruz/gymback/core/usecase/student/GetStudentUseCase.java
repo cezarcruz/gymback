@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.usecase.student;
 
-import br.com.cezarcruz.gymback.core.domain.Student;
+import br.com.cezarcruz.gymback.core.domain.StudentDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.student.GetStudentGateway;
 import jakarta.inject.Named;
 import java.util.stream.Stream;
@@ -12,7 +12,7 @@ public class GetStudentUseCase {
 
   private final GetStudentGateway getStudentGateway;
 
-  public Stream<Student> findAll() {
+  public Stream<StudentDomain> findAll() {
     return getStudentGateway.findAll();
   }
 

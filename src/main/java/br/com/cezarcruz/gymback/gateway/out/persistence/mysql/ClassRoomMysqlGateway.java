@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
-import br.com.cezarcruz.gymback.core.domain.ClassRoom;
+import br.com.cezarcruz.gymback.core.domain.ClassRoomDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.classroom.GetClassRoomGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.classroom.SaveClassRoomGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.ClassRoomPersistenceMapper;
@@ -18,21 +18,21 @@ public class ClassRoomMysqlGateway implements SaveClassRoomGateway, GetClassRoom
   private final ClassRoomPersistenceMapper classRoomPersistenceMapper;
 
   @Override
-  public ClassRoom save(ClassRoom classRoom) {
+  public ClassRoomDomain save(ClassRoomDomain classRoom) {
     final var classRoomEntity = classRoomPersistenceMapper.from(classRoom);
     var saved = classRoomRepository.save(classRoomEntity);
     return classRoomPersistenceMapper.from(saved);
   }
 
   @Override
-  public Stream<ClassRoom> findAll() {
+  public Stream<ClassRoomDomain> findAll() {
     return classRoomRepository.findAllWithJoin()
         .stream()
         .map(classRoomPersistenceMapper::from);
   }
 
   @Override
-  public Optional<ClassRoom> findById(String id) {
+  public Optional<ClassRoomDomain> findById(String id) {
     return classRoomRepository.findById(id)
         .map(classRoomPersistenceMapper::from);
   }

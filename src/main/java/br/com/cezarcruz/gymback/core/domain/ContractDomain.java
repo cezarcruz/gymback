@@ -13,7 +13,7 @@ import lombok.With;
 
 @Getter
 @AllArgsConstructor
-public final class Contract {
+public final class ContractDomain {
 
   private String id;
   private Month startMonth;
@@ -26,13 +26,13 @@ public final class Contract {
   private ContractStatus contractStatus;
 
   @With
-  private final Student student;
+  private final StudentDomain student;
   @With
-  private final ClassRoom classRoom;
+  private final ClassRoomDomain classRoom;
   @With
-  private final List<Payment> payments;
+  private final List<PaymentDomain> payments;
 
-  public Contract activate() {
+  public ContractDomain activate() {
     this.contractStatus = ContractStatus.ACTIVE;
     return this;
   }

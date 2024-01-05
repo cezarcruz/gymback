@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.usecase.contract;
 
-import br.com.cezarcruz.gymback.core.domain.Contract;
+import br.com.cezarcruz.gymback.core.domain.ContractDomain;
 import br.com.cezarcruz.gymback.core.exceptions.ClassRoomNotFountException;
 import br.com.cezarcruz.gymback.core.exceptions.StudentNotFoundException;
 import br.com.cezarcruz.gymback.core.usecase.payment.CreatePaymentUseCase;
@@ -20,7 +20,7 @@ public class CreateContractUseCase {
 
   private final CreatePaymentUseCase createPaymentUseCase;
 
-  public Contract create(final Contract contract) {
+  public ContractDomain create(final ContractDomain contract) {
 
     var student =
         getStudentGateway.findById(contract.getStudent().id())

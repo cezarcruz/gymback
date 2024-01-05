@@ -11,7 +11,7 @@ public record Teacher(
     String name,
     LocalDate birthDate,
     @With
-    List<Contact> contacts
+    List<ContactDomain> contacts
 ) {
 
 }

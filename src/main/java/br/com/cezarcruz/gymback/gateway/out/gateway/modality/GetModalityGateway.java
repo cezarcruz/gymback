@@ -1,11 +1,11 @@
 package br.com.cezarcruz.gymback.gateway.out.gateway.modality;
 
-import br.com.cezarcruz.gymback.core.domain.Modality;
+import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
 import java.util.Optional;
 import java.util.stream.Stream;
 
 public interface GetModalityGateway {
-  Stream<Modality> getAll();
+  Stream<ModalityDomain> getAll();
 
-  Optional<Modality> findById(String id);
+  Optional<ModalityDomain> findById(String id);
 }

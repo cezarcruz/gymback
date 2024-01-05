@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.gateway.out.gateway.student;
 
-import br.com.cezarcruz.gymback.core.domain.Student;
+import br.com.cezarcruz.gymback.core.domain.StudentDomain;
 
 public interface SaveStudentGateway {
-  Student save(final Student student);
+  StudentDomain save(final StudentDomain student);
 }

@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper;
 
-import br.com.cezarcruz.gymback.core.domain.ClassRoom;
+import br.com.cezarcruz.gymback.core.domain.ClassRoomDomain;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.ClassRoomEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
@@ -15,8 +15,8 @@ import org.mapstruct.MappingConstants.ComponentModel;
 )
 public interface ClassRoomPersistenceMapper {
 
-  ClassRoomEntity from(final ClassRoom classRoom);
+  ClassRoomEntity from(final ClassRoomDomain classRoom);
 
-  ClassRoom from(final ClassRoomEntity classRoomEntity);
+  ClassRoomDomain from(final ClassRoomEntity classRoomEntity);
 
 }

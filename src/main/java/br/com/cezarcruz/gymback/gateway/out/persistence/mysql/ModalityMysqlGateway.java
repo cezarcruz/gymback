@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
-import br.com.cezarcruz.gymback.core.domain.Modality;
+import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.DeleteModalityGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.GetModalityGateway;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.SaveModalityGateway;
@@ -20,14 +20,14 @@ class ModalityMysqlGateway implements
   private final ModalityPersistenceMapper modalityPersistenceMapper;
 
   @Override
-  public Modality save(Modality modality) {
+  public ModalityDomain save(ModalityDomain modality) {
     final var entity = modalityPersistenceMapper.from(modality);
     final var saved = modalityRepository.save(entity);
     return modalityPersistenceMapper.from(saved);
   }
 
   @Override
-  public Stream<Modality> getAll() {
+  public Stream<ModalityDomain> getAll() {
     return modalityRepository.findAll()
         .stream()
         .map(modalityPersistenceMapper::from);
@@ -39,7 +39,7 @@ class ModalityMysqlGateway implements
   }
 
   @Override
-  public Optional<Modality> findById(String id) {
+  public Optional<ModalityDomain> findById(String id) {
     return modalityRepository.findById(id)
         .map(modalityPersistenceMapper::from);
   }

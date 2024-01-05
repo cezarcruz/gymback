@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper;
 
-import br.com.cezarcruz.gymback.core.domain.Schedule;
+import br.com.cezarcruz.gymback.core.domain.ScheduleDomain;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.ScheduleEntity;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.entity.WeekDayEntity;
 import org.mapstruct.Mapper;
@@ -14,10 +14,10 @@ import org.mapstruct.Named;
 public interface SchedulePersistenceMapper {
 
   @Mapping(source = "weekDay", target = "weekDay", qualifiedByName = "weekDayToString")
-  Schedule toDomain(final ScheduleEntity source);
+  ScheduleDomain toDomain(final ScheduleEntity source);
 
   @Mapping(source = "weekDay", target = "weekDay", qualifiedByName = "weekDayToEntity")
-  ScheduleEntity toEntity(final Schedule source);
+  ScheduleEntity toEntity(final ScheduleDomain source);
 
   @Named("weekDayToString")
   default String weekDayToString(final WeekDayEntity weekDayEntity) {

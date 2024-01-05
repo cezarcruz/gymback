@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.in.rest.mapper;
 
-import br.com.cezarcruz.gymback.core.domain.Modality;
+import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateModalityRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.UpdateModalityRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.response.ModalityResponse;
@@ -14,9 +14,9 @@ import org.mapstruct.MappingConstants.ComponentModel;
 public interface ModalityMapper {
 
   @Mapping(target = "id", ignore = true)
-  Modality toModality(final CreateModalityRequest createModalityRequest);
+  ModalityDomain toModality(final CreateModalityRequest createModalityRequest);
 
-  ModalityResponse from(final Modality createdModality);
+  ModalityResponse from(final ModalityDomain createdModality);
 
-  Modality toModality(final String id, final UpdateModalityRequest updateModalityRequest);
+  ModalityDomain toModality(final String id, final UpdateModalityRequest updateModalityRequest);
 }

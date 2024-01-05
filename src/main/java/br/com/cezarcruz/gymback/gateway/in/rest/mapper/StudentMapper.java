@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.gateway.in.rest.mapper;
 
-import br.com.cezarcruz.gymback.core.domain.Contact;
-import br.com.cezarcruz.gymback.core.domain.Student;
+import br.com.cezarcruz.gymback.core.domain.ContactDomain;
+import br.com.cezarcruz.gymback.core.domain.StudentDomain;
 import br.com.cezarcruz.gymback.core.enums.ContactType;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateContactRequest;
 import br.com.cezarcruz.gymback.gateway.in.rest.dto.request.CreateStudentRequest;
@@ -20,15 +20,15 @@ public interface StudentMapper {
 
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "contacts", source = "contact", qualifiedByName = "fromContactRequest")
-  Student toStudent(final CreateStudentRequest source);
+  StudentDomain toStudent(final CreateStudentRequest source);
 
-  StudentResponse from(final Student student);
+  StudentResponse from(final StudentDomain student);
 
 
   @Named("fromContactRequest")
-  default List<Contact> fromContactRequest(final CreateContactRequest source) {
-    var email = new Contact(null, ContactType.EMAIL, source.email());
-    var phone = new Contact(null, ContactType.PHONE, source.phone());
+  default List<ContactDomain> fromContactRequest(final CreateContactRequest source) {
+    var email = new ContactDomain(null, ContactType.EMAIL, source.email());
+    var phone = new ContactDomain(null, ContactType.PHONE, source.phone());
 
     return List.of(email, phone);
   }

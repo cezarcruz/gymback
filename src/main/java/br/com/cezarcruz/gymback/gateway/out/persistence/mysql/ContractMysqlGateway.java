@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
-import br.com.cezarcruz.gymback.core.domain.Contract;
+import br.com.cezarcruz.gymback.core.domain.ContractDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.contract.SaveContractGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.ContractPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ContractRepository;
@@ -15,7 +15,7 @@ public class ContractMysqlGateway implements SaveContractGateway {
   private final ContractRepository contractRepository;
 
   @Override
-  public Contract save(Contract model) {
+  public ContractDomain save(ContractDomain model) {
 
     final var entity = contractPersistenceMapper.fromModel(model);
     final var entitySaved = contractRepository.save(entity);

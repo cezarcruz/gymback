@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.core.usecase.modality;
 
-import br.com.cezarcruz.gymback.core.domain.Modality;
+import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
 import br.com.cezarcruz.gymback.gateway.out.gateway.modality.SaveModalityGateway;
 import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ public class CreateModalityUseCase {
 
   private final SaveModalityGateway saveModalityGateway;
 
-  public Modality create(final Modality modality) {
+  public ModalityDomain create(final ModalityDomain modality) {
     return saveModalityGateway.save(modality);
   }
 
