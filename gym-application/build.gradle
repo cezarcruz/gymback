@@ -18,8 +18,8 @@ configurations {
 
 dependencies {
 
-    implementation project(':core')
-    implementation project(':persistence')
+    implementation project(':gym-core')
+    implementation project(':gym-persistence')
 
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.springframework.boot:spring-boot-starter-web'
