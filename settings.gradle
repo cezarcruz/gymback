@@ -1,1 +1,5 @@
 rootProject.name = 'gymback'
+
+include 'core'
+include 'application'
+include 'persistence'
