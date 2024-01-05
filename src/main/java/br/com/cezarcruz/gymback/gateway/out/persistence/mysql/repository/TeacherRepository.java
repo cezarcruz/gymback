@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TeacherRepository extends JpaRepository<TeacherEntity, String> {
 
-  @Query(value = """
-      select t from TeacherEntity t inner join fetch t.contacts
-    """,
-      countQuery = """
-      select count(t) from TeacherEntity t
-      """)
+  @Query(
+      value =
+          """
+                select t from TeacherEntity t
+              """
+  )
   Page<TeacherEntity> findAllWithPerformance(final Pageable pageable);
 }
