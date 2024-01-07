@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.classroom;
 
 import br.com.cezarcruz.gymback.core.domain.ClassRoomDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.classroom.GetClassRoomGateway;
+import br.com.cezarcruz.gymback.core.gateway.classroom.GetClassRoomGateway;
 import jakarta.inject.Named;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;

@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 import br.com.cezarcruz.gymback.core.enums.PaymentStatus;
 import br.com.cezarcruz.gymback.core.enums.PaymentType;
 import br.com.cezarcruz.gymback.fixtures.ContractFixtures;
-import br.com.cezarcruz.gymback.gateway.out.gateway.payment.SavePaymentGateway;
+import br.com.cezarcruz.gymback.core.gateway.payment.SavePaymentGateway;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

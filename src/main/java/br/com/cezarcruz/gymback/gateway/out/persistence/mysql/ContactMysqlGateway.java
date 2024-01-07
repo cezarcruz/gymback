@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gymback.core.domain.ContactDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.contact.SaveContactGateway;
+import br.com.cezarcruz.gymback.core.gateway.contact.SaveContactGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.ContactPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ContactRepository;
 import java.util.List;

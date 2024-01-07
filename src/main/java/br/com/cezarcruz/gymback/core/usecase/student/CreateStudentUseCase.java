@@ -1,9 +1,9 @@
 package br.com.cezarcruz.gymback.core.usecase.student;
 
 import br.com.cezarcruz.gymback.core.domain.StudentDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.contact.SaveContactGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.student.SaveAddressGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.student.SaveStudentGateway;
+import br.com.cezarcruz.gymback.core.gateway.contact.SaveContactGateway;
+import br.com.cezarcruz.gymback.core.gateway.student.SaveAddressGateway;
+import br.com.cezarcruz.gymback.core.gateway.student.SaveStudentGateway;
 import jakarta.inject.Named;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

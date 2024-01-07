@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gymback.core.domain.AddressDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.student.SaveAddressGateway;
+import br.com.cezarcruz.gymback.core.gateway.student.SaveAddressGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.AddressPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.AddressRepository;
 import lombok.RequiredArgsConstructor;

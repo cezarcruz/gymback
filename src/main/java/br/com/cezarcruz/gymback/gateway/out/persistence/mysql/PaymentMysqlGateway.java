@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gymback.core.domain.PaymentDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.payment.SavePaymentGateway;
+import br.com.cezarcruz.gymback.core.gateway.payment.SavePaymentGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.PaymentPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.PaymentRepository;
 import java.util.List;

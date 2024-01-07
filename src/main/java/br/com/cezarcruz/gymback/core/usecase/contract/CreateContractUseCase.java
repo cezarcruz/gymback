@@ -4,9 +4,9 @@ import br.com.cezarcruz.gymback.core.domain.ContractDomain;
 import br.com.cezarcruz.gymback.core.exceptions.ClassRoomNotFountException;
 import br.com.cezarcruz.gymback.core.exceptions.StudentNotFoundException;
 import br.com.cezarcruz.gymback.core.usecase.payment.CreatePaymentUseCase;
-import br.com.cezarcruz.gymback.gateway.out.gateway.classroom.GetClassRoomGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.contract.SaveContractGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.student.GetStudentGateway;
+import br.com.cezarcruz.gymback.core.gateway.classroom.GetClassRoomGateway;
+import br.com.cezarcruz.gymback.core.gateway.contract.SaveContractGateway;
+import br.com.cezarcruz.gymback.core.gateway.student.GetStudentGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

@@ -4,7 +4,7 @@ import br.com.cezarcruz.gymback.core.domain.ContractDomain;
 import br.com.cezarcruz.gymback.core.domain.PaymentDomain;
 import br.com.cezarcruz.gymback.core.enums.PaymentStatus;
 import br.com.cezarcruz.gymback.core.enums.PaymentType;
-import br.com.cezarcruz.gymback.gateway.out.gateway.payment.SavePaymentGateway;
+import br.com.cezarcruz.gymback.core.gateway.payment.SavePaymentGateway;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gymback.core.domain.StudentDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.student.GetStudentGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.student.SaveStudentGateway;
+import br.com.cezarcruz.gymback.core.gateway.student.GetStudentGateway;
+import br.com.cezarcruz.gymback.core.gateway.student.SaveStudentGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.StudentPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.StudentRepository;
 import java.util.Optional;

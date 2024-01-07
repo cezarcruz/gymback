@@ -2,9 +2,9 @@ package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gymback.core.domain.PageDomain;
 import br.com.cezarcruz.gymback.core.domain.Teacher;
-import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.DeleteTeacherGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.SaveTeacherGateway;
+import br.com.cezarcruz.gymback.core.gateway.teacher.DeleteTeacherGateway;
+import br.com.cezarcruz.gymback.core.gateway.teacher.GetTeacherGateway;
+import br.com.cezarcruz.gymback.core.gateway.teacher.SaveTeacherGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.TeacherPersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.TeacherRepository;
 import java.util.Optional;

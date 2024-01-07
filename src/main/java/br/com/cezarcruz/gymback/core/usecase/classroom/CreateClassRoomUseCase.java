@@ -1,10 +1,10 @@
 package br.com.cezarcruz.gymback.core.usecase.classroom;
 
 import br.com.cezarcruz.gymback.core.domain.ClassRoomDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.classroom.SaveClassRoomGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.modality.GetModalityGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.schedule.SaveScheduleGateway;
-import br.com.cezarcruz.gymback.gateway.out.gateway.teacher.GetTeacherGateway;
+import br.com.cezarcruz.gymback.core.gateway.classroom.SaveClassRoomGateway;
+import br.com.cezarcruz.gymback.core.gateway.modality.GetModalityGateway;
+import br.com.cezarcruz.gymback.core.gateway.schedule.SaveScheduleGateway;
+import br.com.cezarcruz.gymback.core.gateway.teacher.GetTeacherGateway;
 import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
 

@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gymback.core.domain.ScheduleDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.schedule.SaveScheduleGateway;
+import br.com.cezarcruz.gymback.core.gateway.schedule.SaveScheduleGateway;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.mapper.SchedulePersistenceMapper;
 import br.com.cezarcruz.gymback.gateway.out.persistence.mysql.repository.ScheduleRepository;
 import java.util.List;

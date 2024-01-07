@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.core.usecase.modality;
 
 import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
-import br.com.cezarcruz.gymback.gateway.out.gateway.modality.GetModalityGateway;
+import br.com.cezarcruz.gymback.core.gateway.modality.GetModalityGateway;
 import jakarta.inject.Named;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
