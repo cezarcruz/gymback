@@ -13,6 +13,6 @@ import org.mapstruct.MappingConstants.ComponentModel;
 public interface AddressMapper {
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "addressNumber", source = "num")
-  AddressDomain from(final CreateAddressRequest source);
-  AddressResponse from(final AddressDomain source);
+  AddressDomain fromRequest(final CreateAddressRequest source);
+  AddressResponse fromDomain(final AddressDomain source);
 }

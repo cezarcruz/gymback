@@ -10,7 +10,7 @@ import org.mapstruct.MappingConstants.ComponentModel;
 )
 public interface AddressPersistenceMapper {
 
-  AddressEntity from(final AddressDomain address);
-  AddressDomain from(final AddressEntity addressEntity);
+  AddressEntity fromDomain(final AddressDomain address);
+  AddressDomain fromEntity(final AddressEntity addressEntity);
 
 }

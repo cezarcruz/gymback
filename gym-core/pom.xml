@@ -12,7 +12,7 @@
 
   <artifactId>gym-core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>core</name>
+  <name>gym-core</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>
@@ -80,6 +80,16 @@
             </path>
             <!-- other annotation processors -->
           </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
         </configuration>
       </plugin>
     </plugins>

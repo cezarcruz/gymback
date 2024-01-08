@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class RestExceptionHandler {
 
-  private final static Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
+  private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
 
   @ResponseStatus(code = HttpStatus.BAD_REQUEST)
   @ExceptionHandler(MethodArgumentNotValidException.class)

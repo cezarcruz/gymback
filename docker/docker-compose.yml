@@ -41,6 +41,13 @@ services:
     volumes:
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
 
+  sonarqube:
+    image: sonarqube:community
+    hostname: sonarqube
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+
 volumes:
   mysql_volume:
   mongo_volume:

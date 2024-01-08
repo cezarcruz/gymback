@@ -23,6 +23,7 @@
     <module>gym-core</module>
     <module>gym-application</module>
     <module>gym-persistence</module>
+    <module>gym-aggregate-reports</module>
   </modules>
 
   <dependencies>
@@ -34,4 +35,29 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.10</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.sonarsource.scanner.maven</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <version>3.10.0.2594</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>

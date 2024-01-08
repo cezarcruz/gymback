@@ -16,8 +16,8 @@ class AddressMysqlGateway implements SaveAddressGateway {
 
   @Override
   public AddressDomain save(final AddressDomain address) {
-    final var entity = addressPersistenceMapper.from(address);
+    final var entity = addressPersistenceMapper.fromDomain(address);
     final var saved = addressRepository.save(entity);
-    return addressPersistenceMapper.from(saved);
+    return addressPersistenceMapper.fromEntity(saved);
   }
 }
