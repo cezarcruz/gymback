@@ -1,6 +1,6 @@
 package br.com.gymback.core.usecase.teacher;
 
-import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.core.domain.TeacherDomain;
 import br.com.gymback.core.exceptions.TeacherNotFountException;
 import br.com.gymback.core.gateway.teacher.GetTeacherGateway;
 import br.com.gymback.core.gateway.teacher.SaveTeacherGateway;
@@ -14,7 +14,7 @@ public class UpdateTeacherUseCase {
     private final SaveTeacherGateway saveTeacherGateway;
     private final GetTeacherGateway getTeacherGateway;
 
-    public Teacher update(final Teacher teacher) {
+    public TeacherDomain update(final TeacherDomain teacher) {
 
         return getTeacherGateway
             .findById(teacher.id())

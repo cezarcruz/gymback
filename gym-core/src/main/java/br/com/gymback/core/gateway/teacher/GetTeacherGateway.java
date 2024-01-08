@@ -1,11 +1,11 @@
 package br.com.gymback.core.gateway.teacher;
 
 import br.com.gymback.core.domain.PageDomain;
-import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.core.domain.TeacherDomain;
 import java.util.Optional;
 
 public interface GetTeacherGateway {
-  PageDomain<Teacher> getAll(PageDomain<Teacher> page);
+  PageDomain<TeacherDomain> getAll(PageDomain<TeacherDomain> page);
 
-  Optional<Teacher> findById(final String id);
+  Optional<TeacherDomain> findById(final String id);
 }

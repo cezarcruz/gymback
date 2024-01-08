@@ -1,9 +1,9 @@
 package br.com.gymback.persistence.out.mysql;
 
+import br.com.gymback.core.domain.TeacherDomain;
 import br.com.gymback.persistence.out.mysql.mapper.TeacherPersistenceMapper;
 import br.com.gymback.persistence.out.mysql.repository.TeacherRepository;
 import br.com.gymback.core.domain.PageDomain;
-import br.com.gymback.core.domain.Teacher;
 import br.com.gymback.core.gateway.teacher.DeleteTeacherGateway;
 import br.com.gymback.core.gateway.teacher.GetTeacherGateway;
 import br.com.gymback.core.gateway.teacher.SaveTeacherGateway;
@@ -21,7 +21,7 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   private final TeacherPersistenceMapper teacherPersistenceMapper;
 
   @Override
-  public Teacher save(final Teacher teacher) {
+  public TeacherDomain save(final TeacherDomain teacher) {
     final var entity = teacherPersistenceMapper.from(teacher);
     final var saved = teacherRepository.save(entity);
     return teacherPersistenceMapper.from(saved);
@@ -33,7 +33,7 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   }
 
   @Override
-  public PageDomain<Teacher> getAll(final PageDomain<Teacher> page) {
+  public PageDomain<TeacherDomain> getAll(final PageDomain<TeacherDomain> page) {
 
     var pageRequest = PageRequest.of(page.getPage(), page.getSize());
 
@@ -52,7 +52,7 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   }
 
   @Override
-  public Optional<Teacher> findById(final String id) {
+  public Optional<TeacherDomain> findById(final String id) {
     return teacherRepository.findById(id)
         .map(teacherPersistenceMapper::from);
   }

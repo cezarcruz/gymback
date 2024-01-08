@@ -1,7 +1,7 @@
 package br.com.gymback.core.usecase.teacher;
 
 import br.com.gymback.core.domain.PageDomain;
-import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.core.domain.TeacherDomain;
 import br.com.gymback.core.gateway.teacher.GetTeacherGateway;
 import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class GetTeacherUseCase {
 
     private final GetTeacherGateway getTeacherGateway;
 
-    public PageDomain<Teacher> getAll(final PageDomain<Teacher> page) {
+    public PageDomain<TeacherDomain> getAll(final PageDomain<TeacherDomain> page) {
         log.info("listing all teachers");
         return getTeacherGateway.getAll(page);
     }

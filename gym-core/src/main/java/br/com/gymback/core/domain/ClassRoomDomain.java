@@ -13,7 +13,7 @@ public record ClassRoomDomain(
     @With
     ModalityDomain modality,
     @With
-    Teacher teacher,
+    TeacherDomain teacher,
     @With
     List<ScheduleDomain> schedule,
 

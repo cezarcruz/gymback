@@ -5,13 +5,11 @@ import br.com.gymback.application.rest.dto.request.GetPagingRequest;
 import br.com.gymback.application.rest.dto.request.UpdateTeacherRequest;
 import br.com.gymback.application.rest.dto.response.PageResponse;
 import br.com.gymback.application.rest.dto.response.TeacherResponse;
-import br.com.gymback.core.domain.PageDomain;
-import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.application.rest.mapper.TeacherMapper;
 import br.com.gymback.core.usecase.teacher.CreateTeacherUseCase;
 import br.com.gymback.core.usecase.teacher.DeleteTeacherUseCase;
 import br.com.gymback.core.usecase.teacher.GetTeacherUseCase;
 import br.com.gymback.core.usecase.teacher.UpdateTeacherUseCase;
-import br.com.gymback.application.rest.mapper.TeacherMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
@@ -51,7 +49,7 @@ public class TeacherController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public PageResponse<TeacherResponse> getAll(@ParameterObject final GetPagingRequest paging) {
-        var page = new PageDomain<Teacher>(paging.page(), paging.size());
+        var page = teacherMapper.fromRequest(paging);
 
         final var pagedTeachers = getTeacherUseCase.getAll(page);
         return teacherMapper.fromPageDomain(pagedTeachers);

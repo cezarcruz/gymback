@@ -1,6 +1,6 @@
 package br.com.gymback.core.usecase.teacher;
 
-import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.core.domain.TeacherDomain;
 import br.com.gymback.core.gateway.contact.SaveContactGateway;
 import br.com.gymback.core.gateway.teacher.SaveTeacherGateway;
 import jakarta.inject.Named;
@@ -14,7 +14,7 @@ public class CreateTeacherUseCase {
   private final SaveContactGateway saveContactGateway;
 
 
-  public Teacher create(final Teacher teacher) {
+  public TeacherDomain create(final TeacherDomain teacher) {
     var contacts = saveContactGateway.save(teacher.contacts());
     return saveTeacherGateway.save(teacher.withContacts(contacts));
   }
