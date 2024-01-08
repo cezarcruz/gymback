@@ -4,10 +4,10 @@ import br.com.cezarcruz.gymback.application.rest.dto.request.CreateModalityReque
 import br.com.cezarcruz.gymback.application.rest.dto.request.UpdateModalityRequest;
 import br.com.cezarcruz.gymback.application.rest.dto.response.ModalityResponse;
 import br.com.cezarcruz.gymback.application.rest.mapper.ModalityMapper;
-import br.com.cezarcruz.gymback.core.usecase.modality.CreateModalityUseCase;
-import br.com.cezarcruz.gymback.core.usecase.modality.DeleteModalityUseCase;
-import br.com.cezarcruz.gymback.core.usecase.modality.GetModalityUseCase;
-import br.com.cezarcruz.gymback.core.usecase.modality.UpdateModalityUseCase;
+import br.com.gymback.core.usecase.modality.CreateModalityUseCase;
+import br.com.gymback.core.usecase.modality.DeleteModalityUseCase;
+import br.com.gymback.core.usecase.modality.GetModalityUseCase;
+import br.com.gymback.core.usecase.modality.UpdateModalityUseCase;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;

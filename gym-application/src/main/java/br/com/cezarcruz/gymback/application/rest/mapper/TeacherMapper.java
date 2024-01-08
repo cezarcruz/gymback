@@ -5,10 +5,10 @@ import br.com.cezarcruz.gymback.application.rest.dto.request.CreateTeacherReques
 import br.com.cezarcruz.gymback.application.rest.dto.request.UpdateTeacherRequest;
 import br.com.cezarcruz.gymback.application.rest.dto.response.PageResponse;
 import br.com.cezarcruz.gymback.application.rest.dto.response.TeacherResponse;
-import br.com.cezarcruz.gymback.core.domain.ContactDomain;
-import br.com.cezarcruz.gymback.core.domain.PageDomain;
-import br.com.cezarcruz.gymback.core.domain.Teacher;
-import br.com.cezarcruz.gymback.core.enums.ContactType;
+import br.com.gymback.core.domain.ContactDomain;
+import br.com.gymback.core.domain.PageDomain;
+import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.core.enums.ContactType;
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

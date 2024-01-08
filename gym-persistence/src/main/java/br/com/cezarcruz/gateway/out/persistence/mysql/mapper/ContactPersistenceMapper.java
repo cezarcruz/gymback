@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gateway.out.persistence.mysql.mapper;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.entity.ContactEntity;
-import br.com.cezarcruz.gymback.core.domain.ContactDomain;
+import br.com.gymback.core.domain.ContactDomain;
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;

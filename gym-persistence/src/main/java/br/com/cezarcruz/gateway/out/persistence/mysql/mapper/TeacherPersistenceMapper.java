@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gateway.out.persistence.mysql.mapper;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.entity.TeacherEntity;
-import br.com.cezarcruz.gymback.core.domain.Teacher;
+import br.com.gymback.core.domain.Teacher;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
 

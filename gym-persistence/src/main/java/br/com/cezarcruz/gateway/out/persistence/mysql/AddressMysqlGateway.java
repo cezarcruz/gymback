@@ -2,8 +2,8 @@ package br.com.cezarcruz.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.mapper.AddressPersistenceMapper;
 import br.com.cezarcruz.gateway.out.persistence.mysql.repository.AddressRepository;
-import br.com.cezarcruz.gymback.core.domain.AddressDomain;
-import br.com.cezarcruz.gymback.core.gateway.student.SaveAddressGateway;
+import br.com.gymback.core.domain.AddressDomain;
+import br.com.gymback.core.gateway.student.SaveAddressGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

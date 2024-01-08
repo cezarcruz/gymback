@@ -2,7 +2,7 @@ package br.com.cezarcruz.gymback.application.config.handler;
 
 import br.com.cezarcruz.gymback.application.config.handler.validation.dto.ErrorMessageResponse;
 import br.com.cezarcruz.gymback.application.config.handler.validation.dto.ErrorResponse;
-import br.com.cezarcruz.gymback.core.exceptions.NotFoundException;
+import br.com.gymback.core.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

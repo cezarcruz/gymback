@@ -2,11 +2,11 @@ package br.com.cezarcruz.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.mapper.TeacherPersistenceMapper;
 import br.com.cezarcruz.gateway.out.persistence.mysql.repository.TeacherRepository;
-import br.com.cezarcruz.gymback.core.domain.PageDomain;
-import br.com.cezarcruz.gymback.core.domain.Teacher;
-import br.com.cezarcruz.gymback.core.gateway.teacher.DeleteTeacherGateway;
-import br.com.cezarcruz.gymback.core.gateway.teacher.GetTeacherGateway;
-import br.com.cezarcruz.gymback.core.gateway.teacher.SaveTeacherGateway;
+import br.com.gymback.core.domain.PageDomain;
+import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.core.gateway.teacher.DeleteTeacherGateway;
+import br.com.gymback.core.gateway.teacher.GetTeacherGateway;
+import br.com.gymback.core.gateway.teacher.SaveTeacherGateway;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;

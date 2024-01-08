@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gateway.out.persistence.mysql.entity;
 
-import br.com.cezarcruz.gymback.core.enums.ContractStatus;
-import br.com.cezarcruz.gymback.core.enums.ContractType;
+import br.com.gymback.core.enums.ContractStatus;
+import br.com.gymback.core.enums.ContractType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.application.rest.mapper;
 
 import br.com.cezarcruz.gymback.application.rest.dto.response.ContactResponse;
-import br.com.cezarcruz.gymback.core.domain.ContactDomain;
+import br.com.gymback.core.domain.ContactDomain;
 import br.com.cezarcruz.gymback.application.rest.dto.request.CreateContactRequest;
 import br.com.cezarcruz.gymback.application.rest.dto.request.UpdateContactRequest;
 import org.mapstruct.Mapper;

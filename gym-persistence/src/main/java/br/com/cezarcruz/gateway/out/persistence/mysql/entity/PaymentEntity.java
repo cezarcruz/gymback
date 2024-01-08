@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gateway.out.persistence.mysql.entity;
 
-import br.com.cezarcruz.gymback.core.enums.PaymentStatus;
-import br.com.cezarcruz.gymback.core.enums.PaymentType;
+import br.com.gymback.core.enums.PaymentStatus;
+import br.com.gymback.core.enums.PaymentType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

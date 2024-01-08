@@ -2,7 +2,7 @@ package br.com.cezarcruz.gymback.application.rest.mapper;
 
 import br.com.cezarcruz.gymback.application.rest.dto.request.CreateScheduleRequest;
 import br.com.cezarcruz.gymback.application.rest.dto.response.ScheduleResponse;
-import br.com.cezarcruz.gymback.core.domain.ScheduleDomain;
+import br.com.gymback.core.domain.ScheduleDomain;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants.ComponentModel;

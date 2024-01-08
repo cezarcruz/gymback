@@ -2,9 +2,9 @@ package br.com.cezarcruz.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.mapper.ClassRoomPersistenceMapper;
 import br.com.cezarcruz.gateway.out.persistence.mysql.repository.ClassRoomRepository;
-import br.com.cezarcruz.gymback.core.domain.ClassRoomDomain;
-import br.com.cezarcruz.gymback.core.gateway.classroom.GetClassRoomGateway;
-import br.com.cezarcruz.gymback.core.gateway.classroom.SaveClassRoomGateway;
+import br.com.gymback.core.domain.ClassRoomDomain;
+import br.com.gymback.core.gateway.classroom.GetClassRoomGateway;
+import br.com.gymback.core.gateway.classroom.SaveClassRoomGateway;
 import jakarta.inject.Named;
 import java.util.Optional;
 import java.util.stream.Stream;

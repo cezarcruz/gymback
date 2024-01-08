@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gymback.application.rest.dto.request;
 
-import br.com.cezarcruz.gymback.core.enums.ContractType;
+import br.com.gymback.core.enums.ContractType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;

@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.application.rest.mapper;
 
 import br.com.cezarcruz.gymback.application.rest.dto.response.PaymentResponse;
-import br.com.cezarcruz.gymback.core.domain.PaymentDomain;
+import br.com.gymback.core.domain.PaymentDomain;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
 

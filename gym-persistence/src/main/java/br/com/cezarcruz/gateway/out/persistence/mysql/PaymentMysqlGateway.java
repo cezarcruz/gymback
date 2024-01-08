@@ -2,8 +2,8 @@ package br.com.cezarcruz.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.mapper.PaymentPersistenceMapper;
 import br.com.cezarcruz.gateway.out.persistence.mysql.repository.PaymentRepository;
-import br.com.cezarcruz.gymback.core.domain.PaymentDomain;
-import br.com.cezarcruz.gymback.core.gateway.payment.SavePaymentGateway;
+import br.com.gymback.core.domain.PaymentDomain;
+import br.com.gymback.core.gateway.payment.SavePaymentGateway;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

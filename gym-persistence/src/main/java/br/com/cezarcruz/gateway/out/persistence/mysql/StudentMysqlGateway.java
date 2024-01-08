@@ -2,9 +2,9 @@ package br.com.cezarcruz.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.mapper.StudentPersistenceMapper;
 import br.com.cezarcruz.gateway.out.persistence.mysql.repository.StudentRepository;
-import br.com.cezarcruz.gymback.core.domain.StudentDomain;
-import br.com.cezarcruz.gymback.core.gateway.student.GetStudentGateway;
-import br.com.cezarcruz.gymback.core.gateway.student.SaveStudentGateway;
+import br.com.gymback.core.domain.StudentDomain;
+import br.com.gymback.core.gateway.student.GetStudentGateway;
+import br.com.gymback.core.gateway.student.SaveStudentGateway;
 import java.util.Optional;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;

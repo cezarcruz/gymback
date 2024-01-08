@@ -2,10 +2,10 @@ package br.com.cezarcruz.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.mapper.ModalityPersistenceMapper;
 import br.com.cezarcruz.gateway.out.persistence.mysql.repository.ModalityRepository;
-import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
-import br.com.cezarcruz.gymback.core.gateway.modality.DeleteModalityGateway;
-import br.com.cezarcruz.gymback.core.gateway.modality.GetModalityGateway;
-import br.com.cezarcruz.gymback.core.gateway.modality.SaveModalityGateway;
+import br.com.gymback.core.domain.ModalityDomain;
+import br.com.gymback.core.gateway.modality.DeleteModalityGateway;
+import br.com.gymback.core.gateway.modality.GetModalityGateway;
+import br.com.gymback.core.gateway.modality.SaveModalityGateway;
 import java.util.Optional;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;

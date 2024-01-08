@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gymback.application.rest.mapper;
 
 import br.com.cezarcruz.gymback.application.rest.dto.response.ModalityResponse;
-import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
+import br.com.gymback.core.domain.ModalityDomain;
 import br.com.cezarcruz.gymback.application.rest.dto.request.CreateModalityRequest;
 import br.com.cezarcruz.gymback.application.rest.dto.request.UpdateModalityRequest;
 import org.mapstruct.Mapper;

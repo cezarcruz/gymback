@@ -1,6 +1,6 @@
 package br.com.cezarcruz.gateway.out.persistence.mysql.entity;
 
-import br.com.cezarcruz.gymback.core.enums.ContactType;
+import br.com.gymback.core.enums.ContactType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

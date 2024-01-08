@@ -2,8 +2,8 @@ package br.com.cezarcruz.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.mapper.ContactPersistenceMapper;
 import br.com.cezarcruz.gateway.out.persistence.mysql.repository.ContactRepository;
-import br.com.cezarcruz.gymback.core.domain.ContactDomain;
-import br.com.cezarcruz.gymback.core.gateway.contact.SaveContactGateway;
+import br.com.gymback.core.domain.ContactDomain;
+import br.com.gymback.core.gateway.contact.SaveContactGateway;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

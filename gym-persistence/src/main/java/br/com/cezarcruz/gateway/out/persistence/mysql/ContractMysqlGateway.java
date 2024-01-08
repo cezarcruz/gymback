@@ -2,8 +2,8 @@ package br.com.cezarcruz.gateway.out.persistence.mysql;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.mapper.ContractPersistenceMapper;
 import br.com.cezarcruz.gateway.out.persistence.mysql.repository.ContractRepository;
-import br.com.cezarcruz.gymback.core.domain.ContractDomain;
-import br.com.cezarcruz.gymback.core.gateway.contract.SaveContractGateway;
+import br.com.gymback.core.domain.ContractDomain;
+import br.com.gymback.core.gateway.contract.SaveContractGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

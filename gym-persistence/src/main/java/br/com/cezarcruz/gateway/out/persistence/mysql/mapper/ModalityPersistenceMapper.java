@@ -1,7 +1,7 @@
 package br.com.cezarcruz.gateway.out.persistence.mysql.mapper;
 
 import br.com.cezarcruz.gateway.out.persistence.mysql.entity.ModalityEntity;
-import br.com.cezarcruz.gymback.core.domain.ModalityDomain;
+import br.com.gymback.core.domain.ModalityDomain;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
 

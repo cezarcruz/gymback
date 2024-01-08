@@ -3,7 +3,7 @@ package br.com.cezarcruz.gymback.application.rest;
 import br.com.cezarcruz.gymback.application.rest.dto.request.CreateContractRequest;
 import br.com.cezarcruz.gymback.application.rest.dto.response.ContractResponse;
 import br.com.cezarcruz.gymback.application.rest.mapper.ContractMapper;
-import br.com.cezarcruz.gymback.core.usecase.contract.CreateContractUseCase;
+import br.com.gymback.core.usecase.contract.CreateContractUseCase;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

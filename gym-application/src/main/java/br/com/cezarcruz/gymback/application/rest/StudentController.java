@@ -2,8 +2,8 @@ package br.com.cezarcruz.gymback.application.rest;
 
 import br.com.cezarcruz.gymback.application.rest.dto.request.CreateStudentRequest;
 import br.com.cezarcruz.gymback.application.rest.dto.response.StudentResponse;
-import br.com.cezarcruz.gymback.core.usecase.student.CreateStudentUseCase;
-import br.com.cezarcruz.gymback.core.usecase.student.GetStudentUseCase;
+import br.com.gymback.core.usecase.student.CreateStudentUseCase;
+import br.com.gymback.core.usecase.student.GetStudentUseCase;
 import br.com.cezarcruz.gymback.application.rest.mapper.StudentMapper;
 import jakarta.validation.Valid;
 import java.util.List;

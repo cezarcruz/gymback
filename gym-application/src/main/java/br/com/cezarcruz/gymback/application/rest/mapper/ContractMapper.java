@@ -1,9 +1,9 @@
 package br.com.cezarcruz.gymback.application.rest.mapper;
 
 import br.com.cezarcruz.gymback.application.rest.dto.response.ContractResponse;
-import br.com.cezarcruz.gymback.core.domain.ClassRoomDomain;
-import br.com.cezarcruz.gymback.core.domain.ContractDomain;
-import br.com.cezarcruz.gymback.core.domain.StudentDomain;
+import br.com.gymback.core.domain.ClassRoomDomain;
+import br.com.gymback.core.domain.ContractDomain;
+import br.com.gymback.core.domain.StudentDomain;
 import br.com.cezarcruz.gymback.application.rest.dto.request.CreateContractRequest;
 import java.util.Objects;
 import org.mapstruct.Mapper;
