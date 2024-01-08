@@ -2,7 +2,7 @@ package br.com.cezarcruz.gymback.core.fixtures;
 
 import static org.instancio.Select.field;
 
-import br.com.cezarcruz.gymback.core.domain.ContractDomain;
+import br.com.gymback.core.domain.ContractDomain;
 import java.time.Month;
 import org.instancio.Instancio;
 

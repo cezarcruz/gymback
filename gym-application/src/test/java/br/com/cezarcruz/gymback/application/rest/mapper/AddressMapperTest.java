@@ -2,6 +2,8 @@ package br.com.cezarcruz.gymback.application.rest.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import br.com.gymback.application.rest.mapper.AddressMapper;
+import br.com.gymback.application.rest.mapper.AddressMapperImpl;
 import org.junit.jupiter.api.Test;
 
 class AddressMapperTest {
