@@ -1,7 +1,7 @@
 package br.com.gymback.core.gateway.teacher;
 
-import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.core.domain.TeacherDomain;
 
 public interface SaveTeacherGateway {
-  Teacher save(final Teacher teacher);
+  TeacherDomain save(final TeacherDomain teacher);
 }

@@ -19,5 +19,4 @@ public class PageDomain<T> {
     this.page = page;
     this.size = size;
   }
-
 }

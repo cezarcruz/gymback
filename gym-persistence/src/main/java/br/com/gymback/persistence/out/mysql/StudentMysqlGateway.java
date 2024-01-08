@@ -1,10 +1,10 @@
 package br.com.gymback.persistence.out.mysql;
 
-import br.com.gymback.persistence.out.mysql.mapper.StudentPersistenceMapper;
-import br.com.gymback.persistence.out.mysql.repository.StudentRepository;
 import br.com.gymback.core.domain.StudentDomain;
 import br.com.gymback.core.gateway.student.GetStudentGateway;
 import br.com.gymback.core.gateway.student.SaveStudentGateway;
+import br.com.gymback.persistence.out.mysql.mapper.StudentPersistenceMapper;
+import br.com.gymback.persistence.out.mysql.repository.StudentRepository;
 import java.util.Optional;
 import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;

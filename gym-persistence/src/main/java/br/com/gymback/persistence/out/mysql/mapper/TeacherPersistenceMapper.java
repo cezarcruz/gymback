@@ -1,7 +1,7 @@
 package br.com.gymback.persistence.out.mysql.mapper;
 
 import br.com.gymback.persistence.out.mysql.entity.TeacherEntity;
-import br.com.gymback.core.domain.Teacher;
+import br.com.gymback.core.domain.TeacherDomain;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
 
@@ -10,6 +10,6 @@ import org.mapstruct.MappingConstants.ComponentModel;
     uses = ContactPersistenceMapper.class
 )
 public interface TeacherPersistenceMapper {
-  TeacherEntity from(final Teacher teacher);
-  Teacher from(final TeacherEntity teacher);
+  TeacherEntity from(final TeacherDomain teacher);
+  TeacherDomain from(final TeacherEntity teacher);
 }

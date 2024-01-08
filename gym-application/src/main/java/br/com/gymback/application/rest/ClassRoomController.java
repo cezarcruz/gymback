@@ -1,14 +1,15 @@
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.CreateClassRoomRequest;
+import br.com.gymback.application.rest.dto.request.GetPagingRequest;
 import br.com.gymback.application.rest.dto.response.ClassRoomResponse;
+import br.com.gymback.application.rest.dto.response.PageResponse;
 import br.com.gymback.application.rest.mapper.ClassRoomMapper;
 import br.com.gymback.core.usecase.classroom.CreateClassRoomUseCase;
 import br.com.gymback.core.usecase.classroom.GetClassRoomUseCase;
 import jakarta.validation.Valid;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,10 +40,12 @@ public class ClassRoomController {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public List<ClassRoomResponse> findAll() {
-    return getClassRoomUseCase.findAll()
-        .map(classRoomMapper::from)
-        .collect(Collectors.toList());
+  public PageResponse<ClassRoomResponse> findAll(@ParameterObject final GetPagingRequest paging) {
+
+    var page = classRoomMapper.fromRequest(paging);
+
+    var pagedClasses =  getClassRoomUseCase.findAll(page);
+    return classRoomMapper.fromPageDomain(pagedClasses);
   }
 
 }
