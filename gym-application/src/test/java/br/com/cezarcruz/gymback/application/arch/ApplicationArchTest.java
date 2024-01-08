@@ -2,16 +2,20 @@ package br.com.cezarcruz.gymback.application.arch;
 
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
+import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.library.Architectures;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.bind.annotation.RestController;
 
 public class ApplicationArchTest {
 
+  private static final JavaClasses IMPORTED_CLASSES = new ClassFileImporter().importPackages("br.com.cezarcruz.gymback.application");
+
   @Test
   void validateApplicationModuleArch() {
-    final var importedClasses = new ClassFileImporter().importPackages("br.com.cezarcruz.gymback.application");
 
     final var rule =
         classes().that()
@@ -26,7 +30,20 @@ public class ApplicationArchTest {
 
         ;
 
-    rule.check(importedClasses);
+    rule.check(IMPORTED_CLASSES);
+  }
+
+  @Test
+  void layerArchValidations() {
+    final var layers = layeredArchitecture()
+        .consideringAllDependencies()
+        .layer("Controller")
+        .definedBy("..rest..")
+        .whereLayer("Controller")
+        .mayNotBeAccessedByAnyLayer();
+
+    layers.check(IMPORTED_CLASSES);
+
   }
 
 }
