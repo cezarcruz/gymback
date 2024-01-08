@@ -1,6 +1,8 @@
 package br.com.cezarcruz.gymback.application.config.handler;
 
 import br.com.cezarcruz.gymback.application.config.handler.validation.dto.ErrorMessageResponse;
+import br.com.cezarcruz.gymback.application.config.handler.validation.dto.ErrorResponse;
+import br.com.cezarcruz.gymback.core.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,15 @@ public class RestExceptionHandler {
         .map(ErrorMessageResponse::factory)
         .collect(Collectors.toList());
 
+  }
+
+  @ResponseStatus(code = HttpStatus.NOT_FOUND)
+  @ExceptionHandler(NotFoundException.class)
+  public ErrorResponse handle(final NotFoundException exception) {
+
+    log.error("error trying to get some resource", exception);
+
+    return new ErrorResponse(HttpStatus.NOT_FOUND.value(), exception.getMessage());
   }
 
 }

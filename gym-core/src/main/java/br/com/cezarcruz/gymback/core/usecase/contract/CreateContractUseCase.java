@@ -24,11 +24,11 @@ public class CreateContractUseCase {
 
     var student =
         getStudentGateway.findById(contract.getStudent().id())
-            .orElseThrow(StudentNotFoundException::new);
+            .orElseThrow(() -> new StudentNotFoundException(contract.getStudent().id()));
 
     var classRoom =
         getClassRoomGateway.findById(contract.getClassRoom().id())
-            .orElseThrow(ClassRoomNotFountException::new);
+            .orElseThrow(() -> new ClassRoomNotFountException(contract.getClassRoom().id()));
 
     var contractToCreatePayments =
         contract

@@ -22,7 +22,7 @@ public class UpdateTeacherUseCase {
                 .name(teacher.name())
                 .build())
             .map(saveTeacherGateway::save)
-            .orElseThrow(TeacherNotFountException::new);
+            .orElseThrow(() -> new TeacherNotFountException(teacher.id()));
     }
 
 }

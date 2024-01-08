@@ -1,5 +1,13 @@
 package br.com.cezarcruz.gymback.core.exceptions;
 
-public class ClassRoomNotFountException extends RuntimeException {
+public class ClassRoomNotFountException extends NotFoundException {
 
+  public ClassRoomNotFountException(final String id) {
+    super(id);
+  }
+
+  @Override
+  public String getResource() {
+    return "classroom";
+  }
 }

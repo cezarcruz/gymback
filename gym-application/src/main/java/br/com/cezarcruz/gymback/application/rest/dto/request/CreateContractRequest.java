@@ -3,14 +3,17 @@ package br.com.cezarcruz.gymback.application.rest.dto.request;
 import br.com.cezarcruz.gymback.core.enums.ContractType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Month;
 
 public record CreateContractRequest(
     @NotNull
+    @NotBlank
     String student,
     @NotNull
+    @NotBlank
     String classRoom,
     BigDecimal discount,
     @NotNull
