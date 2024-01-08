@@ -1,9 +1,9 @@
 package br.com.gymback.core.gateway;
 
+import br.com.gymback.core.domain.PageDomain;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public interface GetGateway<T> {
-  Stream<T> findAll();
+  PageDomain<T> findAll(PageDomain<T> page);
   Optional<T> findById(final String id);
 }

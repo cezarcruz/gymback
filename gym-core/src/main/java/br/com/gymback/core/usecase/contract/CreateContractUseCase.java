@@ -17,7 +17,6 @@ public class CreateContractUseCase {
   private final SaveContractGateway saveContractGateway;
   private final GetStudentGateway getStudentGateway;
   private final GetClassRoomGateway getClassRoomGateway;
-
   private final CreatePaymentUseCase createPaymentUseCase;
 
   public ContractDomain create(final ContractDomain contract) {

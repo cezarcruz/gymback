@@ -1,9 +1,9 @@
 package br.com.gymback.core.usecase.student;
 
+import br.com.gymback.core.domain.PageDomain;
 import br.com.gymback.core.domain.StudentDomain;
 import br.com.gymback.core.gateway.student.GetStudentGateway;
 import jakarta.inject.Named;
-import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 
 @Named
@@ -12,8 +12,8 @@ public class GetStudentUseCase {
 
   private final GetStudentGateway getStudentGateway;
 
-  public Stream<StudentDomain> findAll() {
-    return getStudentGateway.findAll();
+  public PageDomain<StudentDomain> findAll(final PageDomain<StudentDomain> page) {
+    return getStudentGateway.findAll(page);
   }
 
 }

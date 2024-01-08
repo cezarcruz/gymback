@@ -22,9 +22,9 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
 
   @Override
   public TeacherDomain save(final TeacherDomain teacher) {
-    final var entity = teacherPersistenceMapper.from(teacher);
+    final var entity = teacherPersistenceMapper.toEntity(teacher);
     final var saved = teacherRepository.save(entity);
-    return teacherPersistenceMapper.from(saved);
+    return teacherPersistenceMapper.toDomain(saved);
   }
 
   @Override
@@ -34,26 +34,14 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
 
   @Override
   public PageDomain<TeacherDomain> getAll(final PageDomain<TeacherDomain> page) {
-
     var pageRequest = PageRequest.of(page.getPage(), page.getSize());
-
     final var pagedTeachers = teacherRepository.findAllWithPerformance(pageRequest);
-
-    var values = pagedTeachers
-        .stream()
-        .map(teacherPersistenceMapper::from)
-        .toList();
-
-    return page.toBuilder()
-        .elements(values)
-        .totalElements(pagedTeachers.getTotalElements())
-        .totalPages(pagedTeachers.getTotalPages())
-        .build();
+    return teacherPersistenceMapper.toPageDomain(page, pagedTeachers);
   }
 
   @Override
   public Optional<TeacherDomain> findById(final String id) {
     return teacherRepository.findById(id)
-        .map(teacherPersistenceMapper::from);
+        .map(teacherPersistenceMapper::toDomain);
   }
 }
