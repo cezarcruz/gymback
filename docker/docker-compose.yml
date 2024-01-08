@@ -21,6 +21,9 @@ services:
     image: prom/prometheus:v2.44.0
     container_name: prometheus
     network_mode: host
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
@@ -37,6 +40,13 @@ services:
     network_mode: host
     volumes:
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+
+  sonarqube:
+    image: sonarqube:community
+    hostname: sonarqube
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
 
 volumes:
   mysql_volume:

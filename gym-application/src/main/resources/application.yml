@@ -1,0 +1,32 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: gym-back
+  threads:
+    virtual:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        query:
+          fail_on_pagination_over_collection_fetch: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/gym?queryInterceptors=brave.mysql8.TracingQueryInterceptor&exceptionInterceptors=brave.mysql8.TracingExceptionInterceptor
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["prometheus"]
+  tracing:
+    sampling:
+      probability: 0.1
