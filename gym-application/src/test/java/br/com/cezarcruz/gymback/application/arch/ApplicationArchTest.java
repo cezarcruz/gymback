@@ -6,13 +6,12 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import com.tngtech.archunit.library.Architectures;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.bind.annotation.RestController;
 
 public class ApplicationArchTest {
 
-  private static final JavaClasses IMPORTED_CLASSES = new ClassFileImporter().importPackages("br.com.cezarcruz.gymback.application");
+  private static final JavaClasses IMPORTED_CLASSES = new ClassFileImporter().importPackages("br.com.gymback.application");
 
   @Test
   void validateApplicationModuleArch() {
@@ -23,10 +22,10 @@ public class ApplicationArchTest {
             .should()
               .haveNameMatching(".*Controller")
             .andShould()
-              .resideInAPackage("br.com.cezarcruz.gymback.application.rest")
+              .resideInAPackage("br.com.gymback.application.rest")
             .andShould()
               .onlyHaveDependentClassesThat()
-            .resideInAnyPackage("br.com.cezarcruz.gymback.application.rest.mapper", "br.com.cezarcruz.gymback.core.usecase.teacher")
+            .resideInAnyPackage("br.com.gymback.application.rest.mapper", "br.com.gymback.core.usecase")
 
         ;
 
