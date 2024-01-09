@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.core.usecase.payment;
+package br.com.gymback.core.usecase.payment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,9 +9,8 @@ import static org.mockito.Mockito.when;
 
 import br.com.gymback.core.enums.PaymentStatus;
 import br.com.gymback.core.enums.PaymentType;
-import br.com.cezarcruz.gymback.core.fixtures.ContractFixtures;
+import br.com.gymback.core.fixtures.ContractFixtures;
 import br.com.gymback.core.gateway.payment.SavePaymentGateway;
-import br.com.gymback.core.usecase.payment.CreatePaymentUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.application.rest.mapper;
+package br.com.gymback.application.rest.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 

@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.application;
+package br.com.gymback.application;
 
 
 import org.junit.jupiter.api.Disabled;

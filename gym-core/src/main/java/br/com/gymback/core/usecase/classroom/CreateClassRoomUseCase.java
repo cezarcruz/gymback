@@ -1,6 +1,8 @@
 package br.com.gymback.core.usecase.classroom;
 
 import br.com.gymback.core.domain.ClassRoomDomain;
+import br.com.gymback.core.exceptions.ModalityNotFountException;
+import br.com.gymback.core.exceptions.TeacherNotFountException;
 import br.com.gymback.core.gateway.classroom.SaveClassRoomGateway;
 import br.com.gymback.core.gateway.modality.GetModalityGateway;
 import br.com.gymback.core.gateway.schedule.SaveScheduleGateway;
@@ -21,11 +23,11 @@ public class CreateClassRoomUseCase {
 
     var classRoomWithTeacher = getTeacherGateway.findById(classRoom.teacher().id())
         .map(classRoom::withTeacher)
-        .orElseThrow(() -> new RuntimeException("Professor não encontrado"));
+        .orElseThrow(() -> new TeacherNotFountException(classRoom.teacher().id()));
 
     var validClassRoom = getModalityGateway.findById(classRoom.modality().id())
         .map(classRoomWithTeacher::withModality)
-        .orElseThrow(() -> new RuntimeException("Modalidade não encontrada"));
+        .orElseThrow(() -> new ModalityNotFountException(classRoom.modality().id()));
 
     var schedules = saveScheduleGateway.save(classRoom.schedule());
 

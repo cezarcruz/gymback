@@ -1,8 +1,8 @@
-package br.com.cezarcruz.gymback.core.domain;
+package br.com.gymback.core.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import br.com.cezarcruz.gymback.core.fixtures.ContractFixtures;
+import br.com.gymback.core.fixtures.ContractFixtures;
 import java.time.Month;
 import org.junit.jupiter.api.Test;
 

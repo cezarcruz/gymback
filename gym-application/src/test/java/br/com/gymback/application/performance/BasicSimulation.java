@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.application.performance;
+package br.com.gymback.application.performance;
 
 import static io.gatling.javaapi.core.CoreDsl.StringBody;
 import static io.gatling.javaapi.core.CoreDsl.constantUsersPerSec;

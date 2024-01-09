@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.application.arch;
+package br.com.gymback.application.arch;
 
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
@@ -6,18 +6,23 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.core.importer.ImportOption.DoNotIncludeTests;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.bind.annotation.RestController;
 
 public class ApplicationArchTest {
 
-  private static final JavaClasses IMPORTED_CLASSES = new ClassFileImporter().importPackages("br.com.gymback.application");
+  private static final JavaClasses IMPORTED_CLASSES =
+      new ClassFileImporter()
+          .withImportOption(new DoNotIncludeTests())
+          .importPackages("br.com.gymback.application");
 
   @Test
   void validateApplicationModuleArch() {
 
     final var rule =
-        classes().that()
+        classes()
+            .that()
             .areAnnotatedWith(RestController.class)
             .should()
               .haveNameMatching(".*Controller")

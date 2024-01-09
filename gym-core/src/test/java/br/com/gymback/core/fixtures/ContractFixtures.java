@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gymback.core.fixtures;
+package br.com.gymback.core.fixtures;
 
 import static org.instancio.Select.field;
 
