@@ -14,9 +14,9 @@ public class GetTeacherUseCase {
 
     private final GetTeacherGateway getTeacherGateway;
 
-    public PageDomain<TeacherDomain> getAll(final PageDomain<TeacherDomain> page) {
+    public PageDomain<TeacherDomain> findAll(final PageDomain<TeacherDomain> page) {
         log.info("listing all teachers");
-        return getTeacherGateway.getAll(page);
+        return getTeacherGateway.findAll(page);
     }
 
 }

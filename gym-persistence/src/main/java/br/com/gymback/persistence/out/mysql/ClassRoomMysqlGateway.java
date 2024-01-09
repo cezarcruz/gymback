@@ -8,8 +8,6 @@ import br.com.gymback.persistence.out.mysql.mapper.ClassRoomPersistenceMapper;
 import br.com.gymback.persistence.out.mysql.repository.ClassRoomRepository;
 import jakarta.inject.Named;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 
@@ -22,37 +20,22 @@ public class ClassRoomMysqlGateway implements SaveClassRoomGateway, GetClassRoom
 
   @Override
   public ClassRoomDomain save(ClassRoomDomain classRoom) {
-    final var classRoomEntity = classRoomPersistenceMapper.from(classRoom);
+    final var classRoomEntity = classRoomPersistenceMapper.fromDomain(classRoom);
     var saved = classRoomRepository.save(classRoomEntity);
-    return classRoomPersistenceMapper.from(saved);
+    return classRoomPersistenceMapper.fromEntity(saved);
   }
 
   @Override
-  public PageDomain<ClassRoomDomain> getAll(final PageDomain<ClassRoomDomain> page) {
-    var pageRequest = PageRequest.of(page.getPage(), page.getSize());;
+  public PageDomain<ClassRoomDomain> findAll(final PageDomain<ClassRoomDomain> page) {
+    var pageRequest = PageRequest.of(page.getPage(), page.getSize());
     final var pagedValues = classRoomRepository.findAllWithJoin(pageRequest);
-
-     var values = pagedValues
-        .stream()
-        .map(classRoomPersistenceMapper::from)
-         .collect(Collectors.toList());
-
-    return page.toBuilder()
-        .elements(values)
-        .totalElements(pagedValues.getTotalElements())
-        .totalPages(pagedValues.getTotalPages())
-        .build();
-  }
-
-  @Override
-  public Stream<ClassRoomDomain> findAll() {
-    return null;
+    return classRoomPersistenceMapper.toPageDomain(page, pagedValues);
   }
 
   @Override
   public Optional<ClassRoomDomain> findById(String id) {
     return classRoomRepository.findById(id)
-        .map(classRoomPersistenceMapper::from);
+        .map(classRoomPersistenceMapper::fromEntity);
   }
 
 }

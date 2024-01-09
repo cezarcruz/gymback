@@ -2,8 +2,10 @@ package br.com.gymback.application.rest.mapper;
 
 import br.com.gymback.application.rest.dto.request.CreateContactRequest;
 import br.com.gymback.application.rest.dto.request.CreateStudentRequest;
+import br.com.gymback.application.rest.dto.response.PageResponse;
 import br.com.gymback.application.rest.dto.response.StudentResponse;
 import br.com.gymback.core.domain.ContactDomain;
+import br.com.gymback.core.domain.PageDomain;
 import br.com.gymback.core.domain.StudentDomain;
 import br.com.gymback.core.enums.ContactType;
 import java.util.List;
@@ -16,14 +18,14 @@ import org.mapstruct.Named;
     componentModel = ComponentModel.JAKARTA,
     uses = { ContactMapper.class, AddressMapper.class}
 )
-public interface StudentMapper {
+public interface StudentMapper extends PagingMapper<StudentDomain> {
 
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "contacts", source = "contact", qualifiedByName = "fromContactRequest")
   StudentDomain toStudent(final CreateStudentRequest source);
 
   StudentResponse from(final StudentDomain student);
-
+  PageResponse<StudentResponse> fromPageDomain(final PageDomain<StudentDomain> teacher);
 
   @Named("fromContactRequest")
   default List<ContactDomain> fromContactRequest(final CreateContactRequest source) {

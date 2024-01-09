@@ -1,17 +1,18 @@
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.CreateModalityRequest;
+import br.com.gymback.application.rest.dto.request.GetPagingRequest;
 import br.com.gymback.application.rest.dto.request.UpdateModalityRequest;
 import br.com.gymback.application.rest.dto.response.ModalityResponse;
+import br.com.gymback.application.rest.dto.response.PageResponse;
 import br.com.gymback.application.rest.mapper.ModalityMapper;
 import br.com.gymback.core.usecase.modality.CreateModalityUseCase;
 import br.com.gymback.core.usecase.modality.DeleteModalityUseCase;
 import br.com.gymback.core.usecase.modality.GetModalityUseCase;
 import br.com.gymback.core.usecase.modality.UpdateModalityUseCase;
 import jakarta.validation.Valid;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,15 +42,18 @@ public class ModalityController {
       @Valid @RequestBody final CreateModalityRequest createModalityRequest) {
     final var modality = modalityMapper.toModality(createModalityRequest);
     final var createdModality = createModalityUseCase.create(modality);
-    return modalityMapper.from(createdModality);
+    return modalityMapper.toModalityResponse(createdModality);
   }
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public List<ModalityResponse> listAll() {
-    return getModalityUseCase.getAll()
-        .map(modalityMapper::from)
-        .collect(Collectors.toList());
+  public PageResponse<ModalityResponse> listAll(@ParameterObject final GetPagingRequest paging) {
+
+    var page = modalityMapper.fromRequest(paging);
+    final var pagedModalities = getModalityUseCase.findAll(page);
+
+    return modalityMapper.fromPageDomain(pagedModalities);
+
   }
 
   @PutMapping("/{id}")
@@ -58,7 +62,7 @@ public class ModalityController {
       @PathVariable("id") final String id) {
     final var modality = modalityMapper.toModality(id, updateModalityRequest);
     final var updatedModality = updateModalityUseCase.update(modality);
-    return modalityMapper.from(updatedModality);
+    return modalityMapper.toModalityResponse(updatedModality);
   }
 
   @DeleteMapping("/{id}")

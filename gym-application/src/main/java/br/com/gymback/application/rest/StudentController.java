@@ -1,14 +1,15 @@
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.CreateStudentRequest;
+import br.com.gymback.application.rest.dto.request.GetPagingRequest;
+import br.com.gymback.application.rest.dto.response.PageResponse;
 import br.com.gymback.application.rest.dto.response.StudentResponse;
+import br.com.gymback.application.rest.mapper.StudentMapper;
 import br.com.gymback.core.usecase.student.CreateStudentUseCase;
 import br.com.gymback.core.usecase.student.GetStudentUseCase;
-import br.com.gymback.application.rest.mapper.StudentMapper;
 import jakarta.validation.Valid;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,10 +40,10 @@ public class StudentController {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public List<StudentResponse> findAll() {
-    return getStudentUseCase.findAll()
-        .map(studentMapper::from)
-        .collect(Collectors.toList());
+  public PageResponse<StudentResponse> findAll(@ParameterObject final GetPagingRequest paging) {
+    var page = studentMapper.fromRequest(paging);
+    var students =  getStudentUseCase.findAll(page);
+    return studentMapper.fromPageDomain(students);
   }
 
 }

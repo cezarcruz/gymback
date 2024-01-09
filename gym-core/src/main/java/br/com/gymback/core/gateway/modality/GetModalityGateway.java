@@ -1,11 +1,7 @@
 package br.com.gymback.core.gateway.modality;
 
 import br.com.gymback.core.domain.ModalityDomain;
-import java.util.Optional;
-import java.util.stream.Stream;
+import br.com.gymback.core.gateway.GetGateway;
 
-public interface GetModalityGateway {
-  Stream<ModalityDomain> getAll();
-
-  Optional<ModalityDomain> findById(String id);
+public interface GetModalityGateway extends GetGateway<ModalityDomain> {
 }

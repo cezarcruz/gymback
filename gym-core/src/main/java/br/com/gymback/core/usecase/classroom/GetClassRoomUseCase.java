@@ -13,7 +13,7 @@ public class GetClassRoomUseCase {
   private final GetClassRoomGateway getClassRoomGateway;
 
   public PageDomain<ClassRoomDomain> findAll(final PageDomain<ClassRoomDomain> page) {
-    return getClassRoomGateway.getAll(page);
+    return getClassRoomGateway.findAll(page);
   }
 
 }

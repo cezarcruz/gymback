@@ -50,8 +50,7 @@ public class TeacherController {
     @ResponseStatus(HttpStatus.OK)
     public PageResponse<TeacherResponse> getAll(@ParameterObject final GetPagingRequest paging) {
         var page = teacherMapper.fromRequest(paging);
-
-        final var pagedTeachers = getTeacherUseCase.getAll(page);
+        var pagedTeachers = getTeacherUseCase.findAll(page);
         return teacherMapper.fromPageDomain(pagedTeachers);
     }
 
