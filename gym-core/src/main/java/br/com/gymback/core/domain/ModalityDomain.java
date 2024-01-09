@@ -6,6 +6,6 @@ import lombok.Builder;
 public record ModalityDomain(
     String id,
     String name
-) {
+) implements GenericDomain {
 
 }

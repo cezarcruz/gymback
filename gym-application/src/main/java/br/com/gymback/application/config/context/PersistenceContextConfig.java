@@ -1,4 +1,4 @@
-package br.com.gymback.persistence;
+package br.com.gymback.application.config.context;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = "br.com.gymback.persistence.out.mysql.entity")
 @EnableJpaRepositories(basePackages = "br.com.gymback.persistence.out.mysql.repository")
 @ComponentScan(basePackages = "br.com.gymback.persistence.out.mysql")
-public class PersistenceConfig {
+public class PersistenceContextConfig {
 
 }

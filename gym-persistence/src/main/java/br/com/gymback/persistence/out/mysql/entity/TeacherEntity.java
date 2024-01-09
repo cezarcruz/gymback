@@ -23,7 +23,7 @@ import org.hibernate.annotations.UuidGenerator;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TeacherEntity extends CommonFields {
+public class TeacherEntity extends CommonFields implements GenericEntity {
 
     @Id
     @UuidGenerator(style = UuidGenerator.Style.TIME)

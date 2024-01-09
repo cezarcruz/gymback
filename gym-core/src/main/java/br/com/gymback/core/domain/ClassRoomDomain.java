@@ -18,6 +18,6 @@ public record ClassRoomDomain(
     List<ScheduleDomain> schedule,
 
     BigDecimal value
-) {
+) implements GenericDomain {
 
 }

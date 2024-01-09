@@ -18,7 +18,7 @@ import org.hibernate.annotations.UuidGenerator;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ModalityEntity extends CommonFields {
+public class ModalityEntity extends CommonFields implements GenericEntity {
 
     @Id
     @UuidGenerator(style = UuidGenerator.Style.TIME)

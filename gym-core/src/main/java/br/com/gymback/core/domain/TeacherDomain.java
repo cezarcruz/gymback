@@ -12,6 +12,6 @@ public record TeacherDomain(
     LocalDate birthDate,
     @With
     List<ContactDomain> contacts
-) {
+) implements GenericDomain {
 
 }

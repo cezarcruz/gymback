@@ -24,7 +24,7 @@ import org.hibernate.annotations.UuidGenerator;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class StudentEntity extends CommonFields {
+public class StudentEntity extends CommonFields implements GenericEntity {
 
   @Id
   @UuidGenerator(style = UuidGenerator.Style.TIME)

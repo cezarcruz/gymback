@@ -15,6 +15,6 @@ public record StudentDomain(
     List<ContactDomain> contacts,
     @With
     AddressDomain address
-) {
+) implements GenericDomain {
 
 }
