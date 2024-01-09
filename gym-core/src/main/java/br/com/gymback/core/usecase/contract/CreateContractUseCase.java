@@ -3,14 +3,14 @@ package br.com.gymback.core.usecase.contract;
 import br.com.gymback.core.domain.ContractDomain;
 import br.com.gymback.core.exceptions.ClassRoomNotFountException;
 import br.com.gymback.core.exceptions.StudentNotFoundException;
-import br.com.gymback.core.usecase.payment.CreatePaymentUseCase;
 import br.com.gymback.core.gateway.classroom.GetClassRoomGateway;
 import br.com.gymback.core.gateway.contract.SaveContractGateway;
 import br.com.gymback.core.gateway.student.GetStudentGateway;
+import br.com.gymback.core.usecase.payment.CreatePaymentUseCase;
+import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
+@Named
 @RequiredArgsConstructor
 public class CreateContractUseCase {
 
