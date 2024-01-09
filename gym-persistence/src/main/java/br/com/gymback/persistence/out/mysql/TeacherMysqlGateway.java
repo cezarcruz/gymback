@@ -33,7 +33,7 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   }
 
   @Override
-  public PageDomain<TeacherDomain> getAll(final PageDomain<TeacherDomain> page) {
+  public PageDomain<TeacherDomain> findAll(final PageDomain<TeacherDomain> page) {
     var pageRequest = PageRequest.of(page.getPage(), page.getSize());
     final var pagedTeachers = teacherRepository.findAllWithPerformance(pageRequest);
     return teacherPersistenceMapper.toPageDomain(page, pagedTeachers);

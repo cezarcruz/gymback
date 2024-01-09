@@ -1,9 +1,9 @@
 package br.com.gymback.core.usecase.modality;
 
 import br.com.gymback.core.domain.ModalityDomain;
+import br.com.gymback.core.domain.PageDomain;
 import br.com.gymback.core.gateway.modality.GetModalityGateway;
 import jakarta.inject.Named;
-import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 
 @Named
@@ -12,8 +12,8 @@ public class GetModalityUseCase {
 
     private final GetModalityGateway getModalityGateway;
 
-    public Stream<ModalityDomain> getAll() {
-        return getModalityGateway.getAll();
+    public PageDomain<ModalityDomain> findAll(final PageDomain<ModalityDomain> page) {
+        return getModalityGateway.findAll(page);
     }
 
 }

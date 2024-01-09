@@ -1,15 +1,18 @@
 package br.com.gymback.persistence.out.mysql;
 
-import br.com.gymback.persistence.out.mysql.mapper.ModalityPersistenceMapper;
-import br.com.gymback.persistence.out.mysql.repository.ModalityRepository;
+import java.util.Optional;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Component;
+
 import br.com.gymback.core.domain.ModalityDomain;
+import br.com.gymback.core.domain.PageDomain;
 import br.com.gymback.core.gateway.modality.DeleteModalityGateway;
 import br.com.gymback.core.gateway.modality.GetModalityGateway;
 import br.com.gymback.core.gateway.modality.SaveModalityGateway;
-import java.util.Optional;
-import java.util.stream.Stream;
+import br.com.gymback.persistence.out.mysql.mapper.ModalityPersistenceMapper;
+import br.com.gymback.persistence.out.mysql.repository.ModalityRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
@@ -27,10 +30,11 @@ class ModalityMysqlGateway implements
   }
 
   @Override
-  public Stream<ModalityDomain> getAll() {
-    return modalityRepository.findAll()
-        .stream()
-        .map(modalityPersistenceMapper::from);
+  public PageDomain<ModalityDomain> findAll(final PageDomain<ModalityDomain> page) {
+    var pageRequest = PageRequest.of(page.getPage(), page.getSize());
+
+    var modalities = modalityRepository.findAll(pageRequest);
+    return modalityPersistenceMapper.toPageDomain(page, modalities);
   }
 
   @Override
