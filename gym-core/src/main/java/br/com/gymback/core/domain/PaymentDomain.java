@@ -10,7 +10,6 @@ public record PaymentDomain(
     BigDecimal value,
     LocalDate paymentDay,
     PaymentType paymentType,
-
     PaymentStatus paymentStatus
 ) {
 

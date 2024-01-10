@@ -1,7 +1,6 @@
 package br.com.gymback.persistence.out.mysql;
 
 import br.com.gymback.core.domain.PaymentDomain;
-import br.com.gymback.core.gateway.payment.GetPaymentGateway;
 import br.com.gymback.core.gateway.payment.SavePaymentGateway;
 import br.com.gymback.persistence.out.mysql.mapper.PaymentPersistenceMapper;
 import br.com.gymback.persistence.out.mysql.repository.PaymentRepository;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class PaymentMysqlGateway implements SavePaymentGateway, GetPaymentGateway {
+public class PaymentMysqlGateway implements SavePaymentGateway {
 
   private final PaymentPersistenceMapper paymentPersistenceMapper;
   private final PaymentRepository paymentRepository;
@@ -28,11 +27,5 @@ public class PaymentMysqlGateway implements SavePaymentGateway, GetPaymentGatewa
     var paymentEntityList = paymentPersistenceMapper.fromModelList(payments);
     var savedList = paymentRepository.saveAll(paymentEntityList);
     return paymentPersistenceMapper.fromEntityList(savedList);
-  }
-
-  @Override
-  public List<PaymentDomain> getByStudent(final String studentId) {
-    var paymentList = paymentRepository.findAllByStudentId(studentId);
-    return paymentPersistenceMapper.fromEntityList(paymentList);
   }
 }
