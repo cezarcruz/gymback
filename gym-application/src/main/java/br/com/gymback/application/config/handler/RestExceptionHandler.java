@@ -3,21 +3,17 @@ package br.com.gymback.application.config.handler;
 import br.com.gymback.application.config.handler.validation.dto.ErrorMessageResponse;
 import br.com.gymback.application.config.handler.validation.dto.ErrorResponse;
 import br.com.gymback.core.exceptions.NotFoundException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+@Slf4j
 @RestControllerAdvice
 public class RestExceptionHandler {
-
-  private static final Logger log = LoggerFactory.getLogger(RestExceptionHandler.class);
 
   @ResponseStatus(code = HttpStatus.BAD_REQUEST)
   @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -28,7 +24,7 @@ public class RestExceptionHandler {
 
     return fieldErrors.stream()
         .map(ErrorMessageResponse::factory)
-        .collect(Collectors.toList());
+        .toList();
 
   }
 
