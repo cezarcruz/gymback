@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS student (
   id varchar(36),
   name varchar(50) not null,
   document varchar(20),
+  birth_date date not null,
   contact_id varchar(36),
   address_id varchar(36),
   created_at timestamp not null,
@@ -47,7 +48,7 @@ CREATE TABLE IF NOT EXISTS class_room (
 
 CREATE TABLE IF NOT EXISTS address (
   id varchar(36),
-  zipcode varchar(8) not null,
+  zipcode varchar(9) not null, -- redo
   street varchar(200) not null,
   neighborhood varchar(100) not null,
   city varchar(100),
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS address (
 
 CREATE TABLE IF NOT EXISTS contact (
   id varchar(36),
-  phone varchar(15),
+  phone varchar(30), -- redo
   email varchar(100),
   created_at timestamp not null,
   updated_at timestamp not null,
@@ -86,10 +87,13 @@ CREATE TABLE IF NOT EXISTS contract (
   start_year numeric(4),
   end_year numeric(4),
   due_day numeric(2),
+  discount decimal(10,2),
   contract_type ENUM('MONTHLY', 'YEARLY'),
   contract_status ENUM('SUSPENDED', 'ACTIVE', 'FINISHED'),
   student_id varchar(36),
   class_room_id varchar(36),
+  created_at timestamp not null,
+  updated_at timestamp not null,
   CONSTRAINT class_room_pk PRIMARY KEY (id)
 );
 

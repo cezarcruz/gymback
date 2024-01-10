@@ -15,8 +15,8 @@ public class CreateTeacherUseCase {
 
 
   public TeacherDomain create(final TeacherDomain teacher) {
-    var contacts = saveContactGateway.save(teacher.contacts());
-    return saveTeacherGateway.save(teacher.withContacts(contacts));
+    var contacts = saveContactGateway.save(teacher.contact());
+    return saveTeacherGateway.save(teacher.withContact(contacts));
   }
 
 }

@@ -107,7 +107,7 @@
         <artifactId>flyway-maven-plugin</artifactId>
         <version>9.22.3</version>
         <configuration>
-          <url>jdbc:mysql://localhost:3306/gym_fly</url>
+          <url>jdbc:mysql://localhost:3306/gym</url>
           <user>root</user>
           <password>root</password>
           <cleanDisabled>false</cleanDisabled>
