@@ -19,8 +19,8 @@ public class CreateStudentUseCase {
   //@Transactional work on that
   public StudentDomain create(final StudentDomain student) {
     var addressSaved = saveAddressGateway.save(student.address());
-    var contacts = saveContactGateway.save(student.contacts());
-    var studentWithAddress = student.withAddress(addressSaved).withContacts(contacts);
+    var contacts = saveContactGateway.save(student.contact());
+    var studentWithAddress = student.withAddress(addressSaved).withContact(contacts);
     return saveStudentGateway.save(studentWithAddress);
   }
 

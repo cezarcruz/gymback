@@ -1,7 +1,6 @@
 package br.com.gymback.core.domain;
 
 import java.time.LocalDate;
-import java.util.List;
 import lombok.Builder;
 import lombok.With;
 
@@ -11,7 +10,7 @@ public record TeacherDomain(
     String name,
     LocalDate birthDate,
     @With
-    List<ContactDomain> contacts
+    ContactDomain contact
 ) implements GenericDomain {
 
 }
