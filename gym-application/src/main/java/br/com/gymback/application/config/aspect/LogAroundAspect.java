@@ -1,5 +1,6 @@
 package br.com.gymback.application.config.aspect;
 
+import jakarta.inject.Named;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
@@ -10,11 +11,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.CodeSignature;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Aspect
-@Component
+@Named
 @Slf4j
 public class LogAroundAspect {
 
