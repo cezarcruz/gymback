@@ -16,6 +16,9 @@ public record ContractResponse(
   BigDecimal discount,
   ContractType contractType,
   ContractStatus contractStatus,
+
+  StudentResponse student,
+
   ClassRoomResponse classRoom,
 
   List<PaymentResponse> payments

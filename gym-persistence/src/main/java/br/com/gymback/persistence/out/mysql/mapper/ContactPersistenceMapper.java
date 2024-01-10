@@ -8,9 +8,9 @@ import org.mapstruct.MappingConstants.ComponentModel;
 
 @Mapper(componentModel = ComponentModel.JAKARTA)
 public interface ContactPersistenceMapper {
-  List<ContactDomain> fromEntity(final List<ContactEntity> contactEntities);
-  List<ContactEntity> fromDomain(final List<ContactDomain> contacts);
-  ContactDomain fromEntity(final ContactEntity contactEntities);
-  ContactEntity fromDomain(final ContactDomain contacts);
+  List<ContactDomain> fromEntity(final List<ContactEntity> sources);
+  List<ContactEntity> fromDomain(final List<ContactDomain> sources);
+  ContactDomain fromEntity(final ContactEntity source);
+  ContactEntity fromDomain(final ContactDomain source);
 
 }

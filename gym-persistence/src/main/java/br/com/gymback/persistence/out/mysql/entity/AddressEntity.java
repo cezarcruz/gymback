@@ -22,13 +22,15 @@ public class AddressEntity extends CommonFields {
 
   @Id
   @UuidGenerator(style = UuidGenerator.Style.TIME)
-  @Column(name = "id", columnDefinition = "VARCHAR(36)", updatable = false, unique = true, nullable = false)
+  @Column(name = "id", updatable = false, unique = true, nullable = false)
   private String id;
   private String zipcode;
   private String street;
   private String neighborhood;
   private String city;
   private String state;
+
+  @Column(name = "address_number")
   private String addressNumber;
 
 }
