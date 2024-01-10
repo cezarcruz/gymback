@@ -8,9 +8,10 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption.DoNotIncludeTests;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
 
-public class ApplicationArchTest {
+class ApplicationArchTest {
 
   private static final JavaClasses IMPORTED_CLASSES =
       new ClassFileImporter()
@@ -23,7 +24,7 @@ public class ApplicationArchTest {
     final var rule =
         classes()
             .that()
-            .areAnnotatedWith(RestController.class)
+              .areAnnotatedWith(RestController.class)
             .should()
               .haveNameMatching(".*Controller")
             .andShould()
@@ -33,6 +34,19 @@ public class ApplicationArchTest {
             .resideInAnyPackage("br.com.gymback.application.rest.mapper", "br.com.gymback.core.usecase")
 
         ;
+
+    rule.check(IMPORTED_CLASSES);
+  }
+
+  @Test
+  void ensureConfigConventions() {
+    var rule = classes()
+        .that()
+          .areAnnotatedWith(Configuration.class)
+        .should()
+          .haveNameMatching(".*Config")
+        .andShould()
+            .resideInAPackage("br.com.gymback.application.config.*");
 
     rule.check(IMPORTED_CLASSES);
   }

@@ -1,7 +1,7 @@
-package br.com.gymback.application.config.handler;
+package br.com.gymback.application.rest.handler;
 
-import br.com.gymback.application.config.handler.validation.dto.ErrorMessageResponse;
-import br.com.gymback.application.config.handler.validation.dto.ErrorResponse;
+import br.com.gymback.application.rest.handler.validation.dto.ErrorMessageResponse;
+import br.com.gymback.application.rest.handler.validation.dto.ErrorResponse;
 import br.com.gymback.core.exceptions.NotFoundException;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;

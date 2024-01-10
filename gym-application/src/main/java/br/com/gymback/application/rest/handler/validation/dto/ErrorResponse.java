@@ -1,4 +1,4 @@
-package br.com.gymback.application.config.handler.validation.dto;
+package br.com.gymback.application.rest.handler.validation.dto;
 
 public record ErrorResponse(
     Integer code,

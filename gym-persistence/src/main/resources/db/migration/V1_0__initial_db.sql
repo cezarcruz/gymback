@@ -1,6 +1,8 @@
 CREATE TABLE IF NOT EXISTS week_day (
 	name varchar(3) NOT NULL,
 	label varchar(15) NOT NULL,
+  created_at timestamp not null,
+  updated_at timestamp not null,
 	CONSTRAINT week_day_pk PRIMARY KEY (name)
 );
 

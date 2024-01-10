@@ -1,4 +1,4 @@
-package br.com.gymback.application.config.handler.validation.dto;
+package br.com.gymback.application.rest.handler.validation.dto;
 
 import org.springframework.validation.FieldError;
 
