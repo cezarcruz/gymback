@@ -1,9 +1,9 @@
 package br.com.gymback.persistence.out.mysql;
 
-import br.com.gymback.persistence.out.mysql.mapper.PaymentPersistenceMapper;
-import br.com.gymback.persistence.out.mysql.repository.PaymentRepository;
 import br.com.gymback.core.domain.PaymentDomain;
 import br.com.gymback.core.gateway.payment.SavePaymentGateway;
+import br.com.gymback.persistence.out.mysql.mapper.PaymentPersistenceMapper;
+import br.com.gymback.persistence.out.mysql.repository.PaymentRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
