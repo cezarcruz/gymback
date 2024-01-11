@@ -38,12 +38,12 @@ class ModalityMysqlGateway implements
   }
 
   @Override
-  public void deleteById(final String id) {
+  public void deleteById(final Long id) {
     modalityRepository.deleteById(id);
   }
 
   @Override
-  public Optional<ModalityDomain> findById(String id) {
+  public Optional<ModalityDomain> findById(Long id) {
     return modalityRepository.findById(id)
         .map(modalityPersistenceMapper::from);
   }

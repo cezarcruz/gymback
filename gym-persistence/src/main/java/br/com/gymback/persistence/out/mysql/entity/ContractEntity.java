@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -17,7 +19,6 @@ import java.time.Month;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Table(name = "contract")
@@ -26,9 +27,8 @@ import org.hibernate.annotations.UuidGenerator;
 public class ContractEntity extends CommonFields {
 
   @Id
-  @UuidGenerator(style = UuidGenerator.Style.TIME)
-  @Column(name = "id", columnDefinition = "VARCHAR(36)", updatable = false, unique = true, nullable = false)
-  private String id;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  private Long id;
 
   @Enumerated(EnumType.STRING)
   @Column(name = "start_month")

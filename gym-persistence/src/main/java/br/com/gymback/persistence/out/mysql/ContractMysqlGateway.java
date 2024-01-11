@@ -25,7 +25,7 @@ public class ContractMysqlGateway implements SaveContractGateway, GetContractGat
   }
 
   @Override
-  public ContractDomain getByStudentId(final String studentId) {
+  public ContractDomain getByStudentId(final Long studentId) {
     var contract = contractRepository.findByStudentId(studentId);
     return contractPersistenceMapper.fromEntity(contract);
   }

@@ -26,7 +26,7 @@ public interface ContractMapper {
   ContractDomain fromCreateRequest(final CreateContractRequest source);
 
   @Named("stringToStudent")
-  default StudentDomain stringToStudent(final String studentId) {
+  default StudentDomain stringToStudent(final Long studentId) {
 
     if (Objects.isNull(studentId)) {
       return null;
@@ -37,7 +37,7 @@ public interface ContractMapper {
   }
 
   @Named("stringToClassRoom")
-  default ClassRoomDomain stringToClassRoom(final String classRoomId) {
+  default ClassRoomDomain stringToClassRoom(final Long classRoomId) {
     if (Objects.isNull(classRoomId)) {
       return null;
     }

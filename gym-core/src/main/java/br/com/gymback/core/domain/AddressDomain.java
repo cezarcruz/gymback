@@ -4,7 +4,7 @@ import lombok.Builder;
 
 @Builder
 public record AddressDomain(
-    String id,
+    Long id,
     String zipcode,
     String street,
     String state,

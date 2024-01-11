@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS week_day (
 );
 
 CREATE TABLE IF NOT EXISTS modality (
-  id varchar(36),
+  id bigint auto_increment not null,
   name varchar(50),
   created_at timestamp not null,
   updated_at timestamp not null,
@@ -15,33 +15,33 @@ CREATE TABLE IF NOT EXISTS modality (
 );
 
 CREATE TABLE IF NOT EXISTS teacher (
-  id varchar(36),
+  id bigint auto_increment not null,
   name varchar(50) not null,
   birth_date date not null,
-  contact_id varchar(36),
-  address_id varchar(36),
+  contact_id bigint not null,
+  address_id bigint,
   created_at timestamp not null,
   updated_at timestamp not null,
   CONSTRAINT teacher_pk PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS student (
-  id varchar(36),
+  id bigint auto_increment not null,
   name varchar(50) not null,
   document varchar(20),
   birth_date date not null,
-  contact_id varchar(36),
-  address_id varchar(36),
+  contact_id bigint not null,
+  address_id bigint not null,
   created_at timestamp not null,
   updated_at timestamp not null,
   CONSTRAINT student_pk PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS class_room (
-  id varchar(36),
+  id bigint auto_increment not null,
   name varchar(50) not null,
-  modality_id varchar(36),
-  teacher_id varchar(36),
+  modality_id bigint not null,
+  teacher_id bigint not null,
   value decimal(10,2) not null,
   created_at timestamp not null,
   updated_at timestamp not null,
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS class_room (
 );
 
 CREATE TABLE IF NOT EXISTS address (
-  id varchar(36),
+  id bigint auto_increment not null,
   zipcode varchar(9) not null, -- redo
   street varchar(200) not null,
   neighborhood varchar(100) not null,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS address (
 );
 
 CREATE TABLE IF NOT EXISTS contact (
-  id varchar(36),
+  id bigint auto_increment not null,
   phone varchar(30), -- redo
   email varchar(100),
   created_at timestamp not null,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS contact (
 );
 
 CREATE TABLE IF NOT EXISTS payment (
-  id varchar(36),
+  id bigint auto_increment not null,
   value decimal(10,2) not null,
   payment_day date not null,
   payment_type ENUM('IN', 'OUT'),
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS payment (
 );
 
 CREATE TABLE IF NOT EXISTS contract (
-  id varchar(36),
+  id bigint auto_increment not null,
   start_month varchar(15),
   end_month varchar(15),
   start_year numeric(4),
@@ -92,20 +92,20 @@ CREATE TABLE IF NOT EXISTS contract (
   discount decimal(10,2),
   contract_type ENUM('MONTHLY', 'YEARLY'),
   contract_status ENUM('SUSPENDED', 'ACTIVE', 'FINISHED'),
-  student_id varchar(36),
-  class_room_id varchar(36),
+  student_id bigint not null,
+  class_room_id bigint not null,
   created_at timestamp not null,
   updated_at timestamp not null,
   CONSTRAINT class_room_pk PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS contract_payment (
-  contract_id varchar(36) not null,
-  payment_id varchar(36) not null
+  contract_id bigint not null,
+  payment_id bigint not null
 );
 
 CREATE TABLE IF NOT EXISTS schedule (
-  id varchar(36),
+  id bigint auto_increment not null,
   week_day varchar(3) not null,
   start_hour time not null,
   end_hour time not null,
@@ -115,6 +115,6 @@ CREATE TABLE IF NOT EXISTS schedule (
 );
 
 CREATE TABLE IF NOT EXISTS class_room_schedule (
-  class_room_id varchar(36) NOT NULL,
-  schedule_id varchar(36) NOT NULL
+  class_room_id bigint NOT NULL,
+  schedule_id bigint NOT NULL
 );

@@ -67,7 +67,7 @@ public class ModalityController {
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void delete(@PathVariable("id") final String id) {
+  public void delete(@PathVariable("id") final Long id) {
     deleteModalityUseCase.deleteBy(id);
   }
 

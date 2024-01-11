@@ -28,7 +28,7 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   }
 
   @Override
-  public void deleteTeacher(final String id) {
+  public void deleteTeacher(final Long id) {
     teacherRepository.deleteById(id);
   }
 
@@ -40,7 +40,7 @@ class TeacherMysqlGateway implements SaveTeacherGateway, DeleteTeacherGateway,
   }
 
   @Override
-  public Optional<TeacherDomain> findById(final String id) {
+  public Optional<TeacherDomain> findById(final Long id) {
     return teacherRepository.findById(id)
         .map(teacherPersistenceMapper::toDomain);
   }

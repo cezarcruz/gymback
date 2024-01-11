@@ -20,9 +20,9 @@ class DeleteTeacherUseCaseTest {
 
   @Test
   void shouldDeleteTeacher() {
-    deleteTeacherUseCase.deleteBy("123");
+    deleteTeacherUseCase.deleteBy(123L);
 
-    verify(teacherGateway).deleteTeacher("123");
+    verify(teacherGateway).deleteTeacher(123L);
   }
 
 }

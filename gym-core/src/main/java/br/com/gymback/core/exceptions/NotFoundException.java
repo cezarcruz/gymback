@@ -2,12 +2,13 @@ package br.com.gymback.core.exceptions;
 
 public abstract class NotFoundException extends RuntimeException {
 
-  private final String id;
+  private final Long id;
 
-  public NotFoundException(final String id) {
+  NotFoundException(final Long id) {
     this.id = id;
   }
 
+  @Override
   public String getMessage() {
     return String.format("%s %s not found", getResource(), id);
   }
