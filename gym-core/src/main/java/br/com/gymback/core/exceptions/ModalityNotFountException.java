@@ -2,7 +2,7 @@ package br.com.gymback.core.exceptions;
 
 public class ModalityNotFountException extends NotFoundException {
 
-  public ModalityNotFountException(final String id) {
+  public ModalityNotFountException(final Long id) {
     super(id);
   }
 

@@ -35,7 +35,7 @@ class StudentMysqlGateway implements SaveStudentGateway, GetStudentGateway {
   }
 
   @Override
-  public Optional<StudentDomain> findById(final String id) {
+  public Optional<StudentDomain> findById(final Long id) {
     return studentRepository
         .findById(id)
         .map(studentPersistenceMapper::toDomain);

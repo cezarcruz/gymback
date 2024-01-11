@@ -4,7 +4,7 @@ import lombok.Builder;
 
 @Builder
 public record ModalityDomain(
-    String id,
+    Long id,
     String name
 ) implements GenericDomain {
 

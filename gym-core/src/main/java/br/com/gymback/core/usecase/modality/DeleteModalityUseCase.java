@@ -10,7 +10,7 @@ public class DeleteModalityUseCase {
 
     private final DeleteModalityGateway deleteModalityGateway;
 
-    public void deleteBy(final String id) {
+    public void deleteBy(final Long id) {
         deleteModalityGateway.deleteById(id);
     }
 

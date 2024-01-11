@@ -11,7 +11,7 @@ public class GetStudentContractUseCase {
 
   private final GetContractGateway getContractGateway;
 
-  public ContractDomain getBy(final String studentId) {
+  public ContractDomain getBy(final Long studentId) {
     return getContractGateway.getByStudentId(studentId);
   }
 }

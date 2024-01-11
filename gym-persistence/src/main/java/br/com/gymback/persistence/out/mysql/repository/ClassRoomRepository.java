@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClassRoomRepository extends JpaRepository<ClassRoomEntity, String> {
+public interface ClassRoomRepository extends JpaRepository<ClassRoomEntity, Long> {
   @Query(
       value = """
         select cr from ClassRoomEntity cr

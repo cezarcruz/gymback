@@ -2,7 +2,7 @@ package br.com.gymback.core.exceptions;
 
 public class TeacherNotFountException extends NotFoundException {
 
-  public TeacherNotFountException(final String id) {
+  public TeacherNotFountException(final Long id) {
     super(id);
   }
 

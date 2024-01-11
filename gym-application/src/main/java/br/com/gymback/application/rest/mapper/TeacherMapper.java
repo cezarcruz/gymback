@@ -22,5 +22,5 @@ public interface TeacherMapper extends PagingMapper<TeacherDomain> {
 
   PageResponse<TeacherResponse> fromPageDomain(final PageDomain<TeacherDomain> teacher);
 
-  TeacherDomain toTeacher(final String  id, final UpdateTeacherRequest updateTeacherRequest);
+  TeacherDomain toTeacher(final Long id, final UpdateTeacherRequest updateTeacherRequest);
 }

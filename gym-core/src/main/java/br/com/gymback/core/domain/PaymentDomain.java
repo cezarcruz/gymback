@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public record PaymentDomain(
-    String id,
+    Long id,
     BigDecimal value,
     LocalDate paymentDay,
     PaymentType paymentType,

@@ -1,8 +1,9 @@
 package br.com.gymback.persistence.out.mysql.entity;
 
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -16,7 +17,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Table(name = "class_room")
@@ -28,9 +28,8 @@ import org.hibernate.annotations.UuidGenerator;
 public class ClassRoomEntity extends CommonFields implements GenericEntity {
 
   @Id
-  @UuidGenerator(style = UuidGenerator.Style.TIME)
-  @Column(name = "id", columnDefinition = "VARCHAR(36)", updatable = false, unique = true, nullable = false)
-  private String id;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  private Long id;
 
   private String name;
 

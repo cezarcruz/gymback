@@ -6,13 +6,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Getter
@@ -21,9 +22,8 @@ import org.hibernate.annotations.UuidGenerator;
 public class PaymentEntity extends CommonFields {
 
   @Id
-  @UuidGenerator(style = UuidGenerator.Style.TIME)
-  @Column(name = "id", columnDefinition = "VARCHAR(36)", updatable = false, unique = true, nullable = false)
-  private String id;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  private Long id;
 
   private BigDecimal value;
 

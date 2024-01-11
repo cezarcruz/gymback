@@ -36,7 +36,7 @@ public class ContractController {
 
   @GetMapping("/student/{studentId}")
   @ResponseStatus(HttpStatus.OK)
-  public ContractResponse getByStudentId(@PathVariable final String studentId) {
+  public ContractResponse getByStudentId(@PathVariable final Long studentId) {
     var contract = getContractUseCase.getBy(studentId);
     return contractMapper.fromModel(contract);
   }

@@ -8,13 +8,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TeacherRepository extends JpaRepository<TeacherEntity, String> {
+public interface TeacherRepository extends JpaRepository<TeacherEntity, Long> {
 
   @Query(
       value =
           """
-                select t from TeacherEntity t
-              """
+            select t from TeacherEntity t
+          """
   )
   Page<TeacherEntity> findAllWithPerformance(final Pageable pageable);
 }

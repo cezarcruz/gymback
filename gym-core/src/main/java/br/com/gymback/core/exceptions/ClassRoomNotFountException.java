@@ -2,7 +2,7 @@ package br.com.gymback.core.exceptions;
 
 public class ClassRoomNotFountException extends NotFoundException {
 
-  public ClassRoomNotFountException(final String id) {
+  public ClassRoomNotFountException(final Long id) {
     super(id);
   }
 

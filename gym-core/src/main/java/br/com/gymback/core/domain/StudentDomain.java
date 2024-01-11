@@ -6,7 +6,7 @@ import lombok.With;
 
 @Builder
 public record StudentDomain(
-    String id,
+    Long id,
     String name,
     LocalDate birthDate,
     String document,

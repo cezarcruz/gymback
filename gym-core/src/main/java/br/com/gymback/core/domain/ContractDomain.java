@@ -15,7 +15,7 @@ import lombok.With;
 @AllArgsConstructor
 public final class ContractDomain {
 
-  private String id;
+  private Long id;
   private Month startMonth;
   private Month endMonth;
   private Integer startYear;
