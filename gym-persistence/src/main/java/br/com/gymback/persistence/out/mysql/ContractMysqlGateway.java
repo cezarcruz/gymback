@@ -6,6 +6,7 @@ import br.com.gymback.core.gateway.contract.SaveContractGateway;
 import br.com.gymback.persistence.out.mysql.mapper.ContractPersistenceMapper;
 import br.com.gymback.persistence.out.mysql.repository.ContractRepository;
 import jakarta.inject.Named;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 
 @Named
@@ -25,8 +26,8 @@ public class ContractMysqlGateway implements SaveContractGateway, GetContractGat
   }
 
   @Override
-  public ContractDomain getByStudentId(final Long studentId) {
+  public Optional<ContractDomain> getByStudentId(final Long studentId) {
     var contract = contractRepository.findByStudentId(studentId);
-    return contractPersistenceMapper.fromEntity(contract);
+    return contract.map(contractPersistenceMapper::fromEntity);
   }
 }
