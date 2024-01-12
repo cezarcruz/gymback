@@ -27,7 +27,7 @@ import lombok.Setter;
 public class ContractEntity extends CommonFields {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @Enumerated(EnumType.STRING)

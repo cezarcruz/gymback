@@ -19,7 +19,7 @@ import lombok.Setter;
 public class ScheduleEntity extends CommonFields {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @ManyToOne

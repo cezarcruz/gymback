@@ -25,7 +25,7 @@ import lombok.Setter;
 public class TeacherEntity extends CommonFields implements GenericEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

@@ -15,7 +15,7 @@ import lombok.Setter;
 public class ContactEntity extends CommonFields {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String phone;
   private String email;
