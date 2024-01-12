@@ -7,7 +7,6 @@ public record ClassRoomResponse(
     String name,
     TeacherResponse teacher,
     ModalityResponse modality,
-
     List<ScheduleResponse> schedule
 ) {
 

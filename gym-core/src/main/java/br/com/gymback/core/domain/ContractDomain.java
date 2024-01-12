@@ -39,6 +39,20 @@ public final class ContractDomain {
     return this;
   }
 
+  public LocalDate getEndDate() {
+    return LocalDate.of(endYear, endMonth, dueDay);
+  }
+
+  public LocalDate getStartDate() {
+    return LocalDate.of(startYear, startMonth, dueDay);
+  }
+
+  public Optional<PaymentDomain> getPaymentById(final Long id) {
+    return payments.stream()
+        .filter(p -> Objects.equals(p.id(), id))
+        .findFirst();
+  }
+
   public int contractMonths() {
 
     var startDate = getStartDate();
@@ -49,14 +63,6 @@ public final class ContractDomain {
 
   }
 
-  public LocalDate getEndDate() {
-    return LocalDate.of(endYear, endMonth, dueDay);
-  }
-
-  public LocalDate getStartDate() {
-    return LocalDate.of(startYear, startMonth, dueDay);
-  }
-
   public boolean isActive() {
     var startDate = getStartDate();
     var endDate = getEndDate();
@@ -64,11 +70,5 @@ public final class ContractDomain {
     var interval = Period.between(startDate, endDate);
 
     return interval.getDays() > 0;
-  }
-
-  public Optional<PaymentDomain> getPaymentById(final Long id) {
-    return payments.stream()
-        .filter(p -> Objects.equals(p.id(), id))
-        .findFirst();
   }
 }
