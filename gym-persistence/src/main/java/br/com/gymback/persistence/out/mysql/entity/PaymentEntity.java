@@ -22,7 +22,7 @@ import lombok.Setter;
 public class PaymentEntity extends CommonFields {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   private BigDecimal value;
