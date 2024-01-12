@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.With;
@@ -53,5 +55,20 @@ public final class ContractDomain {
 
   public LocalDate getStartDate() {
     return LocalDate.of(startYear, startMonth, dueDay);
+  }
+
+  public boolean isActive() {
+    var startDate = getStartDate();
+    var endDate = getEndDate();
+
+    var interval = Period.between(startDate, endDate);
+
+    return interval.getDays() > 0;
+  }
+
+  public Optional<PaymentDomain> getPaymentById(final Long id) {
+    return payments.stream()
+        .filter(p -> Objects.equals(p.id(), id))
+        .findFirst();
   }
 }
