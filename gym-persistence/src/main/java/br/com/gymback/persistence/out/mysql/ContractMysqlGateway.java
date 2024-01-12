@@ -1,6 +1,7 @@
 package br.com.gymback.persistence.out.mysql;
 
 import br.com.gymback.core.domain.ContractDomain;
+import br.com.gymback.core.domain.PageDomain;
 import br.com.gymback.core.gateway.contract.GetContractGateway;
 import br.com.gymback.core.gateway.contract.SaveContractGateway;
 import br.com.gymback.persistence.out.mysql.mapper.ContractPersistenceMapper;
@@ -29,5 +30,17 @@ public class ContractMysqlGateway implements SaveContractGateway, GetContractGat
   public Optional<ContractDomain> getByStudentId(final Long studentId) {
     var contract = contractRepository.findByStudentId(studentId);
     return contract.map(contractPersistenceMapper::fromEntity);
+  }
+
+  @Override
+  public PageDomain<ContractDomain> findAll(final PageDomain<ContractDomain> page) {
+    throw new RuntimeException("not implemented yet");
+  }
+
+  @Override
+  public Optional<ContractDomain> findById(final Long id) {
+    return contractRepository
+        .findById(id)
+        .map(contractPersistenceMapper::fromEntity);
   }
 }
