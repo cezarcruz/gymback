@@ -38,7 +38,7 @@ public class ModalityController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public ModalityResponse create(
+  public ModalityResponse createModality(
       @Valid @RequestBody final CreateModalityRequest createModalityRequest) {
     final var modality = modalityMapper.toModality(createModalityRequest);
     final var createdModality = createModalityUseCase.create(modality);
@@ -47,18 +47,15 @@ public class ModalityController {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public PageResponse<ModalityResponse> listAll(@ParameterObject final GetPagingRequest paging) {
-
+  public PageResponse<ModalityResponse> listAllModalities(@ParameterObject final GetPagingRequest paging) {
     var page = modalityMapper.fromRequest(paging);
     final var pagedModalities = getModalityUseCase.findAll(page);
-
     return modalityMapper.fromPageDomain(pagedModalities);
-
   }
 
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public ModalityResponse update(@Valid @RequestBody final UpdateModalityRequest updateModalityRequest,
+  public ModalityResponse updateModality(@Valid @RequestBody final UpdateModalityRequest updateModalityRequest,
       @PathVariable("id") final String id) {
     final var modality = modalityMapper.toModality(id, updateModalityRequest);
     final var updatedModality = updateModalityUseCase.update(modality);
@@ -67,7 +64,7 @@ public class ModalityController {
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void delete(@PathVariable("id") final Long id) {
+  public void deleteModality(@PathVariable("id") final Long id) {
     deleteModalityUseCase.deleteBy(id);
   }
 

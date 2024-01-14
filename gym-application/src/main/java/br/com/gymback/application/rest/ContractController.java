@@ -24,7 +24,7 @@ public class ContractController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public ContractResponse create(@Valid @RequestBody final CreateContractRequest request) {
+  public ContractResponse createContract(@Valid @RequestBody final CreateContractRequest request) {
     var contract = contractMapper.fromCreateRequest(request);
     var created = createContractUseCase.create(contract);
     return contractMapper.fromModel(created);
