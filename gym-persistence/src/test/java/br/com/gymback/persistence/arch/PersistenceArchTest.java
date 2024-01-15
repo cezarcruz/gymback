@@ -1,4 +1,4 @@
-package br.com.cezarcruz.gateway.arch;
+package br.com.gymback.persistence.arch;
 
 import static com.tngtech.archunit.core.domain.JavaClass.Predicates.resideInAPackage;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
