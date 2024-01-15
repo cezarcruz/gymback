@@ -43,4 +43,14 @@ public class ContractMysqlGateway implements SaveContractGateway, GetContractGat
         .findById(id)
         .map(contractPersistenceMapper::fromEntity);
   }
+
+  @Override
+  public boolean exists(final Long contractId) {
+    return contractRepository.existsById(contractId);
+  }
+
+  @Override
+  public boolean notExists(final Long contractId) {
+    return !exists(contractId);
+  }
 }
