@@ -70,6 +70,18 @@
       <groupId>io.zipkin.brave</groupId>
       <artifactId>brave-instrumentation-mysql8</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-mysql</artifactId>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
