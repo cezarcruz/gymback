@@ -31,7 +31,6 @@ public class ClassRoomController {
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public ClassRoomResponse create(@Valid @RequestBody final CreateClassRoomRequest createClassRoomRequest) {
-
     var classRoom = classRoomMapper.from(createClassRoomRequest);
     var createdClassRoom = createClassRoomUseCase.create(classRoom);
     return classRoomMapper.from(createdClassRoom);
@@ -41,9 +40,7 @@ public class ClassRoomController {
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
   public PageResponse<ClassRoomResponse> findAll(@ParameterObject final GetPagingRequest paging) {
-
     var page = classRoomMapper.fromRequest(paging);
-
     var pagedClasses =  getClassRoomUseCase.findAll(page);
     return classRoomMapper.fromPageDomain(pagedClasses);
   }
