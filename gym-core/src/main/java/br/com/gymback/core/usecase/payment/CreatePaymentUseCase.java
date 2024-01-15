@@ -2,8 +2,6 @@ package br.com.gymback.core.usecase.payment;
 
 import br.com.gymback.core.domain.ContractDomain;
 import br.com.gymback.core.domain.PaymentDomain;
-import br.com.gymback.core.enums.PaymentStatus;
-import br.com.gymback.core.enums.PaymentType;
 import br.com.gymback.core.gateway.payment.SavePaymentGateway;
 import jakarta.inject.Named;
 import java.time.LocalDate;
@@ -26,7 +24,7 @@ public class CreatePaymentUseCase {
 
     //TODO should refactory?
     for (int i = 0; i < contractMonths; i++) {
-      payments.add(new PaymentDomain(null, contract.getClassRoom().value(), nextPayment, PaymentType.IN, PaymentStatus.PENDING, null));
+      payments.add(PaymentDomain.createInPayment(contract.getClassRoom().value(), nextPayment));
       nextPayment = nextPayment.plusMonths(1);
     }
 

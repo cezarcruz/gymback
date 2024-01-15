@@ -30,16 +30,16 @@ public class DoPaymentUseCase {
   private PaymentDomain doPayment(final PaymentDomain requestPaymentDomain,
       final ContractDomain contract) {
     var toPay = getPaymentToPay(requestPaymentDomain, contract);
-    var paymentDetail = new PaymentDetailsDomain(null, toPay, requestPaymentDomain.paymentMethod(), toPay.value(), requestPaymentDomain.value());
+    var paymentDetail = new PaymentDetailsDomain(null, toPay, requestPaymentDomain.getPaymentMethod(), toPay.getValue(), requestPaymentDomain.getValue());
     savePaymentDetailsGateway.save(paymentDetail);
     return savePaymentGateway.save(toPay);
   }
 
   private static PaymentDomain getPaymentToPay(final PaymentDomain paymentDomain,
       final ContractDomain contract) {
-    return contract.getPaymentById(paymentDomain.id())
+    return contract.getPaymentById(paymentDomain.getId())
         .map(DoPaymentUseCase::setPaymentValues)
-        .orElseThrow(() -> new PaymentNotFoundException(paymentDomain.id()));
+        .orElseThrow(() -> new PaymentNotFoundException(paymentDomain.getId()));
   }
 
   private static PaymentDomain setPaymentValues(final PaymentDomain payment) {

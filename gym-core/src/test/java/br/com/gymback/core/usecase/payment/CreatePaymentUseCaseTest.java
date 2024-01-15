@@ -39,9 +39,9 @@ class CreatePaymentUseCaseTest {
     assertEquals(12, payments.size());
 
     payments.forEach(payment -> {
-      assertEquals(10, payment.paymentDay().getDayOfMonth());
-      assertEquals(PaymentType.IN, payment.paymentType());
-      assertEquals(PaymentStatus.PENDING, payment.paymentStatus());
+      assertEquals(10, payment.getPaymentDay().getDayOfMonth());
+      assertEquals(PaymentType.IN, payment.getPaymentType());
+      assertEquals(PaymentStatus.PENDING, payment.getPaymentStatus());
     });
 
     verify(savePaymentGateway, times(1)).saveAll(any());

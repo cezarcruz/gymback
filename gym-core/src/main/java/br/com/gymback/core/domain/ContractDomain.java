@@ -49,7 +49,7 @@ public final class ContractDomain {
 
   public Optional<PaymentDomain> getPaymentById(final Long id) {
     return payments.stream()
-        .filter(p -> Objects.equals(p.id(), id))
+        .filter(p -> Objects.equals(p.getId(), id))
         .findFirst();
   }
 
