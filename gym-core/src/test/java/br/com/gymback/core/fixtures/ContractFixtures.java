@@ -9,7 +9,12 @@ import org.instancio.Instancio;
 public class ContractFixtures {
 
   public static ContractDomain getContract() {
-    return Instancio.create(ContractDomain.class);
+    return Instancio
+        .of(ContractDomain.class)
+        .set(field("startYear"), 2024)
+        .set(field("endYear"), 2024)
+        .generate(field("dueDay"), gen -> gen.ints().range(1, 28))
+        .create();
   }
 
   public static ContractDomain with(
