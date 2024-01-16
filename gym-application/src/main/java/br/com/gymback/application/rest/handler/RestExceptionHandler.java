@@ -2,6 +2,7 @@ package br.com.gymback.application.rest.handler;
 
 import br.com.gymback.application.rest.handler.validation.dto.ErrorMessageResponse;
 import br.com.gymback.application.rest.handler.validation.dto.ErrorResponse;
+import br.com.gymback.core.exceptions.BusinessException;
 import br.com.gymback.core.exceptions.NotFoundException;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +36,20 @@ public class RestExceptionHandler {
     log.error("error trying to get some resource", exception);
 
     return new ErrorResponse(HttpStatus.NOT_FOUND.value(), exception.getMessage());
+  }
+
+  @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+  @ExceptionHandler(BusinessException.class)
+  public ErrorResponse handle(final BusinessException exception) {
+    log.error("business error", exception);
+    return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
+  }
+
+  @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
+  @ExceptionHandler(RuntimeException.class)
+  public ErrorResponse handle(final RuntimeException exception) {
+    log.error("unhandled error", exception);
+    return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error");
   }
 
 }
