@@ -14,6 +14,7 @@
   <groupId>br.com.cezarcruz</groupId>
   <artifactId>gymback</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
   <name>gymback</name>
 
   <description>Demo project for Spring Boot</description>
@@ -35,6 +36,7 @@
     <module>gym-application</module>
     <module>gym-persistence</module>
     <module>gym-aggregate-reports</module>
+    <module>gym-worker</module>
   </modules>
 
   <dependencies>
