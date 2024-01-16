@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest.handler;
 
 import br.com.gymback.application.rest.handler.validation.dto.ErrorMessageResponse;
@@ -23,10 +24,7 @@ public class RestExceptionHandler {
 
     log.error("invalid request received");
 
-    return fieldErrors.stream()
-        .map(ErrorMessageResponse::factory)
-        .toList();
-
+    return fieldErrors.stream().map(ErrorMessageResponse::factory).toList();
   }
 
   @ResponseStatus(code = HttpStatus.NOT_FOUND)
@@ -51,5 +49,4 @@ public class RestExceptionHandler {
     log.error("unhandled error", exception);
     return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error");
   }
-
 }

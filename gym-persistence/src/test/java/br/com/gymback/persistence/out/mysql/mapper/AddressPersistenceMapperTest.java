@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -13,5 +14,4 @@ class AddressPersistenceMapperTest {
     final var addressDomain = addressPersistence.fromEntity(null);
     assertNull(addressDomain);
   }
-
 }

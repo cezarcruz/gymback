@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,12 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 class AddressMysqlGatewayTest extends JPAIntegrationAbstract {
 
+  @Autowired private AddressMysqlGateway addressMysqlGateway;
 
-  @Autowired
-  private AddressMysqlGateway addressMysqlGateway;
-
-  @Autowired
-  private AddressRepository addressRepository;
+  @Autowired private AddressRepository addressRepository;
 
   @Test
   void shouldSaveAddress() {
@@ -30,5 +28,4 @@ class AddressMysqlGatewayTest extends JPAIntegrationAbstract {
     assertNotNull(all);
     assertEquals(1, all.size());
   }
-
 }

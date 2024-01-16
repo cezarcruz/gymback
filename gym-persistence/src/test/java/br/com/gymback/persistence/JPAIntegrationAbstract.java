@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence;
 
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -16,9 +17,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @ContextConfiguration(classes = TestPersistenceConfig.class)
 public abstract class JPAIntegrationAbstract {
 
-  @Container
-  static MySQLContainer<?> mySQLContainer = new MySQLContainer<>("mysql:8.0.31");
-
+  @Container static MySQLContainer<?> mySQLContainer = new MySQLContainer<>("mysql:8.0.31");
 
   @DynamicPropertySource
   static void dbProperties(final DynamicPropertyRegistry registry) {
@@ -28,5 +27,4 @@ public abstract class JPAIntegrationAbstract {
     registry.add("spring.datasource.password", () -> mySQLContainer.getPassword());
     registry.add("spring.flyway.enabled", () -> "true");
   }
-
 }
