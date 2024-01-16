@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.student;
 
 import br.com.gymback.core.domain.StudentDomain;
@@ -25,5 +26,4 @@ public class CreateStudentUseCase {
     notifyStudentGateway.notify(savedStudent);
     return savedStudent;
   }
-
 }

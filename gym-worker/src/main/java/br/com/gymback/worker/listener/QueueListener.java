@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.worker.listener;
 
 import br.com.gymback.core.domain.StudentDomain;
@@ -11,7 +12,9 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class QueueListener {
-  @KafkaListener(topics = {"new-topic"}, groupId = "worker")
+  @KafkaListener(
+      topics = {"new-topic"},
+      groupId = "worker")
   public void receive(@Payload final Message<StudentDomain> message) throws BusinessException {
     log.info("payload {}", message.getPayload());
     log.info("headers {}", message.getHeaders());
