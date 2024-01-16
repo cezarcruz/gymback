@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.arch;
 
 import static com.tngtech.archunit.core.domain.JavaClass.Predicates.resideInAPackage;
@@ -22,61 +23,61 @@ class PersistenceArchTest {
 
   @Test
   void ensureRepositoryPatters() {
-    var rule = classes()
-        .that()
-        .areAnnotatedWith(Repository.class)
-        .should()
-          .resideInAnyPackage("br.com.gymback.persistence.out.mysql.repository")
-        .andShould()
-          .haveNameMatching(".*Repository")
-        .andShould()
-          .beInterfaces();
+    var rule =
+        classes()
+            .that()
+            .areAnnotatedWith(Repository.class)
+            .should()
+            .resideInAnyPackage("br.com.gymback.persistence.out.mysql.repository")
+            .andShould()
+            .haveNameMatching(".*Repository")
+            .andShould()
+            .beInterfaces();
 
     rule.check(IMPORTED_CLASSES);
   }
 
   @Test
   void ensureGatewayPatterns() {
-    var rule = classes()
-        .that()
-          .haveNameMatching(".*Gateway")
-        .should()
-          .resideInAnyPackage("br.com.gymback.persistence.out.mysql")
-        .andShould()
-          .implement(resideInAPackage("br.com.gymback.core.gateway.*"))
-        .orShould()
-          .beAssignableTo(JpaRepository.class)
-        ;
+    var rule =
+        classes()
+            .that()
+            .haveNameMatching(".*Gateway")
+            .should()
+            .resideInAnyPackage("br.com.gymback.persistence.out.mysql")
+            .andShould()
+            .implement(resideInAPackage("br.com.gymback.core.gateway.*"))
+            .orShould()
+            .beAssignableTo(JpaRepository.class);
 
     rule.check(IMPORTED_CLASSES);
   }
 
   @Test
   void ensureMapperPattern() {
-    var rule = classes()
-        .that()
-          .areAnnotatedWith(Mapper.class)
-        .should()
-          .resideInAPackage("br.com.gymback.persistence.out.mysql.mapper")
-        .andShould()
-        .haveNameMatching(".*PersistenceMapper");
+    var rule =
+        classes()
+            .that()
+            .areAnnotatedWith(Mapper.class)
+            .should()
+            .resideInAPackage("br.com.gymback.persistence.out.mysql.mapper")
+            .andShould()
+            .haveNameMatching(".*PersistenceMapper");
 
     rule.check(IMPORTED_CLASSES);
   }
 
   @Test
   void ensureEntityPattern() {
-    var rule = classes()
-        .that()
+    var rule =
+        classes()
+            .that()
             .areAnnotatedWith(Entity.class)
-        .should()
+            .should()
             .resideInAPackage("br.com.gymback.persistence.out.mysql.entity")
-        .andShould()
-            .beAssignableTo(CommonFields.class)
-
-        ;
+            .andShould()
+            .beAssignableTo(CommonFields.class);
 
     rule.check(IMPORTED_CLASSES);
   }
-
 }

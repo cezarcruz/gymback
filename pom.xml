@@ -27,6 +27,7 @@
     <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
     <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
     <org.projectlombok.version>1.18.30</org.projectlombok.version>
+    <spotless.version>2.42.0</spotless.version>
   </properties>
 
   <modules>
@@ -112,6 +113,36 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${spotless.version}</version>
+        <configuration>
+          <ratchetFrom>origin/main</ratchetFrom>
+          <formats>
+            <format>
+              <includes>
+                <include>.gitattributes</include>
+                <include>.gitignore</include>
+              </includes>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
+              <indent>
+                <tabs>true</tabs>
+                <spacesPerTab>4</spacesPerTab>
+              </indent>
+            </format>
+          </formats>
+          <java>
+            <googleJavaFormat>
+              <version>1.19.2</version>
+            </googleJavaFormat>
+            <licenseHeader>
+              <content>/* Under MIT License (C)$YEAR */</content>
+            </licenseHeader>
+          </java>
+        </configuration>
       </plugin>
     </plugins>
     <pluginManagement>
