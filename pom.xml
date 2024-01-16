@@ -37,6 +37,7 @@
     <module>gym-persistence</module>
     <module>gym-aggregate-reports</module>
     <module>gym-worker</module>
+    <module>gym-messaging</module>
   </modules>
 
   <dependencies>

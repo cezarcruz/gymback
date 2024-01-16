@@ -7,7 +7,8 @@ import org.springframework.context.annotation.Profile;
 @Import(
     {
         PersistenceContextConfig.class,
-        CoreContextConfig.class
+        CoreContextConfig.class,
+        MessagingContextConfig.class
     }
 )
 @Configuration
