@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.teacher;
 
 import br.com.gymback.core.domain.TeacherDomain;
@@ -17,5 +18,4 @@ public class CreateTeacherUseCase {
     var contacts = saveContactGateway.save(teacher.contact());
     return saveTeacherGateway.save(teacher.withContact(contacts));
   }
-
 }
