@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.payment;
 
 import br.com.gymback.core.domain.PaymentDomain;
@@ -19,15 +20,13 @@ public class UpdateOverduePaymentUseCase {
   private final SavePaymentGateway savePaymentGateway;
 
   public void execute() {
-    final List<PaymentDomain> pendingPayments = getPaymentGateway.findAllBy(PaymentStatus.PENDING,
-            LocalDate.now())
-        .stream()
-        .map(payment -> payment.toBuilder().paymentStatus(PaymentStatus.OVERDUE).build())
-        .toList();
+    final List<PaymentDomain> pendingPayments =
+        getPaymentGateway.findAllBy(PaymentStatus.PENDING, LocalDate.now()).stream()
+            .map(payment -> payment.toBuilder().paymentStatus(PaymentStatus.OVERDUE).build())
+            .toList();
 
     log.info("updating {} payments", pendingPayments.size());
 
     savePaymentGateway.saveAll(pendingPayments);
   }
-
 }

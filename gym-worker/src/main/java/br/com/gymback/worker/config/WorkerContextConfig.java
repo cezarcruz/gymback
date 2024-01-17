@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.worker.config;
 
 import br.com.gymback.core.config.CoreContextConfig;
@@ -8,6 +9,4 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import({CoreContextConfig.class, PersistenceContextConfig.class, MessagingContextConfig.class})
-public class WorkerContextConfig {
-
-}
+public class WorkerContextConfig {}

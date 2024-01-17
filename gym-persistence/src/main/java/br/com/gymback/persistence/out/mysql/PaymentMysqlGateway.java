@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql;
 
 import br.com.gymback.core.domain.PaymentDomain;
@@ -36,13 +37,15 @@ public class PaymentMysqlGateway implements SavePaymentGateway, GetPaymentGatewa
 
   @Override
   public List<PaymentDomain> findBy(final Long contractId, final PaymentStatus paymentStatus) {
-    var payments = paymentRepository.findAllByContractIdAndPaymentStatus(contractId, paymentStatus.name());
+    var payments =
+        paymentRepository.findAllByContractIdAndPaymentStatus(contractId, paymentStatus.name());
     return paymentPersistenceMapper.fromEntityList(payments);
   }
 
   @Override
   public List<PaymentDomain> findAllBy(final PaymentStatus paymentStatus, final LocalDate date) {
-    var payments = paymentRepository.findAllByPaymentStatusAndPaymentDayLessThan(paymentStatus, date);
+    var payments =
+        paymentRepository.findAllByPaymentStatusAndPaymentDayLessThan(paymentStatus, date);
     return paymentPersistenceMapper.fromEntityList(payments);
   }
 }

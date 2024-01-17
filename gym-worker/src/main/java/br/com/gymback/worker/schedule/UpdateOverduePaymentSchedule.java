@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.worker.schedule;
 
 import br.com.gymback.core.usecase.payment.UpdateOverduePaymentUseCase;
