@@ -1,29 +1,17 @@
 spring:
+  config:
+    import: classpath:application-persistence.yml
   output:
     ansi:
       enabled: ALWAYS
   application:
-    name: gym-back
+    name: gym-back-worker
   threads:
     virtual:
       enabled: true
-  jpa:
-    open-in-view: true
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        query:
-          fail_on_pagination_over_collection_fetch: true
-  datasource:
-    url: jdbc:mysql://localhost:3306/gym?queryInterceptors=brave.mysql8.TracingQueryInterceptor&exceptionInterceptors=brave.mysql8.TracingExceptionInterceptor
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
   kafka:
     consumer:
-      group-id: group-id
+      group-id: gym-back-worker
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer

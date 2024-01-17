@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        query:
+          fail_on_pagination_over_collection_fetch: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/gym
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver

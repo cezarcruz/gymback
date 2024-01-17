@@ -1,26 +1,14 @@
 spring:
+  config:
+    import: classpath:application-persistence.yml
   output:
     ansi:
       enabled: ALWAYS
   application:
-    name: gym-back
+    name: gym-back-app
   threads:
     virtual:
       enabled: true
-  jpa:
-    open-in-view: true
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        query:
-          fail_on_pagination_over_collection_fetch: true
-  datasource:
-    url: jdbc:mysql://localhost:3306/gym?queryInterceptors=brave.mysql8.TracingQueryInterceptor&exceptionInterceptors=brave.mysql8.TracingExceptionInterceptor
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
   kafka:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -33,7 +21,7 @@ management:
         include: ["prometheus"]
   tracing:
     sampling:
-      probability: 0.1
+      probability: 1
 
 logging:
   pattern:

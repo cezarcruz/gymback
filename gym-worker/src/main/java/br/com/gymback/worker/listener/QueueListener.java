@@ -12,9 +12,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class QueueListener {
-  @KafkaListener(
-      topics = {"new-topic"},
-      groupId = "worker")
+  @KafkaListener(topics = {"new-topic"})
   public void receive(@Payload final Message<StudentDomain> message) throws BusinessException {
     log.info("payload {}", message.getPayload());
     log.info("headers {}", message.getHeaders());

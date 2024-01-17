@@ -1,4 +1,4 @@
-package br.com.gymback.application.config.context;
+package br.com.gymback.core.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
