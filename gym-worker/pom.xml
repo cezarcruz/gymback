@@ -32,6 +32,12 @@
     </dependency>
 
     <dependency>
+      <groupId>br.com.cezarcruz</groupId>
+      <artifactId>gym-messaging</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.springframework.kafka</groupId>
       <artifactId>spring-kafka</artifactId>
     </dependency>

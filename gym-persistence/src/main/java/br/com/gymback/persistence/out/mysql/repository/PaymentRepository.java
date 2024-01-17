@@ -1,6 +1,8 @@
 package br.com.gymback.persistence.out.mysql.repository;
 
+import br.com.gymback.core.enums.PaymentStatus;
 import br.com.gymback.persistence.out.mysql.entity.PaymentEntity;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,4 +21,6 @@ public interface PaymentRepository extends JpaRepository<PaymentEntity, Long> {
   """)
   List<PaymentEntity> findAllByContractIdAndPaymentStatus(@Param("contract") Long contractId,
       @Param("paymentStatus") String paymentStatus);
+
+  List<PaymentEntity> findAllByPaymentStatusAndPaymentDayLessThan(PaymentStatus paymentStatus, LocalDate date);
 }

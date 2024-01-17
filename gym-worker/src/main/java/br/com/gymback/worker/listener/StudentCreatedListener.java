@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class QueueListener {
+public class StudentCreatedListener {
   @KafkaListener(topics = {"new-topic"})
   public void receive(@Payload final Message<StudentDomain> message) throws BusinessException {
     log.info("payload {}", message.getPayload());
