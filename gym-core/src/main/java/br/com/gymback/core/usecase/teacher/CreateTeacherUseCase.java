@@ -12,8 +12,8 @@ public class CreateTeacherUseCase {
   private final SaveTeacherGateway saveTeacherGateway;
   private final SaveContactGateway saveContactGateway;
 
-  public CreateTeacherUseCase(final SaveTeacherGateway saveTeacherGateway,
-      final SaveContactGateway saveContactGateway) {
+  public CreateTeacherUseCase(
+      final SaveTeacherGateway saveTeacherGateway, final SaveContactGateway saveContactGateway) {
     this.saveTeacherGateway = saveTeacherGateway;
     this.saveContactGateway = saveContactGateway;
   }

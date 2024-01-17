@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.teacher;
 
 import br.com.gymback.core.domain.PageDomain;
@@ -10,15 +11,14 @@ import lombok.extern.slf4j.Slf4j;
 @Named
 public class GetTeacherUseCase {
 
-    private final GetTeacherGateway getTeacherGateway;
+  private final GetTeacherGateway getTeacherGateway;
 
   public GetTeacherUseCase(GetTeacherGateway getTeacherGateway) {
     this.getTeacherGateway = getTeacherGateway;
   }
 
   public PageDomain<TeacherDomain> findAll(final PageDomain<TeacherDomain> page) {
-        log.info("listing all teachers");
-        return getTeacherGateway.findAll(page);
-    }
-
+    log.info("listing all teachers");
+    return getTeacherGateway.findAll(page);
+  }
 }
