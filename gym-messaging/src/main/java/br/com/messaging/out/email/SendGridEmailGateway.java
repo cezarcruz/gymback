@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.messaging.out.email;
 
 import br.com.gymback.core.gateway.SendEmailGateway;
@@ -36,12 +37,11 @@ public class SendGridEmailGateway implements SendEmailGateway {
       }
 
     } catch (final IOException e) {
-      throw new RuntimeException(e); //todo change this exception to business something
+      throw new RuntimeException(e); // todo change this exception to business something
     }
-
   }
 
-  private String  doStuff() throws IOException {
+  private String doStuff() throws IOException {
     Email from = new Email("cezarcruz22@gmail.com");
 
     // Replace these with your guest list or your personal email for testing purposes
@@ -61,5 +61,4 @@ public class SendGridEmailGateway implements SendEmailGateway {
 
     return mail.build();
   }
-
 }

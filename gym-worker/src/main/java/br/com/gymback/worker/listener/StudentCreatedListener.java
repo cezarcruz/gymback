@@ -14,13 +14,12 @@ import org.springframework.messaging.handler.annotation.Payload;
 @Named
 public class StudentCreatedListener {
 
-  //todo should be a use case
+  // todo should be a use case
   private final SendEmailGateway sendEmailGateway;
 
   public StudentCreatedListener(SendEmailGateway sendEmailGateway) {
     this.sendEmailGateway = sendEmailGateway;
   }
-
 
   @KafkaListener(topics = {"new-topic"})
   public void receive(@Payload final Message<StudentDomain> message) throws BusinessException {
