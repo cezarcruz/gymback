@@ -5,5 +5,5 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "br.com.messaging.out.kafka")
+@ComponentScan(basePackages = { "br.com.messaging.out.kafka", "br.com.messaging.out.email" })
 public class MessagingContextConfig {}
