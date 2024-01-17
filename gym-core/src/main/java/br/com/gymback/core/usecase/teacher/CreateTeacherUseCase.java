@@ -13,7 +13,6 @@ public class CreateTeacherUseCase {
   private final SaveTeacherGateway saveTeacherGateway;
   private final SaveContactGateway saveContactGateway;
 
-
   public TeacherDomain create(final TeacherDomain teacher) {
     var contacts = saveContactGateway.save(teacher.contact());
     return saveTeacherGateway.save(teacher.withContact(contacts));
