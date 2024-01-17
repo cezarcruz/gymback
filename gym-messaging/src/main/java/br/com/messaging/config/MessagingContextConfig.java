@@ -1,5 +1,6 @@
 /* Under MIT License (C)2024 */
-package br.com.gymback.application.config.context;
+package br.com.messaging.config;
+
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
