@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import br.com.gymback.core.enums.ContractStatus;
@@ -69,8 +70,6 @@ public class ContractEntity extends CommonFields {
   @JoinTable(
       name = "contract_payment",
       joinColumns = @JoinColumn(name = "contract_id"),
-      inverseJoinColumns = @JoinColumn(name = "payment_id")
-  )
+      inverseJoinColumns = @JoinColumn(name = "payment_id"))
   private List<PaymentEntity> payments;
-
 }
