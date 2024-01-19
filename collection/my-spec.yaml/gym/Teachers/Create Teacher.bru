@@ -17,11 +17,23 @@ headers {
 
 body:json {
   {
-    "name": "{% faker 'person', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'fullName', '', '', '', '', '', '', 'pt_BR' %}",
+    "name": "{{randomName}}",
     "birthDate": "2000-12-29",
     "contact": {
-  		"phone": "{% faker 'phone', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'number', '', '', '', '', '', 'pt_BR' %}",
-  		"email": "{% faker 'internet', '', '', '', '', '', '', '', '', '', '', '', '', 'email', '', '', '', '', '', '', '', '', '', '', '', 'pt_BR' %}"
-  	}
+      "phone": "{{randomPhone}}",
+      "email": "{{randomEmail}}"
+    }
   }
+}
+
+script:pre-request {
+  const { fakerPT_BR: faker } = require('@faker-js/faker');
+  
+  const randomName = faker.name.fullName();
+  const randomEmail = faker.internet.email();
+  const randomPhone = faker.phone.number();
+  
+  bru.setVar("randomName", randomName);
+  bru.setVar("randomEmail", randomEmail);
+  bru.setVar("randomPhone", randomPhone);
 }
