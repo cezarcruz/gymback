@@ -31,20 +31,20 @@ public class ContractEntity extends CommonFields {
   private Long id;
 
   @Enumerated(EnumType.STRING)
-  @Column(name = "start_month")
+  @Column(name = "start_month", columnDefinition = "varchar(10)")
   private Month startMonth;
 
   @Enumerated(EnumType.STRING)
-  @Column(name = "end_month")
+  @Column(name = "end_month", columnDefinition = "varchar(10)")
   private Month endMonth;
 
-  @Column(name = "start_year")
+  @Column(name = "start_year", length = 4, columnDefinition = "mediumint")
   private Integer startYear;
 
-  @Column(name = "end_year")
+  @Column(name = "end_year", length = 4, columnDefinition = "mediumint")
   private Integer endYear;
 
-  @Column(name = "due_day", length = 2)
+  @Column(name = "due_day", length = 2, columnDefinition = "smallint")
   private Integer dueDay;
 
   private BigDecimal discount;
