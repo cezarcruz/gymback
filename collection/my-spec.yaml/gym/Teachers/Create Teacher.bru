@@ -1,0 +1,27 @@
+meta {
+  name: Create Teacher
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:8080/teachers
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: insomnia/2023.5.8
+}
+
+body:json {
+  {
+    "name": "{% faker 'person', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'fullName', '', '', '', '', '', '', 'pt_BR' %}",
+    "birthDate": "2000-12-29",
+    "contact": {
+  		"phone": "{% faker 'phone', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'number', '', '', '', '', '', 'pt_BR' %}",
+  		"email": "{% faker 'internet', '', '', '', '', '', '', '', '', '', '', '', '', 'email', '', '', '', '', '', '', '', '', '', '', '', 'pt_BR' %}"
+  	}
+  }
+}

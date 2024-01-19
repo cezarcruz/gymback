@@ -1,0 +1,31 @@
+meta {
+  name: Create Teacher
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://localhost:8080/teachers
+  body: json
+  auth: none
+}
+
+headers {
+  accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Pedro Pederneiras",
+    "birthDate": "2000-12-29",
+    "contact": {
+      "phone": "",
+      "email": ""
+    }
+  }
+}
+
+vars:post-response {
+  teacherId: res.body.id
+}
