@@ -1,0 +1,46 @@
+meta {
+  name: Create Class Room
+  type: http
+  seq: 11
+}
+
+post {
+  url: http://localhost:8080/classes
+  body: json
+  auth: none
+}
+
+headers {
+  accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Aulas de Perda de Peso",
+    "teacher": "{{teacherId}}",
+    "modality": "{{modalityId}}",
+    "value": 85.90,
+    "schedule": [
+      {
+        "weekDay": "mon",
+        "startHour": "13:00",
+        "endHour": "14:30"
+      },
+      {
+        "weekDay": "thu",
+        "startHour": "13:00",
+        "endHour": "14:30"
+      },
+      {
+        "weekDay": "fri",
+        "startHour": "13:00",
+        "endHour": "14:30"
+      }
+    ]
+  }
+}
+
+vars:post-response {
+  classRoomId: res.body.id
+}

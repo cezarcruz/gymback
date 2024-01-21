@@ -1,0 +1,23 @@
+meta {
+  name: Do Payment
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/payments/1/contract/1
+  body: json
+  auth: none
+}
+
+headers {
+  accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "value": 80,
+    "method": "MONEY"
+  }
+}

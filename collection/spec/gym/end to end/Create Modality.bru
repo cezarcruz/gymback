@@ -1,0 +1,26 @@
+meta {
+  name: Create Modality
+  type: http
+  seq: 10
+}
+
+post {
+  url: http://localhost:8080/modalities
+  body: json
+  auth: none
+}
+
+headers {
+  accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Cross Fit"
+  }
+}
+
+vars:post-response {
+  modalityId: res.body.id
+}

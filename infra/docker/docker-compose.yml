@@ -7,9 +7,9 @@ services:
     hostname: metabase
     environment:
       MB_DB_TYPE: mysql
-      MB_DB_CONNECTION_URI: jdbc:mysql://mysql:3306/metabase?user=root&password=root
+      MB_DB_CONNECTION_URI: jdbc:mysql://mysql:3306/metabase?user=root&password=root&allowPublicKeyRetrieval=true&useSSL=false
     ports:
-      - '3004:3000'
+      - '9001:3000'
     depends_on:
       - mysql
 
