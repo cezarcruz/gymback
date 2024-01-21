@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: http://localhost:8080/students
+  url: http://{{url}}/students
   body: json
   auth: none
 }
@@ -29,7 +29,7 @@ body:json {
       "city": ""
     },
     "contact": {
-      "phone": "",
+      "phone": "{{randonPhone}}",
       "email": "{{studentEmail}}"
     }
   }
@@ -45,8 +45,11 @@ script:pre-request {
   const randomName = faker.name.fullName();
   const randomEmail = faker.internet.email();
   
+  const randonPhone = faker.phone.number();
+  
   bru.setVar("studentName", randomName);
   bru.setVar("studentEmail", randomEmail);
+  bru.setVar("randonPhone", randonPhone);
   
 }
 

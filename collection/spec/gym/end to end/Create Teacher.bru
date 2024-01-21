@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: http://localhost:8080/teachers
+  url: http://{{url}}/teachers
   body: json
   auth: none
 }
@@ -17,15 +17,27 @@ headers {
 
 body:json {
   {
-    "name": "Pedro Pederneiras",
+    "name": "{{randomName}}",
     "birthDate": "2000-12-29",
     "contact": {
-      "phone": "",
-      "email": ""
+      "phone": "{{randonPhone}}",
+      "email": "{{randomEmail}}"
     }
   }
 }
 
 vars:post-response {
   teacherId: res.body.id
+}
+
+script:pre-request {
+  const { fakerPT_BR: faker } = require('@faker-js/faker');
+  
+  const randomName = faker.name.fullName();
+  const randomEmail = faker.internet.email();
+  const randonPhone = faker.phone.number();
+  
+  bru.setVar("randomName", randomName);
+  bru.setVar("randomEmail", randomEmail);
+  bru.setVar("randonPhone", randonPhone);
 }
