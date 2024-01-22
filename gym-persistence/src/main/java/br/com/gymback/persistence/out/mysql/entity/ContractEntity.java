@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import br.com.gymback.core.enums.ContractStatus;
@@ -31,20 +32,20 @@ public class ContractEntity extends CommonFields {
   private Long id;
 
   @Enumerated(EnumType.STRING)
-  @Column(name = "start_month")
+  @Column(name = "start_month", columnDefinition = "varchar(10)")
   private Month startMonth;
 
   @Enumerated(EnumType.STRING)
-  @Column(name = "end_month")
+  @Column(name = "end_month", columnDefinition = "varchar(10)")
   private Month endMonth;
 
-  @Column(name = "start_year")
+  @Column(name = "start_year", length = 4, columnDefinition = "mediumint")
   private Integer startYear;
 
-  @Column(name = "end_year")
+  @Column(name = "end_year", length = 4, columnDefinition = "mediumint")
   private Integer endYear;
 
-  @Column(name = "due_day", length = 2)
+  @Column(name = "due_day", length = 2, columnDefinition = "smallint")
   private Integer dueDay;
 
   private BigDecimal discount;
@@ -69,8 +70,6 @@ public class ContractEntity extends CommonFields {
   @JoinTable(
       name = "contract_payment",
       joinColumns = @JoinColumn(name = "contract_id"),
-      inverseJoinColumns = @JoinColumn(name = "payment_id")
-  )
+      inverseJoinColumns = @JoinColumn(name = "payment_id"))
   private List<PaymentEntity> payments;
-
 }

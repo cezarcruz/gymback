@@ -1,0 +1,39 @@
+meta {
+  name: Create Teacher
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:8080/teachers
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: insomnia/2023.5.8
+}
+
+body:json {
+  {
+    "name": "{{randomName}}",
+    "birthDate": "2000-12-29",
+    "contact": {
+      "phone": "{{randomPhone}}",
+      "email": "{{randomEmail}}"
+    }
+  }
+}
+
+script:pre-request {
+  const { fakerPT_BR: faker } = require('@faker-js/faker');
+  
+  const randomName = faker.name.fullName();
+  const randomEmail = faker.internet.email();
+  const randomPhone = faker.phone.number();
+  
+  bru.setVar("randomName", randomName);
+  bru.setVar("randomEmail", randomEmail);
+  bru.setVar("randomPhone", randomPhone);
+}

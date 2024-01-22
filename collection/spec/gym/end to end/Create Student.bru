@@ -1,0 +1,58 @@
+meta {
+  name: Create Student
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:8080/students
+  body: json
+  auth: none
+}
+
+headers {
+  accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "{{studentName}}",
+    "birthDate": "29/12/2001",
+    "document": "12312312308",
+    "address": {
+      "zipcode": "",
+      "street": "",
+      "neighborhood": "",
+      "num": "123 A",
+      "state": "SP",
+      "city": ""
+    },
+    "contact": {
+      "phone": "",
+      "email": "{{studentEmail}}"
+    }
+  }
+}
+
+vars:post-response {
+  studentId: res.body.id
+}
+
+script:pre-request {
+  const { fakerPT_BR: faker } = require('@faker-js/faker');
+  
+  const randomName = faker.name.fullName();
+  const randomEmail = faker.internet.email();
+  
+  bru.setVar("studentName", randomName);
+  bru.setVar("studentEmail", randomEmail);
+  
+}
+
+tests {
+  test("should created student", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(201);
+  });
+}
