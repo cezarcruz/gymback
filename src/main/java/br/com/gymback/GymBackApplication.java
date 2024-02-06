@@ -1,5 +1,5 @@
 /* Under MIT License (C)2024 */
-package br.com.gymback.application;
+package br.com.gymback;
 
 import br.com.gymback.application.config.context.ApplicationContextConfig;
 import br.com.gymback.worker.config.WorkerContextConfig;
