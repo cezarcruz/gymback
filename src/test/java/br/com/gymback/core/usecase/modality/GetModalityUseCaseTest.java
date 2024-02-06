@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.modality;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,11 +17,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class GetModalityUseCaseTest {
 
-  @Mock
-  private GetModalityGateway getModalityGateway;
+  @Mock private GetModalityGateway getModalityGateway;
 
-  @InjectMocks
-  private GetModalityUseCase getModalityUseCase;
+  @InjectMocks private GetModalityUseCase getModalityUseCase;
 
   @Test
   void shouldGetAll() {
@@ -34,5 +33,4 @@ class GetModalityUseCaseTest {
 
     verify(getModalityGateway).findAll(pageDomain);
   }
-
 }
