@@ -7,10 +7,13 @@ import jakarta.inject.Named;
 import lombok.RequiredArgsConstructor;
 
 @Named
-@RequiredArgsConstructor
 public class GetStudentContractUseCase {
 
   private final GetContractGateway getContractGateway;
+
+  public GetStudentContractUseCase(GetContractGateway getContractGateway) {
+    this.getContractGateway = getContractGateway;
+  }
 
   public ContractDomain getBy(final Long studentId) {
     return getContractGateway.getByStudentId(studentId)
