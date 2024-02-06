@@ -1,10 +1,10 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.contract;
 
 import br.com.gymback.core.domain.ContractDomain;
 import br.com.gymback.core.exceptions.ContractNotFoundException;
 import br.com.gymback.core.gateway.contract.GetContractGateway;
 import jakarta.inject.Named;
-import lombok.RequiredArgsConstructor;
 
 @Named
 public class GetStudentContractUseCase {
@@ -16,7 +16,8 @@ public class GetStudentContractUseCase {
   }
 
   public ContractDomain getBy(final Long studentId) {
-    return getContractGateway.getByStudentId(studentId)
+    return getContractGateway
+        .getByStudentId(studentId)
         .orElseThrow(() -> new ContractNotFoundException(studentId));
   }
 }
