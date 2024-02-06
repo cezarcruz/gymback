@@ -31,6 +31,9 @@
     <spotless.version>2.42.0</spotless.version>
     <sonar.organization>cezarcruz</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.coverage.jacoco.xmlReportPaths>
+      ${project.basedir}/gym-aggregate-reports/target/site/jacoco-aggregate/jacoco.xml
+    </sonar.coverage.jacoco.xmlReportPaths>
   </properties>
 
   <modules>
