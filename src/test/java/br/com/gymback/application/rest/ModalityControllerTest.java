@@ -15,6 +15,7 @@ import br.com.gymback.core.usecase.modality.CreateModalityUseCase;
 import br.com.gymback.core.usecase.modality.DeleteModalityUseCase;
 import br.com.gymback.core.usecase.modality.GetModalityUseCase;
 import br.com.gymback.core.usecase.modality.UpdateModalityUseCase;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -33,7 +34,7 @@ class ModalityControllerTest {
   @MockBean private DeleteModalityUseCase deleteModalityUseCase;
   @MockBean private UpdateModalityUseCase updateModalityUseCase;
 
-  // @Test TODO: not working
+  @Test
   void shouldCreateModality() throws Exception {
 
     when(createModalityUseCase.create(any())).thenReturn(ModalityFixtures.getModalityDomain());
