@@ -11,7 +11,7 @@ public class GetStudentContractUseCase {
 
   private final GetContractGateway getContractGateway;
 
-  public GetStudentContractUseCase(GetContractGateway getContractGateway) {
+  public GetStudentContractUseCase(final GetContractGateway getContractGateway) {
     this.getContractGateway = getContractGateway;
   }
 
