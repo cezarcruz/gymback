@@ -29,14 +29,11 @@ class ModalityControllerTest {
 
   @Autowired private MockMvc mockMvc;
 
-  @MockBean
-  private CreateModalityUseCase createModalityUseCase;
-  @MockBean
-  private GetModalityUseCase getModalityUseCase;
-  @MockBean
-  private DeleteModalityUseCase deleteModalityUseCase;
-  @MockBean
-  private UpdateModalityUseCase updateModalityUseCase;
+  @MockBean private CreateModalityUseCase createModalityUseCase;
+  @MockBean private GetModalityUseCase getModalityUseCase;
+  @MockBean private DeleteModalityUseCase deleteModalityUseCase;
+  @MockBean private UpdateModalityUseCase updateModalityUseCase;
+
   @Test
   void shouldCreateModality() throws Exception {
 
