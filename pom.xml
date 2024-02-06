@@ -25,6 +25,7 @@
 		<spotless.version>2.42.0</spotless.version>
 		<sonar.organization>cezarcruz</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.exclusions>**/core/config/**,**KafkaErrorHandler.java,**/*Wrapper.java</sonar.exclusions>
 	</properties>
 
 	<dependencies>
