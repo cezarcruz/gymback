@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.modality;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,11 +14,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class DeleteModalityUseCaseTest {
 
-  @Mock
-  private DeleteModalityGateway deleteModalityGateway;
+  @Mock private DeleteModalityGateway deleteModalityGateway;
 
-  @InjectMocks
-  private DeleteModalityUseCase deleteModalityUseCase;
+  @InjectMocks private DeleteModalityUseCase deleteModalityUseCase;
 
   @Test
   void shouldDeleteModality() {
@@ -25,5 +24,4 @@ class DeleteModalityUseCaseTest {
 
     verify(deleteModalityGateway).deleteById(1L);
   }
-
 }
