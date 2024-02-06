@@ -1,5 +1,5 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.arch;
-
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
@@ -24,28 +24,28 @@ class ApplicationArchTest {
     final var rule =
         classes()
             .that()
-              .areAnnotatedWith(RestController.class)
+            .areAnnotatedWith(RestController.class)
             .should()
-              .haveNameMatching(".*Controller")
+            .haveNameMatching(".*Controller")
             .andShould()
-              .resideInAPackage("br.com.gymback.application.rest")
+            .resideInAPackage("br.com.gymback.application.rest")
             .andShould()
-              .onlyHaveDependentClassesThat()
-            .resideInAnyPackage("br.com.gymback.application.rest.mapper", "br.com.gymback.core.usecase")
-
-        ;
+            .onlyHaveDependentClassesThat()
+            .resideInAnyPackage(
+                "br.com.gymback.application.rest.mapper", "br.com.gymback.core.usecase");
 
     rule.check(IMPORTED_CLASSES);
   }
 
   @Test
   void ensureConfigConventions() {
-    var rule = classes()
-        .that()
-          .areAnnotatedWith(Configuration.class)
-        .should()
-          .haveNameMatching(".*Config")
-        .andShould()
+    var rule =
+        classes()
+            .that()
+            .areAnnotatedWith(Configuration.class)
+            .should()
+            .haveNameMatching(".*Config")
+            .andShould()
             .resideInAPackage("br.com.gymback.application.config.*");
 
     rule.check(IMPORTED_CLASSES);
@@ -53,15 +53,14 @@ class ApplicationArchTest {
 
   @Test
   void layerArchValidations() {
-    final var layers = layeredArchitecture()
-        .consideringAllDependencies()
-        .layer("Controller")
-        .definedBy("..rest..")
-        .whereLayer("Controller")
-        .mayNotBeAccessedByAnyLayer();
+    final var layers =
+        layeredArchitecture()
+            .consideringAllDependencies()
+            .layer("Controller")
+            .definedBy("..rest..")
+            .whereLayer("Controller")
+            .mayNotBeAccessedByAnyLayer();
 
     layers.check(IMPORTED_CLASSES);
-
   }
-
 }

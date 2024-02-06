@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.CreateModalityRequest;
@@ -47,7 +48,8 @@ public class ModalityController {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public PageResponse<ModalityResponse> listAllModalities(@ParameterObject final GetPagingRequest paging) {
+  public PageResponse<ModalityResponse> listAllModalities(
+      @ParameterObject final GetPagingRequest paging) {
     var page = modalityMapper.fromRequest(paging);
     final var pagedModalities = getModalityUseCase.findAll(page);
     return modalityMapper.fromPageDomain(pagedModalities);
@@ -55,7 +57,8 @@ public class ModalityController {
 
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public ModalityResponse updateModality(@Valid @RequestBody final UpdateModalityRequest updateModalityRequest,
+  public ModalityResponse updateModality(
+      @Valid @RequestBody final UpdateModalityRequest updateModalityRequest,
       @PathVariable("id") final String id) {
     final var modality = modalityMapper.toModality(id, updateModalityRequest);
     final var updatedModality = updateModalityUseCase.update(modality);
@@ -67,5 +70,4 @@ public class ModalityController {
   public void deleteModality(@PathVariable("id") final Long id) {
     deleteModalityUseCase.deleteBy(id);
   }
-
 }

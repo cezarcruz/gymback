@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql;
 
 import br.com.gymback.core.domain.PageDomain;
@@ -24,20 +25,17 @@ class StudentMysqlGateway implements SaveStudentGateway, GetStudentGateway {
     final var entity = studentPersistenceMapper.toEntity(student);
     final var saved = studentRepository.save(entity);
     return studentPersistenceMapper.toDomain(saved);
-
   }
 
   @Override
   public PageDomain<StudentDomain> findAll(final PageDomain<StudentDomain> page) {
     var pageRequest = PageRequest.of(page.getPage(), page.getSize());
-    var students =  studentRepository.findAll(pageRequest);
+    var students = studentRepository.findAll(pageRequest);
     return studentPersistenceMapper.toPageDomain(page, students);
   }
 
   @Override
   public Optional<StudentDomain> findById(final Long id) {
-    return studentRepository
-        .findById(id)
-        .map(studentPersistenceMapper::toDomain);
+    return studentRepository.findById(id).map(studentPersistenceMapper::toDomain);
   }
 }

@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import jakarta.persistence.Entity;
@@ -20,9 +21,9 @@ import lombok.Setter;
 @Builder
 public class ModalityEntity extends CommonFields implements GenericEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
+  private String name;
 }

@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.payment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,17 +21,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class CreatePaymentUseCaseTest {
 
-  @Mock
-  private SavePaymentGateway savePaymentGateway;
+  @Mock private SavePaymentGateway savePaymentGateway;
 
-  @InjectMocks
-  private CreatePaymentUseCase createPaymentUseCase;
+  @InjectMocks private CreatePaymentUseCase createPaymentUseCase;
 
   @Test
   void shouldCreatePayment() {
 
-    when(savePaymentGateway.saveAll(any()))
-        .thenAnswer(a -> a.getArgument(0));
+    when(savePaymentGateway.saveAll(any())).thenAnswer(a -> a.getArgument(0));
 
     var contract = ContractFixtures.withOneYearInterval();
     var payments = createPaymentUseCase.create(contract);
@@ -38,14 +36,13 @@ class CreatePaymentUseCaseTest {
     assertNotNull(payments);
     assertEquals(12, payments.size());
 
-    payments.forEach(payment -> {
-      assertEquals(10, payment.getPaymentDay().getDayOfMonth());
-      assertEquals(PaymentType.IN, payment.getPaymentType());
-      assertEquals(PaymentStatus.PENDING, payment.getPaymentStatus());
-    });
+    payments.forEach(
+        payment -> {
+          assertEquals(10, payment.getPaymentDay().getDayOfMonth());
+          assertEquals(PaymentType.IN, payment.getPaymentType());
+          assertEquals(PaymentStatus.PENDING, payment.getPaymentStatus());
+        });
 
     verify(savePaymentGateway, times(1)).saveAll(any());
-
   }
-
 }

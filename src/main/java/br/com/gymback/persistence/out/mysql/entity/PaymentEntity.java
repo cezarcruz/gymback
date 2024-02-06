@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import br.com.gymback.core.enums.PaymentStatus;
@@ -37,5 +38,4 @@ public class PaymentEntity extends CommonFields {
   @Column(name = "payment_status")
   @Enumerated(EnumType.STRING)
   private PaymentStatus paymentStatus;
-
 }

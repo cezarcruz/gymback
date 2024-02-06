@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.payment;
 
 import br.com.gymback.core.domain.ContractDomain;
@@ -27,25 +28,29 @@ public class DoPaymentUseCase {
         .orElseThrow(() -> new ContractNotFoundException(contractId));
   }
 
-  private PaymentDomain doPayment(final PaymentDomain requestPaymentDomain,
-      final ContractDomain contract) {
+  private PaymentDomain doPayment(
+      final PaymentDomain requestPaymentDomain, final ContractDomain contract) {
     var toPay = getPaymentToPay(requestPaymentDomain, contract);
-    var paymentDetail = new PaymentDetailsDomain(null, toPay, requestPaymentDomain.getPaymentMethod(), toPay.getValue(), requestPaymentDomain.getValue());
+    var paymentDetail =
+        new PaymentDetailsDomain(
+            null,
+            toPay,
+            requestPaymentDomain.getPaymentMethod(),
+            toPay.getValue(),
+            requestPaymentDomain.getValue());
     savePaymentDetailsGateway.save(paymentDetail);
     return savePaymentGateway.save(toPay);
   }
 
-  private static PaymentDomain getPaymentToPay(final PaymentDomain paymentDomain,
-      final ContractDomain contract) {
-    return contract.getPaymentById(paymentDomain.getId())
+  private static PaymentDomain getPaymentToPay(
+      final PaymentDomain paymentDomain, final ContractDomain contract) {
+    return contract
+        .getPaymentById(paymentDomain.getId())
         .map(DoPaymentUseCase::setPaymentValues)
         .orElseThrow(() -> new PaymentNotFoundException(paymentDomain.getId()));
   }
 
   private static PaymentDomain setPaymentValues(final PaymentDomain payment) {
-    return payment.toBuilder()
-        .paymentStatus(PaymentStatus.PAID)
-        .build();
+    return payment.toBuilder().paymentStatus(PaymentStatus.PAID).build();
   }
-
 }

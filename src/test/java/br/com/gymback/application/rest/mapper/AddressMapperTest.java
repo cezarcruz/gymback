@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -13,5 +14,4 @@ class AddressMapperTest {
     final var addressResponse = addressMapper.fromDomain(null);
     assertNull(addressResponse);
   }
-
 }

@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import jakarta.persistence.Entity;
@@ -17,7 +18,7 @@ public class ContactEntity extends CommonFields {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   private String phone;
   private String email;
-
 }

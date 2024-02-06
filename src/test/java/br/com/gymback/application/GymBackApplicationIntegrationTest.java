@@ -1,5 +1,5 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application;
-
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -11,11 +11,9 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Testcontainers
 class GymBackApplicationIntegrationTest {
 
-	@Container
-	private static final MySQLContainer<?> MY_SQL_CONTAINER = new MySQLContainer<>("mysql:8.0.31");
+  @Container
+  private static final MySQLContainer<?> MY_SQL_CONTAINER = new MySQLContainer<>("mysql:8.0.31");
 
-	@Test
-	void contextLoads() {
-	}
-
+  @Test
+  void contextLoads() {}
 }

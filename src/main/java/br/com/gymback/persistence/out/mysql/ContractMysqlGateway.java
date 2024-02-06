@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql;
 
 import br.com.gymback.core.domain.ContractDomain;
@@ -39,9 +40,7 @@ public class ContractMysqlGateway implements SaveContractGateway, GetContractGat
 
   @Override
   public Optional<ContractDomain> findById(final Long id) {
-    return contractRepository
-        .findById(id)
-        .map(contractPersistenceMapper::fromEntity);
+    return contractRepository.findById(id).map(contractPersistenceMapper::fromEntity);
   }
 
   @Override

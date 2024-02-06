@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.fixtures;
 
 import static org.instancio.Select.field;
@@ -9,8 +10,7 @@ import org.instancio.Instancio;
 public class ContractFixtures {
 
   public static ContractDomain getContract() {
-    return Instancio
-        .of(ContractDomain.class)
+    return Instancio.of(ContractDomain.class)
         .set(field("startYear"), 2024)
         .set(field("endYear"), 2024)
         .generate(field("dueDay"), gen -> gen.ints().range(1, 28))

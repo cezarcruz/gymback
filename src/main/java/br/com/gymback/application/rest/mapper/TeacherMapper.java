@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest.mapper;
 
 import br.com.gymback.application.rest.dto.request.CreateTeacherRequest;
@@ -12,12 +13,12 @@ import org.mapstruct.MappingConstants.ComponentModel;
 
 @Mapper(
     componentModel = ComponentModel.JAKARTA,
-    uses = { ContactMapper.class }
-)
+    uses = {ContactMapper.class})
 public interface TeacherMapper extends PagingMapper<TeacherDomain> {
 
   @Mapping(target = "id", ignore = true)
   TeacherDomain fromRequest(final CreateTeacherRequest createTeacherRequest);
+
   TeacherResponse fromDomain(final TeacherDomain createdTeacher);
 
   PageResponse<TeacherResponse> fromPageDomain(final PageDomain<TeacherDomain> teacher);

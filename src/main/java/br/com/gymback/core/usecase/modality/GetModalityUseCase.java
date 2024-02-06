@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.modality;
 
 import br.com.gymback.core.domain.ModalityDomain;
@@ -10,10 +11,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class GetModalityUseCase {
 
-    private final GetModalityGateway getModalityGateway;
+  private final GetModalityGateway getModalityGateway;
 
-    public PageDomain<ModalityDomain> findAll(final PageDomain<ModalityDomain> page) {
-        return getModalityGateway.findAll(page);
-    }
-
+  public PageDomain<ModalityDomain> findAll(final PageDomain<ModalityDomain> page) {
+    return getModalityGateway.findAll(page);
+  }
 }

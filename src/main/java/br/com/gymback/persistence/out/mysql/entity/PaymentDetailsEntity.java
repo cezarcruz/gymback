@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import br.com.gymback.core.enums.PaymentMethod;
@@ -39,5 +40,4 @@ public class PaymentDetailsEntity extends CommonFields {
 
   @Column(name = "paid_value")
   private BigDecimal paidValue;
-
 }

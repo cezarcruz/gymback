@@ -1,16 +1,15 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.mapper;
 
+import br.com.gymback.core.domain.ScheduleDomain;
 import br.com.gymback.persistence.out.mysql.entity.ScheduleEntity;
 import br.com.gymback.persistence.out.mysql.entity.WeekDayEntity;
-import br.com.gymback.core.domain.ScheduleDomain;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants.ComponentModel;
 import org.mapstruct.Named;
 
-@Mapper(
-    componentModel = ComponentModel.JAKARTA
-)
+@Mapper(componentModel = ComponentModel.JAKARTA)
 public interface SchedulePersistenceMapper {
 
   @Mapping(source = "weekDay", target = "weekDay", qualifiedByName = "weekDayToString")
@@ -35,7 +34,5 @@ public interface SchedulePersistenceMapper {
     }
 
     return new WeekDayEntity(weekDay, null);
-
   }
-
 }

@@ -1,5 +1,5 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
-
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -47,8 +47,6 @@ public class ClassRoomEntity extends CommonFields implements GenericEntity {
   @JoinTable(
       name = "class_room_schedule",
       joinColumns = @JoinColumn(name = "class_room_id"),
-      inverseJoinColumns = @JoinColumn(name = "schedule_id")
-  )
+      inverseJoinColumns = @JoinColumn(name = "schedule_id"))
   private List<ScheduleEntity> schedule;
-
 }

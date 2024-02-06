@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.modality;
 
 import br.com.gymback.core.gateway.modality.DeleteModalityGateway;
@@ -8,10 +9,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DeleteModalityUseCase {
 
-    private final DeleteModalityGateway deleteModalityGateway;
+  private final DeleteModalityGateway deleteModalityGateway;
 
-    public void deleteBy(final Long id) {
-        deleteModalityGateway.deleteById(id);
-    }
-
+  public void deleteBy(final Long id) {
+    deleteModalityGateway.deleteById(id);
+  }
 }

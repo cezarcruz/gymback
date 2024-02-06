@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.teacher;
 
 import br.com.gymback.core.gateway.teacher.DeleteTeacherGateway;
@@ -8,9 +9,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DeleteTeacherUseCase {
 
-    private final DeleteTeacherGateway teacherGateway;
+  private final DeleteTeacherGateway teacherGateway;
 
-    public void deleteBy(final Long id) {
-        teacherGateway.deleteTeacher(id);
-    }
+  public void deleteBy(final Long id) {
+    teacherGateway.deleteTeacher(id);
+  }
 }

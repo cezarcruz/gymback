@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import jakarta.persistence.Column;
@@ -24,6 +25,7 @@ public class AddressEntity extends CommonFields {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   private String zipcode;
   private String street;
   private String neighborhood;
@@ -32,8 +34,4 @@ public class AddressEntity extends CommonFields {
 
   @Column(name = "address_number")
   private String addressNumber;
-
 }
-
-
-

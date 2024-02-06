@@ -1,9 +1,10 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql;
 
-import br.com.gymback.persistence.out.mysql.mapper.AddressPersistenceMapper;
-import br.com.gymback.persistence.out.mysql.repository.AddressRepository;
 import br.com.gymback.core.domain.AddressDomain;
 import br.com.gymback.core.gateway.student.SaveAddressGateway;
+import br.com.gymback.persistence.out.mysql.mapper.AddressPersistenceMapper;
+import br.com.gymback.persistence.out.mysql.repository.AddressRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

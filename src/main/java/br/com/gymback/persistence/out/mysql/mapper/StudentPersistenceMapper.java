@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.mapper;
 
 import br.com.gymback.core.domain.StudentDomain;
@@ -9,14 +10,13 @@ import org.mapstruct.MappingConstants.ComponentModel;
 
 @Mapper(
     componentModel = ComponentModel.JAKARTA,
-    uses = { ContactPersistenceMapper.class }
-)
-public interface StudentPersistenceMapper extends
-    PagingPersistenceMapper<StudentDomain, StudentEntity> {
+    uses = {ContactPersistenceMapper.class})
+public interface StudentPersistenceMapper
+    extends PagingPersistenceMapper<StudentDomain, StudentEntity> {
   StudentEntity toEntity(final StudentDomain student);
+
   StudentDomain toDomain(final StudentEntity studentEntity);
 
   @InheritConfiguration
   List<StudentDomain> fromEntityList(final List<StudentEntity> sources);
-
 }

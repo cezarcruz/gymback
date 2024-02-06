@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

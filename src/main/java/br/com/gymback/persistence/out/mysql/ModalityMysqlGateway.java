@@ -1,9 +1,5 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql;
-
-import java.util.Optional;
-
-import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Component;
 
 import br.com.gymback.core.domain.ModalityDomain;
 import br.com.gymback.core.domain.PageDomain;
@@ -12,12 +8,15 @@ import br.com.gymback.core.gateway.modality.GetModalityGateway;
 import br.com.gymback.core.gateway.modality.SaveModalityGateway;
 import br.com.gymback.persistence.out.mysql.mapper.ModalityPersistenceMapper;
 import br.com.gymback.persistence.out.mysql.repository.ModalityRepository;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-class ModalityMysqlGateway implements
-    SaveModalityGateway, GetModalityGateway, DeleteModalityGateway {
+class ModalityMysqlGateway
+    implements SaveModalityGateway, GetModalityGateway, DeleteModalityGateway {
 
   private final ModalityRepository modalityRepository;
   private final ModalityPersistenceMapper modalityPersistenceMapper;
@@ -44,7 +43,6 @@ class ModalityMysqlGateway implements
 
   @Override
   public Optional<ModalityDomain> findById(Long id) {
-    return modalityRepository.findById(id)
-        .map(modalityPersistenceMapper::from);
+    return modalityRepository.findById(id).map(modalityPersistenceMapper::from);
   }
 }

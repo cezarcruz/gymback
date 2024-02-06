@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.domain;
 
 import br.com.gymback.core.enums.PaymentMethod;
@@ -21,8 +22,9 @@ public final class PaymentDomain {
   private final PaymentStatus paymentStatus;
   private final PaymentMethod paymentMethod;
 
-  public static PaymentDomain createInPayment(final BigDecimal classValue, final LocalDate paymentDay) {
-    return new PaymentDomain(null, classValue, paymentDay, PaymentType.IN, PaymentStatus.PENDING, null);
+  public static PaymentDomain createInPayment(
+      final BigDecimal classValue, final LocalDate paymentDay) {
+    return new PaymentDomain(
+        null, classValue, paymentDay, PaymentType.IN, PaymentStatus.PENDING, null);
   }
-
 }

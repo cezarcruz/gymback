@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.exceptions;
 
 public class ModalityNotFountException extends NotFoundException {

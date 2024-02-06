@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.repository;
 
 import br.com.gymback.persistence.out.mysql.entity.ClassRoomEntity;
@@ -13,7 +14,6 @@ public interface ClassRoomRepository extends JpaRepository<ClassRoomEntity, Long
       value = """
         select cr from ClassRoomEntity cr
       """,
-      countQuery = "select count(cr) from ClassRoomEntity cr"
-  )
+      countQuery = "select count(cr) from ClassRoomEntity cr")
   Page<ClassRoomEntity> findAllWithJoin(final Pageable pageable);
 }

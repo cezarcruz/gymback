@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql;
 
 import br.com.gymback.core.domain.ContactDomain;

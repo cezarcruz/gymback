@@ -1,5 +1,5 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.repository;
-
 
 import br.com.gymback.persistence.out.mysql.entity.ContractEntity;
 import java.util.Optional;

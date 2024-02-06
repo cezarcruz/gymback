@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.contract;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,8 +30,7 @@ class CreateContractUseCaseTest {
   @Mock private GetClassRoomGateway getClassRoomGateway;
   @Mock private CreatePaymentUseCase createPaymentUseCase;
 
-  @InjectMocks
-  private CreateContractUseCase createContractUseCase;
+  @InjectMocks private CreateContractUseCase createContractUseCase;
 
   @Test
   void shouldCreateAContract() {
@@ -39,17 +39,14 @@ class CreateContractUseCaseTest {
     final var classRoom = ClassRoomFixtures.getClassRoom();
     final var payment = PaymentFixture.getPayment();
 
-    when(getStudentGateway.findById(contract.getStudent().id()))
-        .thenReturn(Optional.of(student));
+    when(getStudentGateway.findById(contract.getStudent().id())).thenReturn(Optional.of(student));
 
     when(getClassRoomGateway.findById(contract.getClassRoom().id()))
         .thenReturn(Optional.of(classRoom));
 
-    when(createPaymentUseCase.create(any()))
-        .thenReturn(List.of(payment));
+    when(createPaymentUseCase.create(any())).thenReturn(List.of(payment));
 
-    when(saveContractGateway.save(any()))
-        .thenAnswer(a -> a.getArgument(0));
+    when(saveContractGateway.save(any())).thenAnswer(a -> a.getArgument(0));
 
     final var contractDomain = createContractUseCase.create(contract);
 
@@ -62,10 +59,7 @@ class CreateContractUseCaseTest {
     assertNotNull(contractDomain.getStudent());
     assertEquals(student.name(), contractDomain.getStudent().name());
 
-
     assertNotNull(contractDomain.getPayments());
     assertEquals(1, contractDomain.getPayments().size());
-
   }
-
 }

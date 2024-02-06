@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.domain;
 
 import lombok.Builder;
@@ -10,7 +11,4 @@ public record AddressDomain(
     String state,
     String city,
     String neighborhood,
-    String addressNumber
-) {
-
-}
+    String addressNumber) {}

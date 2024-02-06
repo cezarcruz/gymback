@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -6,19 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalTime;
 
 public record CreateScheduleRequest(
-
-    @NotNull
-    String weekDay,
-
-    @NotNull
-    @JsonFormat(pattern = "HH:mm")
-    @Schema(example = "12:00", description = "Start hour")
-    LocalTime startHour,
-
-    @NotNull
-    @JsonFormat(pattern = "HH:mm")
-    @Schema(example = "13:00", description = "End hour")
-    LocalTime endHour
-) {
-
-}
+    @NotNull String weekDay,
+    @NotNull @JsonFormat(pattern = "HH:mm") @Schema(example = "12:00", description = "Start hour")
+        LocalTime startHour,
+    @NotNull @JsonFormat(pattern = "HH:mm") @Schema(example = "13:00", description = "End hour")
+        LocalTime endHour) {}

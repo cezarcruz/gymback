@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.modality;
 
 import br.com.gymback.core.domain.ModalityDomain;
@@ -14,5 +15,4 @@ public class CreateModalityUseCase {
   public ModalityDomain create(final ModalityDomain modality) {
     return saveModalityGateway.save(modality);
   }
-
 }

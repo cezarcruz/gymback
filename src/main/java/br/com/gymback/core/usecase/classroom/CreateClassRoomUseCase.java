@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.classroom;
 
 import br.com.gymback.core.domain.ClassRoomDomain;
@@ -21,18 +22,20 @@ public class CreateClassRoomUseCase {
 
   public ClassRoomDomain create(final ClassRoomDomain classRoom) {
 
-    var classRoomWithTeacher = getTeacherGateway.findById(classRoom.teacher().id())
-        .map(classRoom::withTeacher)
-        .orElseThrow(() -> new TeacherNotFountException(classRoom.teacher().id()));
+    var classRoomWithTeacher =
+        getTeacherGateway
+            .findById(classRoom.teacher().id())
+            .map(classRoom::withTeacher)
+            .orElseThrow(() -> new TeacherNotFountException(classRoom.teacher().id()));
 
-    var validClassRoom = getModalityGateway.findById(classRoom.modality().id())
-        .map(classRoomWithTeacher::withModality)
-        .orElseThrow(() -> new ModalityNotFountException(classRoom.modality().id()));
+    var validClassRoom =
+        getModalityGateway
+            .findById(classRoom.modality().id())
+            .map(classRoomWithTeacher::withModality)
+            .orElseThrow(() -> new ModalityNotFountException(classRoom.modality().id()));
 
     var schedules = saveScheduleGateway.save(classRoom.schedule());
 
     return saveClassRoomGateway.save(validClassRoom.withSchedule(schedules));
-
   }
-
 }

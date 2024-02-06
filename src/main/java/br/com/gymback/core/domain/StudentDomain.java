@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.domain;
 
 import java.time.LocalDate;
@@ -10,10 +11,6 @@ public record StudentDomain(
     String name,
     LocalDate birthDate,
     String document,
-    @With
-    ContactDomain contact,
-    @With
-    AddressDomain address
-) implements GenericDomain {
-
-}
+    @With ContactDomain contact,
+    @With AddressDomain address)
+    implements GenericDomain {}

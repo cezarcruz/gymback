@@ -1,9 +1,10 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql;
 
-import br.com.gymback.persistence.out.mysql.mapper.SchedulePersistenceMapper;
-import br.com.gymback.persistence.out.mysql.repository.ScheduleRepository;
 import br.com.gymback.core.domain.ScheduleDomain;
 import br.com.gymback.core.gateway.schedule.SaveScheduleGateway;
+import br.com.gymback.persistence.out.mysql.mapper.SchedulePersistenceMapper;
+import br.com.gymback.persistence.out.mysql.repository.ScheduleRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -26,9 +27,7 @@ public class ScheduleMysqlGateway implements SaveScheduleGateway {
 
   @Override
   public List<ScheduleDomain> save(List<ScheduleDomain> schedule) {
-    //todo use saveAll ;)
-    return schedule.stream()
-        .map(this::save)
-        .collect(Collectors.toList());
+    // todo use saveAll ;)
+    return schedule.stream().map(this::save).collect(Collectors.toList());
   }
 }

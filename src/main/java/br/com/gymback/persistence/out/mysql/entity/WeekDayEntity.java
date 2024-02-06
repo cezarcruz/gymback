@@ -1,5 +1,5 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
-
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,8 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class WeekDayEntity extends CommonFields {
 
-  //TODO change this to another thing
-  @Id
-  private String name;
+  // TODO change this to another thing
+  @Id private String name;
   private String label;
 }

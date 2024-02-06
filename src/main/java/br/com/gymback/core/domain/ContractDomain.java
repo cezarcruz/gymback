@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.domain;
 
 import br.com.gymback.core.enums.ContractStatus;
@@ -27,12 +28,9 @@ public final class ContractDomain {
   private ContractType contractType;
   private ContractStatus contractStatus;
 
-  @With
-  private final StudentDomain student;
-  @With
-  private final ClassRoomDomain classRoom;
-  @With
-  private final List<PaymentDomain> payments;
+  @With private final StudentDomain student;
+  @With private final ClassRoomDomain classRoom;
+  @With private final List<PaymentDomain> payments;
 
   public ContractDomain activate() {
     this.contractStatus = ContractStatus.ACTIVE;
@@ -48,9 +46,7 @@ public final class ContractDomain {
   }
 
   public Optional<PaymentDomain> getPaymentById(final Long id) {
-    return payments.stream()
-        .filter(p -> Objects.equals(p.getId(), id))
-        .findFirst();
+    return payments.stream().filter(p -> Objects.equals(p.getId(), id)).findFirst();
   }
 
   public int contractMonths() {
@@ -60,7 +56,6 @@ public final class ContractDomain {
 
     var interval = Period.between(startDate, endDate);
     return interval.getMonths() + 1 + (interval.getYears() * 12);
-
   }
 
   public boolean isActive() {

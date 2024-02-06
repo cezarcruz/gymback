@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.performance;
 
 import static io.gatling.javaapi.core.CoreDsl.StringBody;
@@ -13,16 +14,19 @@ import io.gatling.javaapi.http.HttpProtocolBuilder;
 
 public class BasicSimulation extends Simulation {
 
-  final HttpProtocolBuilder httpProtocol = http
-      .baseUrl("http://localhost:8080")
-      .acceptHeader("application/json")
-      .userAgentHeader("Carolina Reaper");
+  final HttpProtocolBuilder httpProtocol =
+      http.baseUrl("http://localhost:8080")
+          .acceptHeader("application/json")
+          .userAgentHeader("Carolina Reaper");
 
-  ScenarioBuilder createTeacher = scenario("Creating Teacher")
-      .exec(
-          http("post")
-              .post("/teachers").body(
-                  StringBody("""
+  ScenarioBuilder createTeacher =
+      scenario("Creating Teacher")
+          .exec(
+              http("post")
+                  .post("/teachers")
+                  .body(
+                      StringBody(
+                          """
                       {
                           "name": "alberto roberto",
                           "birthDate": "2000-01-01",
@@ -31,19 +35,17 @@ public class BasicSimulation extends Simulation {
                             "phone": "2999999999"
                           }
                         }
-                                        """)).asJson()
-              .header("content-type", "application/json")
-              .check(status().in(201))
-      );
+                                        """))
+                  .asJson()
+                  .header("content-type", "application/json")
+                  .check(status().in(201)));
 
   {
     setUp(
-        createTeacher.injectOpen(
-            constantUsersPerSec(2).during(10),
-            constantUsersPerSec(5).during(15).randomized(),
-            rampUsersPerSec(12).to(600).during(3 * 60)
-        )
-    ).protocols(httpProtocol);
+            createTeacher.injectOpen(
+                constantUsersPerSec(2).during(10),
+                constantUsersPerSec(5).during(15).randomized(),
+                rampUsersPerSec(12).to(600).during(3 * 60)))
+        .protocols(httpProtocol);
   }
-
 }

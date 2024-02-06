@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.payment;
 
 import br.com.gymback.core.domain.ContractDomain;
@@ -22,14 +23,12 @@ public class CreatePaymentUseCase {
     final List<PaymentDomain> payments = new ArrayList<>();
     LocalDate nextPayment = contract.getStartDate();
 
-    //TODO should refactory?
+    // TODO should refactory?
     for (int i = 0; i < contractMonths; i++) {
       payments.add(PaymentDomain.createInPayment(contract.getClassRoom().value(), nextPayment));
       nextPayment = nextPayment.plusMonths(1);
     }
 
     return savePaymentGateway.saveAll(payments);
-
   }
-
 }

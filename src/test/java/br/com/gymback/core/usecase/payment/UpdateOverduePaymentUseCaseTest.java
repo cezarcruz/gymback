@@ -1,7 +1,6 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.payment;
 
-import static org.mockito.ArgumentMatchers.argThat;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import br.com.gymback.core.enums.PaymentStatus;
@@ -19,28 +18,23 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class UpdateOverduePaymentUseCaseTest {
 
-  @Mock
-  private GetPaymentGateway getPaymentGateway;
+  @Mock private GetPaymentGateway getPaymentGateway;
 
-  @Mock
-  private SavePaymentGateway savePaymentGateway;
+  @Mock private SavePaymentGateway savePaymentGateway;
 
-  @InjectMocks
-  private UpdateOverduePaymentUseCase updateOverduePaymentUseCase;
+  @InjectMocks private UpdateOverduePaymentUseCase updateOverduePaymentUseCase;
 
   @Test
   void shouldUpdateAllOverduePayments() {
 
     final var payments = List.of(PaymentFixture.getPayment());
-    when(getPaymentGateway.findAllBy(PaymentStatus.PENDING, LocalDate.now()))
-        .thenReturn(payments);
+    when(getPaymentGateway.findAllBy(PaymentStatus.PENDING, LocalDate.now())).thenReturn(payments);
 
     updateOverduePaymentUseCase.execute();
 
-//    verify(savePaymentGateway).saveAll(argThat( argument -> {
-//      var payment = argument.getFirst();
-//      return payment.getPaymentStatus().equals(PaymentStatus.OVERDUE);
-//    }));
+    //    verify(savePaymentGateway).saveAll(argThat( argument -> {
+    //      var payment = argument.getFirst();
+    //      return payment.getPaymentStatus().equals(PaymentStatus.OVERDUE);
+    //    }));
   }
-
 }

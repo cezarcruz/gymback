@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.CreateClassRoomRequest;
@@ -30,12 +31,12 @@ public class ClassRoomController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public ClassRoomResponse create(@Valid @RequestBody final CreateClassRoomRequest createClassRoomRequest) {
+  public ClassRoomResponse create(
+      @Valid @RequestBody final CreateClassRoomRequest createClassRoomRequest) {
 
     var classRoom = classRoomMapper.from(createClassRoomRequest);
     var createdClassRoom = createClassRoomUseCase.create(classRoom);
     return classRoomMapper.from(createdClassRoom);
-
   }
 
   @GetMapping
@@ -44,8 +45,7 @@ public class ClassRoomController {
 
     var page = classRoomMapper.fromRequest(paging);
 
-    var pagedClasses =  getClassRoomUseCase.findAll(page);
+    var pagedClasses = getClassRoomUseCase.findAll(page);
     return classRoomMapper.fromPageDomain(pagedClasses);
   }
-
 }

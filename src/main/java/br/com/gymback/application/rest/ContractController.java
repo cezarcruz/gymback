@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.CreateContractRequest;
@@ -29,5 +30,4 @@ public class ContractController {
     var created = createContractUseCase.create(contract);
     return contractMapper.fromModel(created);
   }
-
 }

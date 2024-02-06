@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.gateway.contract;
 
 import br.com.gymback.core.domain.ContractDomain;
@@ -6,6 +7,8 @@ import java.util.Optional;
 
 public interface GetContractGateway extends GetGateway<ContractDomain> {
   Optional<ContractDomain> getByStudentId(final Long studentId);
+
   boolean exists(final Long contractId);
+
   boolean notExists(Long contractId);
 }

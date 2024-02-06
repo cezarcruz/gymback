@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.DoPaymentRequest;
@@ -29,7 +30,8 @@ public class PaymentController {
 
   @PutMapping("/{paymentId}/contract/{contractId}")
   @ResponseStatus(HttpStatus.OK)
-  public PaymentResponse doPayment(@PathVariable("paymentId") final Long paymentId,
+  public PaymentResponse doPayment(
+      @PathVariable("paymentId") final Long paymentId,
       @PathVariable("contractId") final Long contractId,
       @RequestBody final DoPaymentRequest doPaymentRequest) {
     var payment = paymentMapper.fromDoPaymentRequest(doPaymentRequest, paymentId);
@@ -38,9 +40,9 @@ public class PaymentController {
   }
 
   @GetMapping("/contract/{contractId}/pending")
-  public List<PaymentResponse> getPendingPayment(@PathVariable("contractId") final Long contractId) {
+  public List<PaymentResponse> getPendingPayment(
+      @PathVariable("contractId") final Long contractId) {
     var pendingPayment = getPaymentUseCase.findBy(contractId, PaymentStatus.PENDING);
     return paymentMapper.fromModelList(pendingPayment);
   }
-
 }

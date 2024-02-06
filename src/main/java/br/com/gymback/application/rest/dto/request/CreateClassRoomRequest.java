@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest.dto.request;
 
 import jakarta.validation.Valid;
@@ -7,22 +8,9 @@ import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.util.List;
 
-public record CreateClassRoomRequest (
+public record CreateClassRoomRequest(
     String name,
-
-    @NotNull
-    String teacher,
-
-    @NotNull
-    String modality,
-
-    @NotNull
-    @Positive
-    BigDecimal value,
-
-    @Valid
-    @NotEmpty
-    List<CreateScheduleRequest> schedule
-) {
-
-}
+    @NotNull String teacher,
+    @NotNull String modality,
+    @NotNull @Positive BigDecimal value,
+    @Valid @NotEmpty List<CreateScheduleRequest> schedule) {}

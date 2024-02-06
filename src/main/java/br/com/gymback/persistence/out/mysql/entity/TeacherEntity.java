@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import jakarta.persistence.Column;
@@ -24,18 +25,16 @@ import lombok.Setter;
 @Builder
 public class TeacherEntity extends CommonFields implements GenericEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String name;
+  private String name;
 
-    @Column(name = "birth_date")
-    private LocalDate birthDate;
+  @Column(name = "birth_date")
+  private LocalDate birthDate;
 
-    @OneToOne
-    @JoinColumn(name = "contact_id")
-    private ContactEntity contact;
-
+  @OneToOne
+  @JoinColumn(name = "contact_id")
+  private ContactEntity contact;
 }
-

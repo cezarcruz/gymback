@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.classroom;
 
 import br.com.gymback.core.domain.ClassRoomDomain;
@@ -15,5 +16,4 @@ public class GetClassRoomUseCase {
   public PageDomain<ClassRoomDomain> findAll(final PageDomain<ClassRoomDomain> page) {
     return getClassRoomGateway.findAll(page);
   }
-
 }

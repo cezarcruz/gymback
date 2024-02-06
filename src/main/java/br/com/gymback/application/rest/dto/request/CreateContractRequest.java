@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest.dto.request;
 
 import br.com.gymback.core.enums.ContractType;
@@ -9,24 +10,12 @@ import java.math.BigDecimal;
 import java.time.Month;
 
 public record CreateContractRequest(
-    @NotNull
-    @NotBlank
-    String student,
-    @NotNull
-    @NotBlank
-    String classRoom,
+    @NotNull @NotBlank String student,
+    @NotNull @NotBlank String classRoom,
     BigDecimal discount,
-    @NotNull
-    @Max(31)
-    Integer dueDay,
+    @NotNull @Max(31) Integer dueDay,
     ContractType contractType,
     Month startMonth,
     Month endMonth,
-    @Schema(example = "2023", description = "Start Year")
-    Integer startYear,
-    @Schema(example = "2024", description = "End hour")
-    Integer endYear
-
-) {
-
-}
+    @Schema(example = "2023", description = "Start Year") Integer startYear,
+    @Schema(example = "2024", description = "End hour") Integer endYear) {}

@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import jakarta.persistence.Column;
@@ -31,6 +32,4 @@ public class ScheduleEntity extends CommonFields {
 
   @Column(name = "end_hour")
   private LocalTime endHour;
-
-
 }

@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import jakarta.persistence.Column;
@@ -27,6 +28,7 @@ public class StudentEntity extends CommonFields implements GenericEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   private String name;
   private String document;
 
@@ -40,5 +42,4 @@ public class StudentEntity extends CommonFields implements GenericEntity {
   @OneToOne
   @JoinColumn(name = "contact_id")
   private ContactEntity contact;
-
 }

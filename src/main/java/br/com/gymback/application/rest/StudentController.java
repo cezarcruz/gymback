@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.CreateStudentRequest;
@@ -36,19 +37,19 @@ public class StudentController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public StudentResponse create(@Valid @RequestBody final CreateStudentRequest createStudentRequest) {
+  public StudentResponse create(
+      @Valid @RequestBody final CreateStudentRequest createStudentRequest) {
 
     final var modality = studentMapper.toStudent(createStudentRequest);
     final var createdModality = createStudentUseCase.create(modality);
     return studentMapper.from(createdModality);
-
   }
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
   public PageResponse<StudentResponse> findAll(@ParameterObject final GetPagingRequest paging) {
     var page = studentMapper.fromRequest(paging);
-    var students =  getStudentUseCase.findAll(page);
+    var students = getStudentUseCase.findAll(page);
     return studentMapper.fromPageDomain(students);
   }
 
@@ -58,5 +59,4 @@ public class StudentController {
     var contract = getContractUseCase.getBy(studentId);
     return contractMapper.fromModel(contract);
   }
-
 }

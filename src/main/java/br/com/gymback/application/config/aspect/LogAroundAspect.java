@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.config.aspect;
 
 import jakarta.inject.Named;
@@ -19,10 +20,10 @@ import org.springframework.util.StopWatch;
 public class LogAroundAspect {
 
   @Pointcut(
-      "@annotation(org.springframework.web.bind.annotation.PostMapping)" //add get,put or rest packages, etc
+      "@annotation(org.springframework.web.bind.annotation.PostMapping)" // add get,put or rest
+  // packages, etc
   )
-  protected void webPointcut() {
-  }
+  protected void webPointcut() {}
 
   @Around("webPointcut()")
   public Object logRequest(final ProceedingJoinPoint joinPoint) throws Throwable {
@@ -45,7 +46,6 @@ public class LogAroundAspect {
     log.info("class name: {}, path: {}, elapsed time: {} ms", className, methodName, elapsedTime);
     log.info("result: {}", result);
     return result;
-
   }
 
   private Map<String, Object> getParameters(final JoinPoint joinPoint) {
@@ -61,5 +61,4 @@ public class LogAroundAspect {
 
     return map;
   }
-
 }

@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.contract;
 
 import br.com.gymback.core.domain.ContractDomain;
@@ -22,24 +23,21 @@ public class CreateContractUseCase {
   public ContractDomain create(final ContractDomain contract) {
 
     var student =
-        getStudentGateway.findById(contract.getStudent().id())
+        getStudentGateway
+            .findById(contract.getStudent().id())
             .orElseThrow(() -> new StudentNotFoundException(contract.getStudent().id()));
 
     var classRoom =
-        getClassRoomGateway.findById(contract.getClassRoom().id())
+        getClassRoomGateway
+            .findById(contract.getClassRoom().id())
             .orElseThrow(() -> new ClassRoomNotFountException(contract.getClassRoom().id()));
 
     var contractToCreatePayments =
-        contract
-            .withStudent(student)
-            .withClassRoom(classRoom)
-            .activate();
-
+        contract.withStudent(student).withClassRoom(classRoom).activate();
 
     var payments = createPaymentUseCase.create(contractToCreatePayments);
     var contractToSave = contractToCreatePayments.withPayments(payments);
 
     return saveContractGateway.save(contractToSave);
   }
-
 }

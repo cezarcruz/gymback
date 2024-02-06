@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import br.com.gymback.application.rest.dto.request.CreateTeacherRequest;
@@ -30,43 +31,43 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/teachers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TeacherController {
 
-    private final CreateTeacherUseCase createTeacherUseCase;
-    private final GetTeacherUseCase getTeacherUseCase;
-    private final UpdateTeacherUseCase updateTeacherUseCase;
-    private final DeleteTeacherUseCase deleteTeacherUseCase;
-    private final TeacherMapper teacherMapper;
+  private final CreateTeacherUseCase createTeacherUseCase;
+  private final GetTeacherUseCase getTeacherUseCase;
+  private final UpdateTeacherUseCase updateTeacherUseCase;
+  private final DeleteTeacherUseCase deleteTeacherUseCase;
+  private final TeacherMapper teacherMapper;
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public TeacherResponse create(@Valid @RequestBody final CreateTeacherRequest createTeacherRequest) {
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public TeacherResponse create(
+      @Valid @RequestBody final CreateTeacherRequest createTeacherRequest) {
 
-        final var teacher = teacherMapper.fromRequest(createTeacherRequest);
-        final var createdTeacher = createTeacherUseCase.create(teacher);
-        return teacherMapper.fromDomain(createdTeacher);
+    final var teacher = teacherMapper.fromRequest(createTeacherRequest);
+    final var createdTeacher = createTeacherUseCase.create(teacher);
+    return teacherMapper.fromDomain(createdTeacher);
+  }
 
-    }
+  @GetMapping
+  @ResponseStatus(HttpStatus.OK)
+  public PageResponse<TeacherResponse> getAll(@ParameterObject final GetPagingRequest paging) {
+    var page = teacherMapper.fromRequest(paging);
+    var pagedTeachers = getTeacherUseCase.findAll(page);
+    return teacherMapper.fromPageDomain(pagedTeachers);
+  }
 
-    @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public PageResponse<TeacherResponse> getAll(@ParameterObject final GetPagingRequest paging) {
-        var page = teacherMapper.fromRequest(paging);
-        var pagedTeachers = getTeacherUseCase.findAll(page);
-        return teacherMapper.fromPageDomain(pagedTeachers);
-    }
+  @PutMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public TeacherResponse update(
+      @Valid @RequestBody final UpdateTeacherRequest updateTeacherRequest,
+      @PathVariable("id") final Long id) {
+    final var teacher = teacherMapper.toTeacher(id, updateTeacherRequest);
+    final var updatedTeacher = updateTeacherUseCase.update(teacher);
+    return teacherMapper.fromDomain(updatedTeacher);
+  }
 
-    @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public TeacherResponse update(@Valid @RequestBody final UpdateTeacherRequest updateTeacherRequest,
-                                  @PathVariable("id") final Long id) {
-        final var teacher = teacherMapper.toTeacher(id, updateTeacherRequest);
-        final var updatedTeacher = updateTeacherUseCase.update(teacher);
-        return teacherMapper.fromDomain(updatedTeacher);
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") final Long id) {
-        deleteTeacherUseCase.deleteBy(id);
-    }
-
+  @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void delete(@PathVariable("id") final Long id) {
+    deleteTeacherUseCase.deleteBy(id);
+  }
 }

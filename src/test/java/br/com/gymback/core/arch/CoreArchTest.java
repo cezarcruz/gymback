@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.arch;
 
 import static com.tngtech.archunit.base.DescribedPredicate.doesNot;
@@ -29,52 +30,55 @@ class CoreArchTest {
             .should()
             .beAnnotatedWith(Named.class)
             .andShould()
-            .resideInAnyPackage("br.com.gymback.core.usecase.*")
-        ;
+            .resideInAnyPackage("br.com.gymback.core.usecase.*");
 
     rule.check(IMPORTED_CLASSES);
-
   }
 
   @Test
   void ensureGatewayPattern() {
-    var packageAndNameRule = classes()
-        .that()
-          .resideInAPackage("br.com.gymback.core.gateway.*")
-        .and(doesNot(resideOutsideOfPackages("br.com.gymback.core.gateway.*")))
-        .should()
-          .haveNameMatching(".*Gateway")
-        .andShould()
-          .beInterfaces();
+    var packageAndNameRule =
+        classes()
+            .that()
+            .resideInAPackage("br.com.gymback.core.gateway.*")
+            .and(doesNot(resideOutsideOfPackages("br.com.gymback.core.gateway.*")))
+            .should()
+            .haveNameMatching(".*Gateway")
+            .andShould()
+            .beInterfaces();
 
     packageAndNameRule.check(IMPORTED_CLASSES);
   }
 
   @Test
   void ensureDomainPattern() {
-    var rule = classes()
-        .that()
-          .resideInAPackage("br.com.gymback.core.domain")
-          .and(doesNot(resideOutsideOfPackages("br.com.gymback.core.domain", "br.com.gymback.core.domain.*")))
-        .should()
-          .haveNameMatching(".*Domain")
-        .orShould()
-          .haveNameMatching(".*DomainBuilder");
+    var rule =
+        classes()
+            .that()
+            .resideInAPackage("br.com.gymback.core.domain")
+            .and(
+                doesNot(
+                    resideOutsideOfPackages(
+                        "br.com.gymback.core.domain", "br.com.gymback.core.domain.*")))
+            .should()
+            .haveNameMatching(".*Domain")
+            .orShould()
+            .haveNameMatching(".*DomainBuilder");
 
     rule.check(IMPORTED_CLASSES);
   }
 
   @Test
   void ensureDoesNotHaveAnyKindComponentAnnotated() {
-    var rule = classes()
-        .should()
-          .notBeAnnotatedWith(Component.class)
-        .andShould()
-          .notBeAnnotatedWith(Service.class)
-        .andShould()
-          .notBeAnnotatedWith(Repository.class);
+    var rule =
+        classes()
+            .should()
+            .notBeAnnotatedWith(Component.class)
+            .andShould()
+            .notBeAnnotatedWith(Service.class)
+            .andShould()
+            .notBeAnnotatedWith(Repository.class);
 
     rule.check(IMPORTED_CLASSES);
   }
-
 }

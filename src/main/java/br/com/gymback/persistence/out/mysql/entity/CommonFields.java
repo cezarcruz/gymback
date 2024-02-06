@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.persistence.out.mysql.entity;
 
 import jakarta.persistence.Column;
@@ -29,7 +30,4 @@ public class CommonFields {
   void preUpdate() {
     updatedAt = LocalDateTime.now();
   }
-
-
-
 }

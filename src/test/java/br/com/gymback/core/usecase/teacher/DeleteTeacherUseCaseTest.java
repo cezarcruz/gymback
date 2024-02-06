@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.teacher;
 
 import static org.mockito.Mockito.verify;
@@ -12,11 +13,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class DeleteTeacherUseCaseTest {
 
-  @Mock
-  private DeleteTeacherGateway teacherGateway;
+  @Mock private DeleteTeacherGateway teacherGateway;
 
-  @InjectMocks
-  private DeleteTeacherUseCase deleteTeacherUseCase;
+  @InjectMocks private DeleteTeacherUseCase deleteTeacherUseCase;
 
   @Test
   void shouldDeleteTeacher() {
@@ -24,5 +23,4 @@ class DeleteTeacherUseCaseTest {
 
     verify(teacherGateway).deleteTeacher(123L);
   }
-
 }
