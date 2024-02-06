@@ -1,1 +1,0 @@
-ALTER TABLE payment_details MODIFY COLUMN payment_method VARCHAR(10) NOT NULL;

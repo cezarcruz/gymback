@@ -1,1 +1,0 @@
-ALTER TABLE payment_details MODIFY COLUMN payment_method ENUM('money','card_debit','card_credit');
