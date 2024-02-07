@@ -6,7 +6,6 @@ import static org.instancio.Select.field;
 import br.com.gymback.core.domain.AddressDomain;
 import org.instancio.Instancio;
 
-// todo how to share test code?
 public class AddressFixtures {
 
   public static AddressDomain getAddress() {

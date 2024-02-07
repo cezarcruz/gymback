@@ -27,7 +27,6 @@ public class ScheduleMysqlGateway implements SaveScheduleGateway {
 
   @Override
   public List<ScheduleDomain> save(List<ScheduleDomain> schedule) {
-    // todo use saveAll ;)
     return schedule.stream().map(this::save).collect(Collectors.toList());
   }
 }

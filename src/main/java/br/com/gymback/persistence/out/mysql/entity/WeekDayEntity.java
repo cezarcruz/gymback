@@ -16,8 +16,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class WeekDayEntity extends CommonFields {
-
-  // TODO change this to another thing
   @Id private String name;
   private String label;
 }
