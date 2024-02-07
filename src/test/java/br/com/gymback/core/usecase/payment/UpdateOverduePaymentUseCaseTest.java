@@ -34,9 +34,12 @@ class UpdateOverduePaymentUseCaseTest {
 
     updateOverduePaymentUseCase.execute();
 
-    verify(savePaymentGateway).saveAll(argThat( argument -> {
-      var payment = argument.get(0);
-      return payment.getPaymentStatus().equals(PaymentStatus.OVERDUE);
-    }));
+    verify(savePaymentGateway)
+        .saveAll(
+            argThat(
+                argument -> {
+                  var payment = argument.get(0);
+                  return payment.getPaymentStatus().equals(PaymentStatus.OVERDUE);
+                }));
   }
 }
