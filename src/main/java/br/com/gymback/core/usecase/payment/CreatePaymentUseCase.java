@@ -23,7 +23,6 @@ public class CreatePaymentUseCase {
     final List<PaymentDomain> payments = new ArrayList<>();
     LocalDate nextPayment = contract.getStartDate();
 
-    // TODO should refactory?
     for (int i = 0; i < contractMonths; i++) {
       payments.add(PaymentDomain.createInPayment(contract.getClassRoom().value(), nextPayment));
       nextPayment = nextPayment.plusMonths(1);
