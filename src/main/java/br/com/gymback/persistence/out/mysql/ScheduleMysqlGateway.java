@@ -6,7 +6,6 @@ import br.com.gymback.core.gateway.schedule.SaveScheduleGateway;
 import br.com.gymback.persistence.out.mysql.mapper.SchedulePersistenceMapper;
 import br.com.gymback.persistence.out.mysql.repository.ScheduleRepository;
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +26,6 @@ public class ScheduleMysqlGateway implements SaveScheduleGateway {
 
   @Override
   public List<ScheduleDomain> save(List<ScheduleDomain> schedule) {
-    return schedule.stream().map(this::save).collect(Collectors.toList());
+    return schedule.stream().map(this::save).toList();
   }
 }

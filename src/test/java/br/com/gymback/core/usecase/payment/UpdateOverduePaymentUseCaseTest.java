@@ -1,6 +1,8 @@
 /* Under MIT License (C)2024 */
 package br.com.gymback.core.usecase.payment;
 
+import static org.mockito.ArgumentMatchers.argThat;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import br.com.gymback.core.enums.PaymentStatus;
@@ -32,9 +34,12 @@ class UpdateOverduePaymentUseCaseTest {
 
     updateOverduePaymentUseCase.execute();
 
-    //    verify(savePaymentGateway).saveAll(argThat( argument -> {
-    //      var payment = argument.getFirst();
-    //      return payment.getPaymentStatus().equals(PaymentStatus.OVERDUE);
-    //    }));
+    verify(savePaymentGateway)
+        .saveAll(
+            argThat(
+                argument -> {
+                  var payment = argument.get(0);
+                  return payment.getPaymentStatus().equals(PaymentStatus.OVERDUE);
+                }));
   }
 }
