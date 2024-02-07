@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -23,11 +24,9 @@ import org.springframework.test.web.servlet.MockMvc;
 @ComponentScan(basePackageClasses = ContractMapper.class)
 class ContractControllerTest {
 
-  @Autowired
-  private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-  @MockBean
-  private CreateContractUseCase createContractUseCase;
+  @MockBean private CreateContractUseCase createContractUseCase;
 
   @Test
   void shouldCreateContract() throws Exception {
@@ -40,7 +39,8 @@ class ContractControllerTest {
             post("/contracts")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("""
+                .content(
+                    """
                     {
                                            "student": "1",
                                            "classRoom": "1",
@@ -59,7 +59,5 @@ class ContractControllerTest {
         .andExpect(jsonPath("$.dueDay").exists());
 
     verify(createContractUseCase).create(any());
-
   }
-
 }
