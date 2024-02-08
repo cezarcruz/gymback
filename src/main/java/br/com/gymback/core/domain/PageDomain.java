@@ -16,8 +16,7 @@ public class PageDomain<T> {
   private long totalElements;
   private int totalPages;
 
-  @With
-  private List<T> elements;
+  @With private List<T> elements;
 
   public PageDomain(int page, int size) {
     this.page = page;

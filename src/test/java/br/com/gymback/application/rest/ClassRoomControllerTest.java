@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import static org.mockito.Mockito.when;
@@ -25,21 +26,17 @@ import org.springframework.test.web.servlet.MockMvc;
 @ComponentScan(basePackageClasses = ClassRoomMapper.class)
 class ClassRoomControllerTest {
 
-  @Autowired
-  private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-  @MockBean
-  private CreateClassRoomUseCase createClassRoomUseCase;
+  @MockBean private CreateClassRoomUseCase createClassRoomUseCase;
 
-  @MockBean
-  private GetClassRoomUseCase getClassRoomUseCase;
+  @MockBean private GetClassRoomUseCase getClassRoomUseCase;
 
   @Test
   void shouldCreate() throws Exception {
 
     final var classRoom = ClassRoomFixtures.getClassRoom();
-    when(createClassRoomUseCase.create(classRoom))
-        .thenReturn(classRoom);
+    when(createClassRoomUseCase.create(classRoom)).thenReturn(classRoom);
 
     this.mockMvc
         .perform(
@@ -74,7 +71,6 @@ class ClassRoomControllerTest {
                 """))
         .andDo(print())
         .andExpect(status().isCreated());
-
   }
 
   @Test
@@ -83,8 +79,7 @@ class ClassRoomControllerTest {
     final var classRoom = ClassRoomFixtures.getClassRoom();
     final var page = new PageDomain<ClassRoomDomain>(0, 10);
 
-    when(getClassRoomUseCase.findAll(page))
-        .thenReturn(page.withElements(List.of(classRoom)));
+    when(getClassRoomUseCase.findAll(page)).thenReturn(page.withElements(List.of(classRoom)));
 
     this.mockMvc
         .perform(
@@ -93,6 +88,5 @@ class ClassRoomControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
         .andDo(print())
         .andExpect(status().isOk());
-
   }
 }
