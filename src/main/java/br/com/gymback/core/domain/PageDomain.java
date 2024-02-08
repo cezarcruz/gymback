@@ -5,6 +5,7 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.With;
 
 @Getter
 @AllArgsConstructor
@@ -14,6 +15,8 @@ public class PageDomain<T> {
   private int size;
   private long totalElements;
   private int totalPages;
+
+  @With
   private List<T> elements;
 
   public PageDomain(int page, int size) {
