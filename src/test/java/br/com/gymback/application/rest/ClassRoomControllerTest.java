@@ -1,10 +1,12 @@
 /* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import br.com.gymback.application.rest.mapper.ClassRoomMapper;
@@ -79,14 +81,15 @@ class ClassRoomControllerTest {
     final var classRoom = ClassRoomFixtures.getClassRoom();
     final var page = new PageDomain<ClassRoomDomain>(0, 10);
 
-    when(getClassRoomUseCase.findAll(page)).thenReturn(page.withElements(List.of(classRoom)));
+    when(getClassRoomUseCase.findAll(any())).thenReturn(page.withElements(List.of(classRoom)));
 
     this.mockMvc
         .perform(
-            get("/classes")
+            get("/classes?page=0&size=1")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
         .andDo(print())
-        .andExpect(status().isOk());
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$").exists());
   }
 }
