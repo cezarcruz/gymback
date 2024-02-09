@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class AddressPersistenceMapperTest {
 
-  private AddressPersistenceMapper addressPersistence = new AddressPersistenceMapperImpl();
+  private final AddressPersistenceMapper addressPersistence = new AddressPersistenceMapperImpl();
 
   @Test
   void shouldDoDummyTest() {

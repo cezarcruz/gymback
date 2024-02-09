@@ -13,7 +13,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-class AddressMysqlGatewayTest extends JPAIntegrationAbstract {
+class AddressMysqlGatewayIntegrationTest extends JPAIntegrationAbstract {
 
   @Autowired private AddressMysqlGateway addressMysqlGateway;
 
