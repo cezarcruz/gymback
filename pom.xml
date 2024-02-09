@@ -175,6 +175,29 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.15.7</version>
+				<configuration>
+					<verbose>true</verbose>
+					<excludedTestClasses>
+						<param>br.com.gymback.persistence.**</param>
+						<param>br.com.gymback.application.**</param>
+					</excludedTestClasses>
+					<excludedClasses>
+						<param>br.com.gymback.persistence.**</param>
+						<param>br.com.gymback.application.**</param>
+					</excludedClasses>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.pitest</groupId>
+						<artifactId>pitest-junit5-plugin</artifactId>
+						<version>1.2.1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.11.0</version>
