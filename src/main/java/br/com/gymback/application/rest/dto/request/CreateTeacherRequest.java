@@ -6,8 +6,4 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public record CreateTeacherRequest(
-    @NotNull String name,
-    LocalDate birthDate,
-    @Valid
-    @NotNull
-    CreateContactRequest contact) {}
+    @NotNull String name, LocalDate birthDate, @Valid @NotNull CreateContactRequest contact) {}

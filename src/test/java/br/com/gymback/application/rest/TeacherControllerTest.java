@@ -1,3 +1,4 @@
+/* Under MIT License (C)2024 */
 package br.com.gymback.application.rest;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -23,30 +24,26 @@ import org.springframework.test.web.servlet.MockMvc;
 @ComponentScan(basePackageClasses = TeacherMapper.class)
 class TeacherControllerTest {
 
-  @Autowired
-  private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-  @MockBean
-  private CreateTeacherUseCase createTeacherUseCase;
-  @MockBean
-  private GetTeacherUseCase getTeacherUseCase;
-  @MockBean
-  private UpdateTeacherUseCase updateTeacherUseCase;
-  @MockBean
-  private DeleteTeacherUseCase deleteTeacherUseCase;
+  @MockBean private CreateTeacherUseCase createTeacherUseCase;
+  @MockBean private GetTeacherUseCase getTeacherUseCase;
+  @MockBean private UpdateTeacherUseCase updateTeacherUseCase;
+  @MockBean private DeleteTeacherUseCase deleteTeacherUseCase;
 
   @Test
   void shouldNotCreateTeacherCausePostInvalid() throws Exception {
 
-    this.mockMvc.perform(post("/teachers")
-        .accept(MediaType.APPLICATION_JSON)
-        .contentType(MediaType.APPLICATION_JSON)
-        .content("""
+    this.mockMvc
+        .perform(
+            post("/teachers")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
             {"name": "Pedro Pederneiras" }
             """))
         .andDo(print())
         .andExpect(status().isBadRequest())
         .andExpect(jsonPath("$", hasSize(1)));
-
   }
 }
